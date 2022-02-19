@@ -15,7 +15,12 @@
 <br><br>
 
 # 🏋️‍♀️ Pensamento Edificante:
-
+<div align="center">
+<br>
+<p>O que é a ideia do 'Plateau Potencial Latente' e como ela pode te ajudar a nunca desistir dos seus sonhos?</p>
+<br>
+<a href="https://youtu.be/y5Hn9OhCGJQ" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/y5Hn9OhCGJQ/maxresdefault.jpg" width="100%"></a>
+</div>
 <br><br>
 
 <div class="hide-on-portfolio">
@@ -105,6 +110,6 @@
 <a href="https://youtu.be/D9G1VOjN_84" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/D9G1VOjN_84/maxresdefault.jpg" width="100%"></a>
 <br><br>
 <i>Fique a vontade para conferir o meu estudo sobre o 42-FDF, clicando no icone bonitinho abaixo.</i><br><br>
-<a href="https://docs.google.com/presentation/d/1VWdLQyzHBcBy6y3QFPF3tIc-R_6kzcePYOegFBBWdaQ/edit?usp=sharing" target="_BLANK"><img src="https://i.imgur.com/OhDvVP5.png" alt="conferir estudo"></a>
+<a href="https://docs.google.com/presentation/d/1vBZGy_BpAbtCjEQ_kUyGS8G7FuvHdNRIaWj5CuHESxQ/edit?usp=sharing" target="_BLANK"><img src="https://i.imgur.com/OhDvVP5.png" alt="conferir estudo"></a>
 <br>
 </div>   
