@@ -20,14 +20,14 @@
 
 # 🔧 Tecnologias utilizadas:<br>
 <div style="display: inline_block">
-    <img align="center" alt="gel-Js" height="30" src="https://i.imgur.com/q7sxvcv.png">
+     <img align="center" alt="gel-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg">
 </div>
 
 <div class="col-12">
 
 # 🚀 Rodando o projeto:<br>
 <b>Links:</b>
-<li>Repositório Github: <a href="https://github.com/argelcapela/42-born2beroot">Link</a></li>
+<li>Repositório Github: <a href="https://github.com/argelcapela/42-FDF">Link</a></li>
 <li>Intra 42SP: <a href="https://projects.intra.42.fr/42cursus-fdf/acapela-">Link</a></li>
 	
 </div>
