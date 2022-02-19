@@ -42,16 +42,14 @@
 <div class="col-12">
 
 # 🚀 Rodando o projeto:<br>
-<b>Links:</b>
-<li>Repositório Github: <a href="https://github.com/argelcapela/42-FDF">Link</a></li>
-<li>Intra 42SP: <a href="https://projects.intra.42.fr/42cursus-fdf/acapela-">Link</a></li>
+<a href="https://projects.intra.42.fr/42cursus-fdf/acapela-">Página do 42-FDF na Intra da 42</a>
 	
 </div>
 <br>
 <div class="col-12">
     
 # 📌 O que eu aprendi e como foi desenvolvido esse projeto?<br>
-<a href="#overview">42-fdf-study</a>
+<a href="#overview">42-fdf-study-por</a>
 <br>
 <br>
 <div class="col-12">
