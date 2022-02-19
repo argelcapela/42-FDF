@@ -17,7 +17,7 @@
 # 🏋️‍♀️ Pensamento Edificante:
 <div align="center">
 <br>
-<p>O que é a ideia do 'Plateau Potencial Latente' e como ela pode te ajudar a nunca desistir dos seus sonhos?</p>
+<p>O que é a ideia do 'Plateau Potencial Latente' e como ela pode te ajudar a nunca desistir dos seus sonhos?<br> Assista o vídeo a seguir e descubra! </p>
 <br>
 <a href="https://youtu.be/y5Hn9OhCGJQ" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/y5Hn9OhCGJQ/maxresdefault.jpg" width="100%"></a>
 </div>
