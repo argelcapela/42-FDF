@@ -6,15 +6,25 @@
 <div class="hide-on-portfolio">
 
 <div align="center">
-	<p><i>"..."</i><br><b>...</b></p>
+	<p><i>"O sucesso não é a ausência do fracasso, mas é ir de fracasso em fracasso sem perder o entusiasmo."</i><br><b>Lynn G. Robbins</b></p>
 <br><br>
 	<img src="https://i.imgur.com/fO0kTil.jpg" width="250px">
 </div>
 <br><br>
+</div>
+<br><br>
+
+# 🏋️‍♀️ Pensamento Edificante:
+
+<br><br>
+
+<div class="hide-on-portfolio">
 	
 # ✨ O que é o 42-FDF ?
+	
 <b>Nesse projeto lemos um mapa de altura e fazemos sua renderização 3D, usando uma biblioteca gráfica minimalista, técnicas de renderização gráfica, trigonometria e muito mais.</b><br>
 </div>
+<br>
 
 <div class="col-12">
 
@@ -22,7 +32,8 @@
 <div style="display: inline_block">
      <img align="center" alt="gel-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg">
 </div>
-
+<br>
+	
 <div class="col-12">
 
 # 🚀 Rodando o projeto:<br>
@@ -36,7 +47,8 @@
     
 # 📌 O que eu aprendi e como foi desenvolvido esse projeto?<br>
 <a href="#overview">42-fdf-study</a>
-<br>		
+<br>
+<br>
 <div class="col-12">
 	
 # 🤝 Colaboradores:<br>
