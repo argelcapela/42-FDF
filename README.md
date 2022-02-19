@@ -27,7 +27,7 @@
 	
 # ✨ O que é o 42-FDF ?
 	
-Nesse projeto <b>lemos um mapa de altura e fazemos sua renderização 3D</b>, usando uma biblioteca gráfica minimalista, técnicas de renderização gráfica, trigonometria e muito mais.<br>
+Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura">mapa de altura</a> e fazemos sua renderização 3D</b>, usando uma biblioteca gráfica minimalista (42-minilibx), técnicas de renderização gráfica, trigonometria e muito mais.<br>
 </div>
 <br>
 
