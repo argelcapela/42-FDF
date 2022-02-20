@@ -23,10 +23,10 @@
 <br><br><br>
 <img src="https://i.imgur.com/ps6Ixkx.png" alt="plato do potencial latente" width="100%">
 <br><br>
-<p> Think it! E nunca desista, você ai mesmo, se tiver fé, terá um futuro maravilhoso, não é fácil, mas é possível! 😎💪 📶👩‍🎓 </p>
+<p> 😎💪 Think it! E nunca desista, você ai mesmo, se tiver fé, terá um futuro maravilhoso, não é fácil, mas é possível!  📶👩‍🎓 </p>
 <br><br>	
 </div>
-<br><br>
+<br>
 
 <div class="hide-on-portfolio">
 	
