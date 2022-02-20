@@ -20,6 +20,11 @@
 <p>O que é a ideia do 'Plateau Potencial Latente' e como ela pode te ajudar a nunca desistir dos seus sonhos?<br> Assista o vídeo a seguir e descubra! </p>
 <br>
 <a href="https://youtu.be/y5Hn9OhCGJQ" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/y5Hn9OhCGJQ/maxresdefault.jpg" width="100%"></a>
+<br><br><br>
+<img src="https://i.imgur.com/ps6Ixkx.png" alt="plato do potencial latente" width="100%">
+<br><br>
+<p> Think it! E nunca desista, você ai mesmo, se tiver fé, terá um futuro maravilhoso, não é fácil, mas é possível! 😎💪 📶👩‍🎓 </p>
+<br><br>	
 </div>
 <br><br>
 
