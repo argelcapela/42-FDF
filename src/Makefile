@@ -1,0 +1,100 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
+#    Updated: 2022/02/01 05:18:18 by acapela-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#
+#  😈 Printf with Bonus - Makefile 👿
+#
+
+# Name of the project
+OUTPUT_NAME =   fdf
+
+# .c files
+SRCS =          fdf.c	                            \
+
+
+# .h file
+HEADER =        fdf.h
+
+# .o files
+OBJS =          $(SRCS:.c=.o)
+
+# Compiler
+CC =            gcc
+
+# Flags
+CFLAGS =		-Wall   \
+				-Wextra \
+				-Werror \
+				-I/usr/include \
+				-Imlx_linux  \
+				-O3 
+
+# Libs Settings
+LIBS.A =        $(LIBS_PATH)/libs.a
+LIBS_PATH =     vendor/libs
+
+# Create Library
+AR =             ar
+ARFLAGS =        -rcs
+
+# Remove files
+RM =             rm
+
+#
+# 🔨Compilation and Linking 🔌
+#
+
+# When make is called
+all:					$(OUTPUT_NAME)
+
+# When make bonus is called
+bonus:					all
+
+# Main libftprintf.a constructor:   \
+	1) \
+	2) \
+	3) \
+	4) \
+	5) \
+	6) \
+	7) 
+
+$(OUTPUT_NAME): $(LIBS.A) $(OBJS) $(HEADER)
+#								@cp $(LIBS.A) $(OUTPUT_NAME)
+#								@$(AR) $(ARFLAGS) $(OUTPUT_NAME) $(OBJS) $(HEADER)
+								@$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS) $(LIBS.A)
+
+# Compile or recompile Libft.a library
+$(LIBS.A):
+								$(MAKE) -C $(LIBS_PATH)
+
+# $(OBJS) directive is called and %.o automatically assume this paper of execute one directive for each object inside $(OBJS);  % get the name until dot(.); So, the same name can be used both as .c files or .o files; the command line then compiles each object; $< represents %.c, so all c files in SRCS, and  $@ = represents all $(OBJS);
+%.o: 						%.c $(HEADER)
+								$(CC) $(CFLAGS) -c $<	-o $@
+
+# Cleaning .o files
+clean:
+								$(RM) $(OBJS) *.h.gch
+								$(RM) *.out
+
+# Cleaning everything
+fclean:					clean
+								$(RM) $(OUTPUT_NAME) 
+
+# Re-making everything
+re:							fclean all
+
+# Indicates that:                                                   \
+	1) The following targets don't create files with its own names;   \
+	2) If some of them create a file with it's own name, they executes regardless it's prerequisite have updates or not; \
+Then in few words, .PHONY make these targets avoit problems with file name.
+.PHONY:					clean fclean re
