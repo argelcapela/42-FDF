@@ -100,12 +100,12 @@ run:
 
 # Cleaning .o files
 clean:
-#								$(MAKE) clean -C vendor/libs
+								$(MAKE) clean -C vendor/libs
 								@$(RM) $(OBJS)
 								
 
 # Cleaning everything
-fclean:							
+fclean:							clean						
 								@$(RM) $(OUTPUT_NAME) 
 
 # Re-making everything
