@@ -122,7 +122,6 @@ RM =             rm
 
 # When make is called
 all:					$(OUTPUT_NAME)
-#$(MAKE) clean
 
 # When make bonus is called
 bonus:					all

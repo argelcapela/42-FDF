@@ -6,19 +6,21 @@
 #    By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/02/01 05:18:18 by acapela-         ###   ########.fr        #
+#    Updated: 2022/02/21 17:49:18 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #
-#  😈 Printf with Bonus - Makefile 👿
+#  😈 FDF - Makefile 👿
 #
 
 # Name of the project
 OUTPUT_NAME =   fdf
 
 # .c files
-SRCS =          fdf.c	                            \
+SRCS =          fdf.c \
+				vendor/base/reading_map/reading_map.c \
+				vendor/utils/print_matrix.c 
 
 
 # .h file
@@ -31,7 +33,8 @@ OBJS =          $(SRCS:.c=.o)
 CC =            gcc
 
 # Flags
-CFLAGS =		-Wall   \
+CFLAGS =
+#		-Wall   \
 				-Wextra \
 				-Werror \
 				-I/usr/include \
@@ -49,12 +52,15 @@ ARFLAGS =        -rcs
 # Remove files
 RM =             rm
 
+
+
 #
 # 🔨Compilation and Linking 🔌
 #
 
 # When make is called
 all:					$(OUTPUT_NAME)
+#						$(MAKE) clean
 
 # When make bonus is called
 bonus:					all
@@ -75,20 +81,32 @@ $(OUTPUT_NAME): $(LIBS.A) $(OBJS) $(HEADER)
 
 # Compile or recompile Libft.a library
 $(LIBS.A):
-								$(MAKE) -C $(LIBS_PATH)
+								@$(MAKE) -C $(LIBS_PATH)
 
 # $(OBJS) directive is called and %.o automatically assume this paper of execute one directive for each object inside $(OBJS);  % get the name until dot(.); So, the same name can be used both as .c files or .o files; the command line then compiles each object; $< represents %.c, so all c files in SRCS, and  $@ = represents all $(OBJS);
 %.o: 						%.c $(HEADER)
-								$(CC) $(CFLAGS) -c $<	-o $@
+								@$(CC) $(CFLAGS) -c $<	-o $@
+
+#
+# 🔨Tests
+#
+
+run:
+								$(MAKE) re
+								clear
+								@./fdf vendor/resources/test_maps/42.fdf
+
+
 
 # Cleaning .o files
 clean:
-								$(RM) $(OBJS) *.h.gch
-								$(RM) *.out
+#								$(MAKE) clean -C vendor/libs
+								@$(RM) $(OBJS)
+								
 
 # Cleaning everything
-fclean:					clean
-								$(RM) $(OUTPUT_NAME) 
+fclean:							
+								@$(RM) $(OUTPUT_NAME) 
 
 # Re-making everything
 re:							fclean all
