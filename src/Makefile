@@ -106,6 +106,7 @@ clean:
 
 # Cleaning everything
 fclean:							clean						
+								@$(RM) vendor/libs/libs.a 
 								@$(RM) $(OUTPUT_NAME) 
 
 # Re-making everything
