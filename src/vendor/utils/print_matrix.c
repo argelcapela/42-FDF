@@ -1,28 +1,17 @@
 #include "../../fdf.h"
 
-void    print_matrix(void **matrix)
+void    print_matrix(int **matrix, int width, int height)
 {
-    // declaring variables
     int     x;
     int     y;
-    char    n;
 
-    // initializing
-    x = 0;
-    y = 0;
-    n = 'x';
-
-    // iterating matrix and printing
-    /*while (matrix[x])
+    x = -1;
+    y = -1;
+    while (++y < height)
     {
-        while (matrix[x][y])
-        {
-            n = matrix[x][y];
-            write(1, n, 1);
-            y++;
-        }
-        y = 0;
-        x ++;
-    }*/
-
+        while (++x < width)
+            ft_printf("%3d", matrix[x][y]);
+        x = -1;
+        ft_printf("\n");
+    }
 }

@@ -1,0 +1,220 @@
+==22954== Memcheck, a memory error detector
+==22954== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==22954== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==22954== Command: ./fdf vendor/resources/test_maps/42.fdf
+==22954== 
+==22954== 
+==22954== HEAP SUMMARY:
+==22954==     in use at exit: 5,821 bytes in 317 blocks
+==22954==   total heap usage: 1,642 allocs, 1,325 frees, 13,452 bytes allocated
+==22954== 
+==22954== 1 bytes in 1 blocks are still reachable in loss record 1 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109A11: ft_strdup (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CFB: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109492: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 1 bytes in 1 blocks are definitely lost in loss record 2 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109A11: ft_strdup (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E21: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109325: getting_height (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10929D: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 1 bytes in 1 blocks are definitely lost in loss record 3 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109A11: ft_strdup (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E21: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109378: getting_width (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092AC: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 39 bytes in 19 blocks are indirectly lost in loss record 4 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1098AA: ft_tosplit (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1099BD: ft_split (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109385: getting_width (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092AC: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 45 bytes in 1 blocks are definitely lost in loss record 5 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109A11: ft_strdup (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CFB: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109DB5: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109378: getting_width (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092AC: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 51 bytes in 1 blocks are definitely lost in loss record 6 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x10BC31: ft_strjoin (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109C87: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109378: getting_width (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092AC: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 57 bytes in 1 blocks are definitely lost in loss record 7 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10BEB7: ft_substr (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CD0: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109DB5: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109378: getting_width (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092AC: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 92 bytes in 2 blocks are definitely lost in loss record 8 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109A11: ft_strdup (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CFB: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109DB5: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109325: getting_height (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10929D: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 92 bytes in 2 blocks are definitely lost in loss record 9 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109A11: ft_strdup (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CFB: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109DB5: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109492: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 104 bytes in 2 blocks are definitely lost in loss record 10 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x10BC31: ft_strjoin (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109C87: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109325: getting_height (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10929D: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 114 bytes in 2 blocks are definitely lost in loss record 11 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10BEB7: ft_substr (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CD0: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109DB5: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109325: getting_height (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10929D: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 148 bytes in 2 blocks are definitely lost in loss record 12 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x10BC31: ft_strjoin (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109C87: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109492: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 158 bytes in 2 blocks are definitely lost in loss record 13 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10BEB7: ft_substr (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CD0: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109DB5: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109492: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 188 bytes in 8 blocks are definitely lost in loss record 14 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109A11: ft_strdup (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CFB: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109492: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 189 bytes in 9 blocks are definitely lost in loss record 15 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109A11: ft_strdup (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CFB: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109325: getting_height (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10929D: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 199 (160 direct, 39 indirect) bytes in 1 blocks are definitely lost in loss record 16 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109995: ft_split (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109385: getting_width (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092AC: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 487 bytes in 213 blocks are indirectly lost in loss record 17 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1098AA: ft_tosplit (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1099BD: ft_split (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10949F: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 513 bytes in 9 blocks are definitely lost in loss record 18 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10BEB7: ft_substr (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CD0: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109325: getting_height (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10929D: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 513 bytes in 9 blocks are definitely lost in loss record 19 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10BEB7: ft_substr (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109CD0: get_line_hold_rest (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109E71: get_next_line (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109492: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 836 bytes in 19 blocks are indirectly lost in loss record 20 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x109414: malloc_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10947F: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 988 (152 direct, 836 indirect) bytes in 1 blocks are definitely lost in loss record 21 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109B75: ft_calloc (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1093E6: malloc_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10947F: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== 2,367 (1,880 direct, 487 indirect) bytes in 11 blocks are definitely lost in loss record 22 of 22
+==22954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22954==    by 0x109995: ft_split (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10949F: malloc_read_map_and_fill_matrix (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x1092C2: reading_map (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954==    by 0x10925C: main (in /home/coder/Desktop/42/42-FDF/src/fdf)
+==22954== 
+==22954== LEAK SUMMARY:
+==22954==    definitely lost: 4,458 bytes in 65 blocks
+==22954==    indirectly lost: 1,362 bytes in 251 blocks
+==22954==      possibly lost: 0 bytes in 0 blocks
+==22954==    still reachable: 1 bytes in 1 blocks
+==22954==         suppressed: 0 bytes in 0 blocks
+==22954== 
+==22954== For lists of detected and suppressed errors, rerun with: -s
+==22954== ERROR SUMMARY: 18 errors from 18 contexts (suppressed: 0 from 0)

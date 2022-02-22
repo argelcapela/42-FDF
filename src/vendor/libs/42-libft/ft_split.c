@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../libs.h"
+
 
 int	ft_countwords(char const *str, char c)
 {
@@ -86,10 +88,26 @@ char	**ft_split(const char *s, char c)
 	if (!s)
 		return (0);
 	words = ft_countwords(s, c);
-	split = (char **) ft_calloc(words + 1, sizeof(char **));
+	split = (char **) malloc ((words + 1) * sizeof(char **));
 	if (!split)
 		return (NULL);
 	split = ft_tosplit(s, c, split);
-	split[words] = 0;
+	split[words]  = NULL;
 	return (split);
 }
+
+/*int main(void)
+{
+	char *str = ft_strdup("a b c d");
+	char **split = ft_split(str, ' ');
+
+
+	int i = 0;
+	while (split[i] != 0)
+	{
+ 		printf("%c\n", split[i][0]);
+		 i++;
+	}
+
+	return (0);
+}*/

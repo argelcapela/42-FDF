@@ -3,7 +3,7 @@
 int main(int argc, char** argv)
 {
     // declaring variables
-    t_each_dot **map;
+    int **matrix;
     char *map_path;
     
     // checking errors
@@ -15,6 +15,10 @@ int main(int argc, char** argv)
     
     // reading_map
     map_path = ft_strdup(argv[1]);
-    map = reading_map(map_path);
-    free(map_path);
+    matrix = reading_map(map_path);
+
+
+    // cleaning leaks
+    //ft_free_ptr((void *) map_path);
+    //ft_free_ptr((void *) matrix);
 }

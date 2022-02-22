@@ -63,7 +63,7 @@ typedef struct
 #	 utilitaries:                             		#
 #													#
 ###################################################*/
-void    print_matrix(void **matrix);
+void    print_matrix(int **matrix, int width, int height);
 
 
 /*################################################### 
@@ -71,8 +71,12 @@ void    print_matrix(void **matrix);
 #	 1) reading map:                          		#
 #													#
 ###################################################*/
-t_each_dot  **reading_map(char *map_path);
+int getting_height(char  *path);
+int getting_width(char  *path);
+int  **malloc_matrix(int width, int height);
+int **malloc_read_map_and_fill_matrix(int width, int height, char *path);
 
+int  **reading_map(char *map_path);
 
 /*################################################### 
 #													#

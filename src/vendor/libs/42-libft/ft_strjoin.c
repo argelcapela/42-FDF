@@ -28,5 +28,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[++ls2])
 		newstr[ls1 + ls2] = s2[ls2];
 	newstr[ls1 + ls2] = '\0';
+	//ft_free_ptr((void *) s1);
 	return (newstr);
 }

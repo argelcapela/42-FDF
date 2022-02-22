@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+         #
+#    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/02/21 17:49:18 by marvin           ###   ########.fr        #
+#    Updated: 2022/02/21 22:02:49 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ OUTPUT_NAME =   fdf
 # .c files
 SRCS =          fdf.c \
 				vendor/base/reading_map/reading_map.c \
+				vendor/base/reading_map/getting_height.c \
+				vendor/base/reading_map/getting_width.c \
+				vendor/base/reading_map/malloc_matrix.c \
+				vendor/base/reading_map/malloc_read_map_and_fill_matrix.c \
 				vendor/utils/print_matrix.c 
 
 
@@ -96,12 +100,17 @@ run:
 								clear
 								@./fdf vendor/resources/test_maps/42.fdf
 
+run_leak:
+								$(MAKE) re
+								clear
+								@valgrind --leak-check=full --show-leak-kinds=all ./fdf vendor/resources/test_maps/42.fdf
+
 
 
 # Cleaning .o files
 clean:
-								$(MAKE) clean -C vendor/libs
 								@$(RM) $(OBJS)
+#								$(MAKE) clean -C vendor/libs
 								
 
 # Cleaning everything
