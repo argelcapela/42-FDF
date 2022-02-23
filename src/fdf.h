@@ -28,23 +28,18 @@
 // AC green
 # define COLOR1 0x000000
 
-/*typedef struct
+/*
+ "It struct fdf, represents the own window and fdf software."
+*/ 
+typedef struct
 {
-	float   x;
-	float   y;
-	float   z;
-	int     is_last;
-	int     color;
-	int     scale;
-	int     shift_x;
-	int     shift_y;
-	int     is_isometric;
-	double  angle;
-	int     win_x;
-	int     win_y;
-	void    *mlx_ptr;
-	void    *win_ptr;
-}   t_each_dot;*/
+	int		width;
+	int		height;
+	int		**matrix;
+
+	void 	*mlx_ptr;
+	void	*win_ptr;
+}			t_fdf;
 
 /*###################################################
 #													#
@@ -52,6 +47,8 @@
 #													#
 ###################################################*/
 void	print_matrix(int **matrix, int width, int height);
+void 	error(int argc, char **argv);
+void    bresenham(float x, float y, float x1, float y1, t_fdf *data);
 
 /*###################################################
 #													#
@@ -62,7 +59,7 @@ int		getting_height(char *path);
 int		getting_width(char *path);
 int		**malloc_matrix(int width, int height);
 int		**fill_matrix(int width, int height, int fd, int x);
-int		**reading_map(char *path, int *x, int *y);
+int		**reading_map(int argc, char **argv);
 
 /*###################################################
 #													#

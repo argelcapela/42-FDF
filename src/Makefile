@@ -24,7 +24,10 @@ SRCS =          fdf.c \
 				vendor/base/reading_map/getting_width.c \
 				vendor/base/reading_map/malloc_matrix.c \
 				vendor/base/reading_map/fill_matrix.c \
-				vendor/utils/print_matrix.c 
+				vendor/utils/error.c  \
+				vendor/utils/print_matrix.c  \
+				vendor/utils/bresenham.c 
+
 
 
 # .h file
@@ -37,13 +40,10 @@ OBJS =          $(SRCS:.c=.o)
 CC =            gcc -ggdb3
 
 # Flags
-CFLAGS =	
-#		-Wall   \
+CFLAGS =		-Wall   \
 				-Wextra \
 				-Werror \
-				-I/usr/include \
-				-Imlx_linux  \
-				-O3 
+				-I/usr/include -Imlx_linux -O3 
 
 # Libs Settings
 LIBS.A =        $(LIBS_PATH)/libs.a

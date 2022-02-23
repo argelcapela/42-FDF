@@ -12,23 +12,23 @@
 
 #include "fdf.h"
 
+int	deal_key(int key, void *fdf)
+{
+	ft_printf("%d", key);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
-	int		**matrix;
-	char	*map_path;
-	int		width;
-	int		height;
+	t_fdf *fdf;
 
-	width = 0;
-	height = 0;
-	if (argc != 2)
-	{
-		ft_printf("\nPlease follow the model: ./fdf map.fdf\n");
-		return (0);
-	}
-	map_path = argv[1];
-	matrix = reading_map(map_path, &width, &height);
-	while ((width - 1) >= 0)
-		ft_free_ptr((void *) &matrix[--width]);
-	ft_free_ptr((void *) &matrix);
+	fdf = (t_fdf *) malloc(sizeof(t_fdf));
+	fdf->matrix = reading_map(argc, argv);
+	fdf->mlx_ptr = mlx_init();
+	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, 1000, 1000, "42-FDF");
+
+	bresenham(10, 10, 600, 300, fdf);
+	mlx_key_hook(fdf->win_ptr, deal_key, NULL);
+	mlx_loop(fdf->mlx_ptr);
+	ft_free_ptr((void *) &fdf);
 }
