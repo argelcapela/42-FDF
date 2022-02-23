@@ -14,20 +14,21 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	totallen;
-	char	*substr;
+	char	*new;
+	char	*temp;
 
-	if (s == NULL)
-		return (NULL);
-	totallen = ft_strlen(s);
-	if (totallen < start)
-		return (ft_strdup(""));
-	totallen = ft_strlen(s + start);
-	if (len > totallen)
-		len = totallen;
-	substr = (char *)ft_calloc(len + 1, sizeof(char));
-	if (substr == NULL)
-		return (NULL);
-	ft_strlcpy(substr, s + start, len + 1);
-	return (substr);
+	new = malloc(len + 1);
+	temp = new;
+	while (start > 0)
+	{
+		s++;
+		start--;
+	}
+	while (len > 0 && *s)
+	{
+		*new++ = *s++;
+		len--;
+	}
+	*new = '\0';
+	return (temp);
 }

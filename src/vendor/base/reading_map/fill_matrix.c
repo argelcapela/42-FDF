@@ -1,37 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getting_height.c                                   :+:      :+:    :+:   */
+/*   fill_matrix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 18:42:49 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 18:43:38 by acapela-         ###   ########.fr       */
+/*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
+/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../fdf.h"
 
 /*--------------------------------------------------
-   "It counts how many lines the map.fdf file has."
+
+	"-Receive the width and height of map.fdf,
+
+	 -Create a matrix[width, height] and allocate
+	  memory to it.
+
+	 -Read the map.fdf and fill the matrix."
+
 ---------------------------------------------------*/
 
-int	getting_height(char *path)
+int	**fill_matrix(int width, int height, int fd, int x)
 {
-	int		height;
-	int		fd;
+	char	**split;
 	char	*line;
+	int		**matrix;
+	int		y;
 
-	height = 0;
-	fd = open(path, O_RDONLY);
-	line = get_next_line(fd);
-	while (line > 0)
+	y = -1;
+	matrix = malloc_matrix(width, height);
+	while (++y < height)
 	{
-		ft_free_ptr((void *) &line);
-		height++;
 		line = get_next_line(fd);
+		split = ft_split(line, ' ');
+		while (++x < width)
+		{
+			matrix[x][y] = ft_atoi(split[x]);
+			ft_free_ptr((void *) &split[x]);
+		}
+		x = -1;
+		ft_free_ptr((void *) &line);
+		ft_free_ptr((void *) &split);
 	}
+	line = get_next_line(fd);
 	ft_free_ptr((void *) &line);
-	close(fd);
-	return (height);
+	return (matrix);
 }

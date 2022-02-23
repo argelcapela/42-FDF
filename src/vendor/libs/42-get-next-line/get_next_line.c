@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include	"../42-libft/libft.h"
-#define BUFFER_SIZE 50
+#define BUFFER_SIZE 1000
 
 static int	index_first_bn(char *str)
 {
@@ -36,7 +36,7 @@ int result, char *buffer){
 	char	*tmp_rest;
 
 	buffer[result] = '\0';
-	*rest = ft_strjoin(*rest, buffer);
+	*rest = ft_strjoin_free(*rest, buffer);
 	if (ft_strrchr(*rest, '\n'))
 	{
 		line = ft_substr(*rest, 0, index_first_bn(*rest) + 1);

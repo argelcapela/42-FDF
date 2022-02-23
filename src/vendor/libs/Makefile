@@ -68,6 +68,7 @@ SRCS =	42-libft/ft_isalnum.c \
 	42-libft/ft_uitoa_base.c\
 	42-libft/ft_putstr_fd.c\
 	42-get-next-line/get_next_line.c \
+	42-libft/ft_strjoin_free.c\
 	42-printf/ft_printf.c \
 	42-printf/vendor/base/initialize_struct.c         \
 	42-printf/vendor/base/destroy_struct.c         \
@@ -86,7 +87,9 @@ SRCS =	42-libft/ft_isalnum.c \
 	42-printf/vendor/translators/translate_to_string.c  \
 	42-printf/vendor/translators/translate_to_unsigned_int.c  \
 	42-printf/vendor/translators/translate_to_pointer.c  \
-	42-printf/vendor/translators/translate_to_hexadecimal.c
+	42-printf/vendor/translators/translate_to_hexadecimal.c \
+	42-libft/ft_free_matrix.c \
+	42-libft/ft_free_gnl.c
 
 # .h file
 HEADER =        42-libft/libft.h
@@ -100,7 +103,7 @@ CC =            gcc
 # Flags
 CFLAGS =		-Wall   \
 				-Wextra \
-				-Werror \
+				-Werror 
 #				-I/usr/include \
 				-Imlx_linux  \
 				-O3 

@@ -68,7 +68,7 @@ char	**ft_tosplit(const char *s, char c, char **split)
 		{
 			con = 1;
 			len = ft_wordsize(s + i, c);
-			split[j] = (char *)ft_calloc(len + 1, sizeof(char));
+			split[j] = (char *) malloc((len + 1) * sizeof(char));
 			if (split[j] != NULL)
 				ft_strlcpy (split[j], s + i, len + 1);
 			j++;
@@ -80,7 +80,7 @@ char	**ft_tosplit(const char *s, char c, char **split)
 	return (split);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**split;
 	int		words;
@@ -95,19 +95,3 @@ char	**ft_split(const char *s, char c)
 	split[words]  = NULL;
 	return (split);
 }
-
-/*int main(void)
-{
-	char *str = ft_strdup("a b c d");
-	char **split = ft_split(str, ' ');
-
-
-	int i = 0;
-	while (split[i] != 0)
-	{
- 		printf("%c\n", split[i][0]);
-		 i++;
-	}
-
-	return (0);
-}*/

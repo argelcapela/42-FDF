@@ -23,7 +23,7 @@ SRCS =          fdf.c \
 				vendor/base/reading_map/getting_height.c \
 				vendor/base/reading_map/getting_width.c \
 				vendor/base/reading_map/malloc_matrix.c \
-				vendor/base/reading_map/malloc_read_map_and_fill_matrix.c \
+				vendor/base/reading_map/fill_matrix.c \
 				vendor/utils/print_matrix.c 
 
 
@@ -34,10 +34,10 @@ HEADER =        fdf.h
 OBJS =          $(SRCS:.c=.o)
 
 # Compiler
-CC =            gcc
+CC =            gcc -ggdb3
 
 # Flags
-CFLAGS =
+CFLAGS =	
 #		-Wall   \
 				-Wextra \
 				-Werror \
@@ -63,8 +63,8 @@ RM =             rm
 #
 
 # When make is called
-all:					$(OUTPUT_NAME)
-#						$(MAKE) clean
+all:	$(OUTPUT_NAME)	
+						
 
 # When make bonus is called
 bonus:					all
@@ -78,14 +78,14 @@ bonus:					all
 	6) \
 	7) 
 
-$(OUTPUT_NAME): $(LIBS.A) $(OBJS) $(HEADER)
-#								@cp $(LIBS.A) $(OUTPUT_NAME)
-#								@$(AR) $(ARFLAGS) $(OUTPUT_NAME) $(OBJS) $(HEADER)
+$(OUTPUT_NAME): $(LIBS.A) $(OBJS) $(HEADER) 
 								@$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS) $(LIBS.A)
+								@$(RM) $(OBJS)
+
 
 # Compile or recompile Libft.a library
 $(LIBS.A):
-								@$(MAKE) -C $(LIBS_PATH)
+								@$(MAKE) re -C $(LIBS_PATH)
 
 # $(OBJS) directive is called and %.o automatically assume this paper of execute one directive for each object inside $(OBJS);  % get the name until dot(.); So, the same name can be used both as .c files or .o files; the command line then compiles each object; $< represents %.c, so all c files in SRCS, and  $@ = represents all $(OBJS);
 %.o: 						%.c $(HEADER)
@@ -95,28 +95,58 @@ $(LIBS.A):
 # 🔨Tests
 #
 
+VAL = valgrind --leak-check=full --show-leak-kinds=all
+
 run:
+								$(MAKE)
 								$(MAKE) re
 								clear
 								@./fdf vendor/resources/test_maps/42.fdf
 
 run_leak:
+								$(MAKE)
 								$(MAKE) re
 								clear
-								@valgrind --leak-check=full --show-leak-kinds=all ./fdf vendor/resources/test_maps/42.fdf
+								@$(VAL) ./fdf vendor/resources/test_maps/42.fdf 2> leak.txt && cat leak.txt | more
 
+run_all_maps_leak:
+								$(MAKE)
+								$(MAKE) re
+								clear
+								@$(VAL) ./fdf vendor/resources/test_maps/10-2.fdf   && \
+								$(VAL) ./fdf vendor/resources/test_maps/10-70.fdf	&& \
+								$(VAL) ./fdf vendor/resources/test_maps/20-60.fdf	&& \
+								$(VAL) ./fdf vendor/resources/test_maps/42.fdf	&& \
+								$(VAL) ./fdf vendor/resources/test_maps/50-4.fdf &&	\
+								$(VAL) ./fdf vendor/resources/test_maps/100-6.fdf &&	\
+								$(VAL) ./fdf vendor/resources/test_maps/basictest.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/elem-col.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/elem-fract.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/elem.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/elem2.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/julia.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/mars.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/pentenegpos.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/plat.fdf  && \
+								$(VAL) ./fdf vendor/resources/test_maps/pnp_flat.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/pylone.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/pyra.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/pyramide.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/t1.fdf && \
+								$(VAL) ./fdf vendor/resources/test_maps/t2.fdf > leak.txt && more leak.txt
 
 
 # Cleaning .o files
 clean:
-								@$(RM) $(OBJS)
-#								$(MAKE) clean -C vendor/libs
-								
+								@$(RM) $(OBJS) 
+
+clean_all:
+								@$(MAKE) fclean -C vendor/libs 2> /dev/null							
 
 # Cleaning everything
-fclean:							clean						
-								@$(RM) vendor/libs/libs.a 
+fclean:													
 								@$(RM) $(OUTPUT_NAME) 
+
 
 # Re-making everything
 re:							fclean all

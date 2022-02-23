@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                               :+:      :+:    :+:  */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
+/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
-#define FDF_H 
+#define FDF_H
 
 /* lib.a = original libft , libft++, get-next-line and ft_printf */
 #include "vendor/libs/libs.h"
 
 
-/*################################################### 
+/*###################################################
 #													#
 #	 constants and structures:              		#
 #													#
 ###################################################*/
 
 // white
-#define color0 0xffffff 
+#define color0 0xffffff
 
 // AC green
 #define color1 0x000000
@@ -58,7 +70,7 @@ typedef struct
 }   t_each_dot;
 
 
-/*################################################### 
+/*###################################################
 #													#
 #	 utilitaries:                             		#
 #													#
@@ -66,7 +78,7 @@ typedef struct
 void    print_matrix(int **matrix, int width, int height);
 
 
-/*################################################### 
+/*###################################################
 #													#
 #	 1) reading map:                          		#
 #													#
@@ -74,11 +86,11 @@ void    print_matrix(int **matrix, int width, int height);
 int getting_height(char  *path);
 int getting_width(char  *path);
 int  **malloc_matrix(int width, int height);
-int **malloc_read_map_and_fill_matrix(int width, int height, char *path);
+int **fill_matrix(int width, int height, int fd, int x);
 
-int  **reading_map(char *map_path);
+int **reading_map(char *path, int *x, int *y);
 
-/*################################################### 
+/*###################################################
 #													#
 #	 2) drawing_isometric_projection:	            #
 #													#
@@ -86,7 +98,7 @@ int  **reading_map(char *map_path);
 
 
 
-/*################################################### 
+/*###################################################
 #													#
 #	 3) adding_3d:                            	    #
 #													#
@@ -94,7 +106,7 @@ int  **reading_map(char *map_path);
 
 
 
-/*################################################### 
+/*###################################################
 #													#
 #	 4) adding_bonus:                          	    #
 #													#

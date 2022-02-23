@@ -25,7 +25,20 @@
 /*############################################################### 
 #																#
 #																#
-#	 	6 Functions created to make ft_printf works easier		#
+#	 						42-fdf								#
+#																#
+#																#
+###############################################################*/
+
+char	**ft_split(char *s, char c);
+void	ft_free_matrix(int ***matrix, int rows);
+void	ft_free_gnl(char **line, int fd);
+
+
+/*############################################################### 
+#																#
+#																#
+#	 						42-printf							#
 #																#
 #																#
 ###############################################################*/
@@ -65,6 +78,14 @@ defined and founded tokens and returns the number os bytes read */
 int		ft_putstr_fd(char *s, int fd);
 
 
+/*################################################### 
+#													#
+#													#
+#			  get-next-line							#
+#													#
+#													#
+###################################################*/
+char	*ft_strjoin_free(char *s1, char *s2);
 
 /*################################################### 
 #													#
@@ -98,7 +119,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 //void	ft_putstr_fd(char *s, int fd);
-char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *s);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
