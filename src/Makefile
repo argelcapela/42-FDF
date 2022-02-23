@@ -26,7 +26,7 @@ SRCS =          fdf.c \
 				vendor/base/reading_map/fill_matrix.c \
 				vendor/utils/error.c  \
 				vendor/utils/print_matrix.c  \
-				vendor/utils/bresenham.c 
+				vendor/utils/bresenham.c
 
 
 
@@ -42,12 +42,13 @@ CC =            gcc -ggdb3
 # Flags
 CFLAGS =		-Wall   \
 				-Wextra \
-				-Werror \
-				-I/usr/include -Imlx_linux -O3 
+				-Werror
+#				-I/usr/include -Imlx_linux -O3
 
 # Libs Settings
 LIBS.A =        $(LIBS_PATH)/libs.a
 LIBS_PATH =     vendor/libs
+LIBX_PATH =		vendor/libs/minilibx/
 
 # Create Library
 AR =             ar
@@ -63,8 +64,8 @@ RM =             rm
 #
 
 # When make is called
-all:	$(OUTPUT_NAME)	
-						
+all:	$(OUTPUT_NAME)
+
 
 # When make bonus is called
 bonus:					all
@@ -76,9 +77,9 @@ bonus:					all
 	4) \
 	5) \
 	6) \
-	7) 
+	7)
 
-$(OUTPUT_NAME): $(LIBS.A) $(OBJS) $(HEADER) 
+$(OUTPUT_NAME): $(LIBS.A) $(OBJS) $(HEADER)
 								@$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS) $(LIBS.A)
 								@$(RM) $(OBJS)
 
@@ -138,14 +139,14 @@ run_all_maps_leak:
 
 # Cleaning .o files
 clean:
-								@$(RM) $(OBJS) 
+								@$(RM) $(OBJS)
 
 clean_all:
-								@$(MAKE) fclean -C vendor/libs 2> /dev/null							
+								@$(MAKE) fclean -C vendor/libs 2> /dev/null
 
 # Cleaning everything
-fclean:													
-								@$(RM) $(OUTPUT_NAME) 
+fclean:
+								@$(RM) $(OUTPUT_NAME)
 
 
 # Re-making everything
