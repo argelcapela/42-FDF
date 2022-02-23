@@ -12,23 +12,23 @@
 
 #include "fdf.h"
 
-int main(int argc, char** argv)
+int	main(int argc, char **argv)
 {
-    int **matrix;
-    char *map_path;
-    int width;
-    int height;
-    
-    width = 0;
-    height = 0;
-    if (argc != 2)
-    {
-        ft_printf("\nPlease follow the model: ./fdf map.fdf\n");
-        return (0);
-    }
-    map_path = argv[1];
-    matrix = reading_map(map_path, &width, &height);
-    while ((width - 1) >= 0)
-        ft_free_ptr((void *) &matrix[--width]);  
-    ft_free_ptr((void *) &matrix);
+	int		**matrix;
+	char	*map_path;
+	int		width;
+	int		height;
+
+	width = 0;
+	height = 0;
+	if (argc != 2)
+	{
+		ft_printf("\nPlease follow the model: ./fdf map.fdf\n");
+		return (0);
+	}
+	map_path = argv[1];
+	matrix = reading_map(map_path, &width, &height);
+	while ((width - 1) >= 0)
+		ft_free_ptr((void *) &matrix[--width]);
+	ft_free_ptr((void *) &matrix);
 }

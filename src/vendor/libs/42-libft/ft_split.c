@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../libs.h"
-
 
 int	ft_countwords(char const *str, char c)
 {
@@ -92,6 +90,6 @@ char	**ft_split(char *s, char c)
 	if (!split)
 		return (NULL);
 	split = ft_tosplit(s, c, split);
-	split[words]  = NULL;
+	split[words] = NULL;
 	return (split);
 }

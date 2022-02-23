@@ -19,8 +19,6 @@ static int	len(size_t n)
 	len = 0;
 	if (n == 0)
 		return (1);
-	//if (n < 0)
-	//	len = len + 1;
 	while (n)
 	{
 		n = n / 10;

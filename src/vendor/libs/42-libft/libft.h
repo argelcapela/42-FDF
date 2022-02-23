@@ -34,7 +34,6 @@ char	**ft_split(char *s, char c);
 void	ft_free_matrix(int ***matrix, int rows);
 void	ft_free_gnl(char **line, int fd);
 
-
 /*############################################################### 
 #																#
 #																#
@@ -76,7 +75,6 @@ char	*ft_uitoa_base(size_t n, char *base);
 /* Is the same ft_putstr_fd of libft, but with some increments, replacing the
 defined and founded tokens and returns the number os bytes read */
 int		ft_putstr_fd(char *s, int fd);
-
 
 /*################################################### 
 #													#
