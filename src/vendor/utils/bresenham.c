@@ -42,28 +42,39 @@ void    bresenham(float x, float y, float x1, float y1, t_fdf *fdf)
     int     max;
     int     z;
     int     z1;
+    int     x_center;
+    int     y_center;
     
-    /*---- color -----*/
-    //ft_printf("%d", fdf->matrix[1][1]);
-    //ft_printf("%d", z);
-    // z1 = fdf->z_matrix[(int)y1][(int)x1];
-
     z  = fdf->matrix[(int)x][(int)y];
-    fdf->color = (z) ? 0xe80c0c : 0xffffff;
-    if (z1 && z)
-    {
+    z1 = fdf->matrix[(int)x1][(int)y1];
 
-    }
-    /*----------------*/
-
+    /*---- color -----*/
+    fdf->color = (z || z1) ? 0xe80c0c : 0xffffff;
 
     /*-------zoom----------*/
     x *= fdf->zoom;
     y *= fdf->zoom;
     x1 *= fdf->zoom;
     y1 *= fdf->zoom;
-    /*---------------------*/
 
+    /*---adding 3D----*/
+    isometric_projection(&x, &y, z, fdf);
+    isometric_projection(&x1, &y1, z1, fdf);
+
+    /*----align center----*/
+    x_center = (fdf->window_width / 2) - (fdf->width * 2) - 50;
+    y_center = (fdf->window_height / 3) - (fdf->height);
+    x += x_center;
+    y += y_center;
+    x1 += x_center;
+    y1 += y_center;
+
+    /*--shift----*/
+    x += fdf->move_x;
+    y += fdf->move_y;
+    x1 += fdf->move_x;
+    y1 += fdf->move_y;
+ 
     x_step = x1 - x; // 2
     y_step = y1 - y; // 11
 

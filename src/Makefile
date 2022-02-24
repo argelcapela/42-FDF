@@ -19,12 +19,14 @@ OUTPUT_NAME =   fdf
 
 # .c files
 SRCS =          fdf.c \
+				vendor/base/reading_map/initialize_t_fdf.c \
 				vendor/base/reading_map/reading_map.c \
 				vendor/base/reading_map/getting_height.c \
 				vendor/base/reading_map/getting_width.c \
 				vendor/base/reading_map/malloc_matrix.c \
 				vendor/base/reading_map/fill_matrix.c \
 				vendor/base/drawing_isometric_projection/draw.c \
+				vendor/base/drawing_isometric_projection/isometric_projection.c \
 				vendor/utils/error.c  \
 				vendor/utils/print_matrix.c  \
 				vendor/utils/bresenham.c
@@ -46,7 +48,7 @@ CFLAGS =	-Wall   \
 			-Wextra \
 			-Werror 
 
-LDLIBS =  -lXext -lX11
+LDLIBS =  -lXext -lX11 -lm
 		
 
 # Libft Settings

@@ -13,9 +13,14 @@
 #ifndef FDF_H
 # define FDF_H
 
-/* lib.a = original libft , libft++, get-next-line and ft_printf */
+/* libft */
 # include "vendor/libs/libs.h"
+
+/* minilibx */
 # include "mlx.h"
+
+// sin, cos
+# include <math.h>
 
 /*###################################################
 #													#
@@ -34,12 +39,20 @@
 */ 
 typedef struct
 {
+	int		window_width;
+	int		window_height;
 	int		width;
 	int		height;
 	int		**matrix;
 	int		**z_matrix;
 	int		zoom;
 	int		color;
+	int		move_x;
+	int		move_y;
+	float	rotate_2d;
+	float	rotate_3d;
+	float	angle;
+
 
 	void 	*mlx_ptr;
 	void	*win_ptr;
@@ -59,6 +72,7 @@ void    bresenham(float x, float y, float x1, float y1, t_fdf *data);
 #	 1) reading map:                          		#
 #													#
 ###################################################*/
+void    initialize_t_fdf(t_fdf **fdf);
 int		getting_height(char *path);
 int		getting_width(char *path);
 int		**malloc_matrix(int width, int height);
@@ -70,7 +84,8 @@ void	reading_map(int argc, char **argv, t_fdf **fdf);
 #	 2) drawing_isometric_projection:	            #
 #													#
 ###################################################*/
-void draw(t_fdf *fdf);
+void 	draw(t_fdf *fdf);
+void    isometric_projection(float *x, float *y, int z, t_fdf *fdf);	
 
 
 /*###################################################
