@@ -18,25 +18,18 @@
     and fill matrix with them."
 ---------------------------------------------------*/
 
-int	**reading_map(int argc, char **argv)
+void	reading_map(int argc, char **argv, t_fdf **fdf)
 {
-	int	**matrix;
-	int	height;
-	int	width;
 	int	fd;
+	int tmp;
 
 	error(argc, argv);
-	height = 0;
-	width = 0;
-	height = getting_height(argv[1]);
-	width = getting_width(argv[1]);
-	matrix = NULL;
+	(*fdf)->width = getting_width(argv[1]);
+	(*fdf)->height = getting_height(argv[1]);
+	tmp = (*fdf)->width;
 	fd = open(argv[1], O_RDONLY);
-	matrix = fill_matrix(width, height, fd, -1);
-	print_matrix(matrix, width, height);
+	(*fdf)->matrix = fill_matrix((*fdf)->width, (*fdf)->height, fd, -1);
+	print_matrix((*fdf)->matrix, (*fdf)->width, (*fdf)->height);
 	close(fd);
-	while ((width - 1) >= 0)
-		ft_free_ptr((void *) &matrix[--width]);
-	ft_free_ptr((void *) &matrix);
-	return (matrix);
+	(*fdf)->width = tmp;
 }

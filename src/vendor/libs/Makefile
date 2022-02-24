@@ -55,7 +55,7 @@ SRCS =	42-libft/ft_isalnum.c \
 	42-libft/ft_lstadd_front.c \
 	42-libft/ft_lstadd_back.c \
 	42-libft/ft_lstdelone.c \
-	42-libft/ft_lstclear.c \
+	42-libft/ft_lst.c \
 	42-libft/ft_lstsize.c \
 	42-libft/ft_lstlast.c \
 	42-libft/ft_lstiter.c \
@@ -139,9 +139,9 @@ bonus:					all
 	7) 
 
 $(OUTPUT_NAME): $(OBJS) $(HEADER)
-#								@cp $(LIBFT.A) $(OUTPUT_NAME)
-								@$(AR) $(ARFLAGS) $(OUTPUT_NAME) $(OBJS) $(HEADER)
-#								@$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS)
+#								cp $(LIBFT.A) $(OUTPUT_NAME)
+								$(AR) $(ARFLAGS) $(OUTPUT_NAME) $(OBJS) $(HEADER)
+#								$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS)
 
 # Compile or recompile Libft.a library
 #$(LIBFT.A):

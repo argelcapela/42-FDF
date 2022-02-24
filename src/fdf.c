@@ -12,23 +12,39 @@
 
 #include "fdf.h"
 
-int	deal_key(int key, void *fdf)
-{
-	ft_printf("%d", key);
-	return (0);
-}
+/*--------------------------------------------------
+  "..."
 
-int	main(int argc, char **argv)
+  	
+---------------------------------------------------*/
+
+// int	deal_key(int key)
+// {
+// 	ft_printf("%d", key);
+// 	return (0);
+// }
+//mlx_key_hook(fdf->win_ptr, deal_key, NULL);
+
+
+int	main(int argc, char *argv[])
 {
 	t_fdf *fdf;
 
+	/*------reading map--------*/
 	fdf = (t_fdf *) malloc(sizeof(t_fdf));
-	fdf->matrix = reading_map(argc, argv);
-	fdf->mlx_ptr = mlx_init();
-	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, 1000, 1000, "42-FDF");
+	reading_map(argc, argv, &fdf);
+	//ft_printf("\n\n#%d#\n\n", fdf->width);
 
-	bresenham(10, 10, 600, 300, fdf);
-	mlx_key_hook(fdf->win_ptr, deal_key, NULL);
+	/*------drawing map--------*/
+	fdf->mlx_ptr = mlx_init();
+	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, 800, 600, "42-FDF");
+	fdf->zoom = 20;
+	draw(fdf);
 	mlx_loop(fdf->mlx_ptr);
+	
+
+	/*------cleaning leaks--------*/
+	ft_free_matrix((void ***) &(fdf->matrix), fdf->width);
 	ft_free_ptr((void *) &fdf);
+	return (0);
 }

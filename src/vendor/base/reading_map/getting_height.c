@@ -25,7 +25,7 @@ int	getting_height(char *path)
 	height = 0;
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
-	while (line > 0)
+	while (line)
 	{
 		ft_free_ptr((void *) &line);
 		height++;

@@ -15,6 +15,7 @@
 
 /* lib.a = original libft , libft++, get-next-line and ft_printf */
 # include "vendor/libs/libs.h"
+# include "mlx.h"
 
 /*###################################################
 #													#
@@ -36,6 +37,9 @@ typedef struct
 	int		width;
 	int		height;
 	int		**matrix;
+	int		**z_matrix;
+	int		zoom;
+	int		color;
 
 	void 	*mlx_ptr;
 	void	*win_ptr;
@@ -59,13 +63,15 @@ int		getting_height(char *path);
 int		getting_width(char *path);
 int		**malloc_matrix(int width, int height);
 int		**fill_matrix(int width, int height, int fd, int x);
-int		**reading_map(int argc, char **argv);
+void	reading_map(int argc, char **argv, t_fdf **fdf);
 
 /*###################################################
 #													#
 #	 2) drawing_isometric_projection:	            #
 #													#
 ###################################################*/
+void draw(t_fdf *fdf);
+
 
 /*###################################################
 #													#

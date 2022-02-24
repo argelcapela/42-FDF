@@ -24,6 +24,7 @@ SRCS =          fdf.c \
 				vendor/base/reading_map/getting_width.c \
 				vendor/base/reading_map/malloc_matrix.c \
 				vendor/base/reading_map/fill_matrix.c \
+				vendor/base/drawing_isometric_projection/draw.c \
 				vendor/utils/error.c  \
 				vendor/utils/print_matrix.c  \
 				vendor/utils/bresenham.c
@@ -37,18 +38,24 @@ HEADER =        fdf.h
 OBJS =          $(SRCS:.c=.o)
 
 # Compiler
-CC =            gcc -ggdb3
+CC =            gcc 
+#-ggdb3
 
 # Flags
-CFLAGS =		-Wall   \
-				-Wextra \
-				-Werror
-#				-I/usr/include -Imlx_linux -O3
+CFLAGS =	-Wall   \
+			-Wextra \
+			-Werror 
 
-# Libs Settings
+LDLIBS =  -lXext -lX11
+		
+
+# Libft Settings
 LIBS.A =        $(LIBS_PATH)/libs.a
 LIBS_PATH =     vendor/libs
-LIBX_PATH =		vendor/libs/minilibx/
+
+# Mlx Settings
+MLX_A =			$(MLX_PATH)/libmlx.a
+MLX_PATH =		vendor/libs/libx
 
 # Create Library
 AR =             ar
@@ -80,17 +87,17 @@ bonus:					all
 	7)
 
 $(OUTPUT_NAME): $(LIBS.A) $(OBJS) $(HEADER)
-								@$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS) $(LIBS.A)
-								@$(RM) $(OBJS)
+								$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS) $(LIBS.A) $(MLX_A) $(LDLIBS)
+								$(RM) $(OBJS)
 
 
 # Compile or recompile Libft.a library
 $(LIBS.A):
-								@$(MAKE) re -C $(LIBS_PATH)
+								$(MAKE) re -C $(LIBS_PATH)
 
 # $(OBJS) directive is called and %.o automatically assume this paper of execute one directive for each object inside $(OBJS);  % get the name until dot(.); So, the same name can be used both as .c files or .o files; the command line then compiles each object; $< represents %.c, so all c files in SRCS, and  $@ = represents all $(OBJS);
 %.o: 						%.c $(HEADER)
-								@$(CC) $(CFLAGS) -c $<	-o $@
+								$(CC) $(CFLAGS) -c $<	-o $@
 
 #
 # 🔨Tests
@@ -100,21 +107,18 @@ VAL = valgrind --leak-check=full --show-leak-kinds=all
 
 run:
 								$(MAKE)
-								$(MAKE) re
-								clear
-								@./fdf vendor/resources/test_maps/42.fdf
+								$(MAKE) re					
+								./fdf vendor/resources/test_maps/42.fdf
 
 run_leak:
 								$(MAKE)
-								$(MAKE) re
-								clear
-								@$(VAL) ./fdf vendor/resources/test_maps/42.fdf 2> leak.txt && cat leak.txt | more
+								$(MAKE) re								
+								$(VAL) ./fdf vendor/resources/test_maps/42.fdf 2> leak.txt && cat leak.txt | more
 
 run_all_maps_leak:
 								$(MAKE)
-								$(MAKE) re
-								clear
-								@$(VAL) ./fdf vendor/resources/test_maps/10-2.fdf   && \
+								$(MAKE) re								
+								$(VAL) ./fdf vendor/resources/test_maps/10-2.fdf   && \
 								$(VAL) ./fdf vendor/resources/test_maps/10-70.fdf	&& \
 								$(VAL) ./fdf vendor/resources/test_maps/20-60.fdf	&& \
 								$(VAL) ./fdf vendor/resources/test_maps/42.fdf	&& \
@@ -139,14 +143,14 @@ run_all_maps_leak:
 
 # Cleaning .o files
 clean:
-								@$(RM) $(OBJS)
+								$(RM) $(OBJS)
 
 clean_all:
-								@$(MAKE) fclean -C vendor/libs 2> /dev/null
+								$(MAKE) fclean -C vendor/libs 2> /dev/null
 
 # Cleaning everything
 fclean:
-								@$(RM) $(OUTPUT_NAME)
+								$(RM) $(OUTPUT_NAME)
 
 
 # Re-making everything

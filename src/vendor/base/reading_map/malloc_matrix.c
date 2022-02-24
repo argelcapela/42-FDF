@@ -25,8 +25,8 @@ int	**malloc_matrix(int width, int height)
 	int		**matrix;
 
 	i = -1;
-	matrix = (int **) malloc(width * sizeof(int *));
+	matrix = (int **) malloc(width * sizeof(int *) + 1);
 	while (++i < width)
-		matrix[i] = (int *) malloc(height * sizeof(int));
+		matrix[i] = (int *) malloc(height * sizeof(int) + 1);
 	return (matrix);
 }

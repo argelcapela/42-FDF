@@ -31,8 +31,8 @@
 ###############################################################*/
 
 char	**ft_split(char *s, char c);
-void	ft_free_matrix(int ***matrix, int rows);
 void	ft_free_gnl(char **line, int fd);
+void    ft_free_matrix(void ***matrix, int width);
 
 /*############################################################### 
 #																#
