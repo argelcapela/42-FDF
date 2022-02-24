@@ -14,7 +14,7 @@
 
 void    ft_free_matrix(void ***matrix, int width)
 {
-    // while ((width - 1) >= 0)
-	// 	ft_free_ptr((void *) &(*matrix)[--width]);
+     while ((width - 1) >= 0)
+	 	ft_free_ptr((void *) &(*matrix)[--width]);
 	ft_free_ptr((void *) (*matrix));
 }

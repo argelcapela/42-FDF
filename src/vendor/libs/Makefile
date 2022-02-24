@@ -55,7 +55,6 @@ SRCS =	42-libft/ft_isalnum.c \
 	42-libft/ft_lstadd_front.c \
 	42-libft/ft_lstadd_back.c \
 	42-libft/ft_lstdelone.c \
-	42-libft/ft_lst.c \
 	42-libft/ft_lstsize.c \
 	42-libft/ft_lstlast.c \
 	42-libft/ft_lstiter.c \
@@ -109,8 +108,8 @@ CFLAGS =		-Wall   \
 				-O3 
 
 # Libs Settings
-#LIBFT.A =        $(LIBFT_PATH)/libft.a
-#LIBFT_PATH =     vendor/libft_plusplus
+LIBFT.A =        $(LIBFT_PATH)/libft.a
+LIBFT_PATH =     vendor/libft_plusplus
 
 # Create Library
 AR =             ar
@@ -129,23 +128,9 @@ all:					$(OUTPUT_NAME)
 # When make bonus is called
 bonus:					all
 
-# Main libftprintf.a constructor:   \
-	1) \
-	2) \
-	3) \
-	4) \
-	5) \
-	6) \
-	7) 
-
+# Main libftprintf.a constructor:  
 $(OUTPUT_NAME): $(OBJS) $(HEADER)
-#								cp $(LIBFT.A) $(OUTPUT_NAME)
 								$(AR) $(ARFLAGS) $(OUTPUT_NAME) $(OBJS) $(HEADER)
-#								$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS)
-
-# Compile or recompile Libft.a library
-#$(LIBFT.A):
-#								$(MAKE) -C $(LIBFT_PATH)
 
 # $(OBJS) directive is called and %.o automatically assume this paper of execute one directive for each object inside $(OBJS);  % get the name until dot(.); So, the same name can be used both as .c files or .o files; the command line then compiles each object; $< represents %.c, so all c files in SRCS, and  $@ = represents all $(OBJS);
 %.o: 							%.c $(HEADER)
@@ -153,14 +138,14 @@ $(OUTPUT_NAME): $(OBJS) $(HEADER)
 
 # Cleaning .o files
 clean:
-								$(RM) $(OBJS) 
+		$(RM) $(OBJS) 
 
 # Cleaning everything
-fclean:					clean
-								$(RM) $(OUTPUT_NAME) 
+fclean:		clean
+			$(RM) $(OUTPUT_NAME) 
 
 # Re-making everything
-re:							fclean all
+re:						fclean all
 
 # Indicates that:                                                   \
 	1) The following targets don't create files with its own names;   \
