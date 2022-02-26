@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                               :+:      :+:    :+:  */
+/*   fill_matrix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../../fdf.h"
 
 /*--------------------------------------------------
-  "..."
 
-  	
+	"-Receive the width and height of map.fdf,
+
+	 -Create a matrix[width, height] and allocate
+	  memory to it.
+
+	 -Read the map.fdf and fill the matrix."
+
 ---------------------------------------------------*/
 
-int	main(int argc, char *argv[])
+int	**fill_matrix(int width, int height, int fd, int x)
 {
-	t_fdf *fdf;
+	char	**split;
+	char	*line;
+	int		**matrix;
+	int		y;
 
-	/*------reading map--------*/
-	fdf = (t_fdf *) malloc(sizeof(t_fdf));
-	initialize_t_fdf_struct(&fdf);
-	read_map(argc, argv, &fdf);
-
-	/*------drawing map--------*/
-	fdf->mlx_ptr = mlx_init();
-	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->window_width, fdf->window_height, "42-FDF");
-	draw_map(fdf);
-
-	/*----key hook-------------*/
-	mlx_key_hook(fdf->win_ptr, detect_input, fdf);
-	mlx_loop(fdf->mlx_ptr);
-
-	/*---persist when hide and return window*/
-
-
-	/*------cleaning leaks--------*/
-	ft_free_matrix((void ***) &(fdf->matrix), fdf->width);
-	ft_free_ptr((void *) &fdf);
-	return (0);
+	y = -1;
+	matrix = malloc_matrix(width, height);
+	while (++y < height)
+	{
+		line = get_next_line(fd);
+		split = ft_split(line, ' ');
+		while (++x < width)
+		{
+			matrix[x][y] = ft_atoi(split[x]);
+			ft_free_ptr((void *) &split[x]);
+		}
+		x = -1;
+		ft_free_ptr((void *) &line);
+		ft_free_ptr((void *) &split);
+	}
+	line = get_next_line(fd);
+	ft_free_ptr((void *) &line);
+	return (matrix);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                               :+:      :+:    :+:  */
+/*   draw    .c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../../fdf.h"
 
 /*--------------------------------------------------
-  "..."
+   
+   "It uses logic and bresenham to draw a line
+    between all dots."
 
-  	
 ---------------------------------------------------*/
 
-int	main(int argc, char *argv[])
+void draw_map(t_fdf *fdf)
 {
-	t_fdf *fdf;
+   int   x;
+   int   y;
 
-	/*------reading map--------*/
-	fdf = (t_fdf *) malloc(sizeof(t_fdf));
-	initialize_t_fdf_struct(&fdf);
-	read_map(argc, argv, &fdf);
-
-	/*------drawing map--------*/
-	fdf->mlx_ptr = mlx_init();
-	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->window_width, fdf->window_height, "42-FDF");
-	draw_map(fdf);
-
-	/*----key hook-------------*/
-	mlx_key_hook(fdf->win_ptr, detect_input, fdf);
-	mlx_loop(fdf->mlx_ptr);
-
-	/*---persist when hide and return window*/
-
-
-	/*------cleaning leaks--------*/
-	ft_free_matrix((void ***) &(fdf->matrix), fdf->width);
-	ft_free_ptr((void *) &fdf);
-	return (0);
+   y = 0;
+   while (y < fdf->height)
+   {
+      x = 0;
+      while (x < fdf->width)
+      {
+         if (x < fdf->width - 1)
+            bresenham(x, y, x + 1, y, fdf);
+         if (y < fdf->height - 1)
+            bresenham(x, y, x, y + 1, fdf);
+         x++;
+      }
+      y++;
+   }
 }

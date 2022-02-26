@@ -13,30 +13,16 @@
 #ifndef FDF_H
 # define FDF_H
 
-/* libft */
-# include "vendor/libs/libs.h"
+// libft 
+# include "libs/libft/libft.h"
 
-/* minilibx */
-# include "mlx.h"
+// minilibx 
+# include "libs/minilibx/mlx.h"
 
-// sin, cos
+// sin, cos, isometric perspective
 # include <math.h>
 
-/*###################################################
-#													#
-#	 constants and structures:              		#
-#													#
-###################################################*/
-
-// white
-# define COLOR0 0xffffff
-
-// AC green
-# define COLOR1 0x000000
-
-/*
- "It struct fdf, represents the own window and fdf software."
-*/ 
+// "It represents the own window and fdf software." 
 typedef struct
 {
 	int		window_width;
@@ -52,52 +38,85 @@ typedef struct
 	float	rotate_2d;
 	float	rotate_3d;
 	float	angle;
-
-
+	int		perspective_3d;
 	void 	*mlx_ptr;
 	void	*win_ptr;
 }			t_fdf;
 
 /*###################################################
 #													#
-#	 utilitaries:                             		#
+#	 1_read_map                         			#
 #													#
 ###################################################*/
-void	print_matrix(int **matrix, int width, int height);
-void 	error(int argc, char **argv);
+
+void	read_map(int argc, char **argv, t_fdf **fdf);
+
+void 	parse_map(int argc, char **argv);
+
+void    initialize_t_fdf_struct(t_fdf **fdf);
+
+int		get_width(char *path);
+
+int		get_height(char *path);
+
+int		**malloc_matrix(int width, int height);
+
+int		**fill_matrix(int width, int height, int fd, int x);
+
+void	print_matrix(int **matrix, int width, int height, char *map_path);
+
+/*###################################################
+#													#
+#	 2_draw_map  						            #
+#													#
+###################################################*/
+
+void 	draw_map(t_fdf *fdf);
+
 void    bresenham(float x, float y, float x1, float y1, t_fdf *data);
 
 /*###################################################
 #													#
-#	 1) reading map:                          		#
+#	 3_add_projection                          	    #
 #													#
 ###################################################*/
-void    initialize_t_fdf(t_fdf **fdf);
-int		getting_height(char *path);
-int		getting_width(char *path);
-int		**malloc_matrix(int width, int height);
-int		**fill_matrix(int width, int height, int fd, int x);
-void	reading_map(int argc, char **argv, t_fdf **fdf);
+
+void    add_isometric_projection(float *x, float *y, int z, t_fdf *fdf);
+
+void    add_conic_projection(float *x, float *y, int z, t_fdf *fdf);
 
 /*###################################################
 #													#
-#	 2) drawing_isometric_projection:	            #
-#													#
-###################################################*/
-void 	draw(t_fdf *fdf);
-void    isometric_projection(float *x, float *y, int z, t_fdf *fdf);	
-
-
-/*###################################################
-#													#
-#	 3) adding_3d:                            	    #
+#	 4_functionalities                          	#
 #													#
 ###################################################*/
 
-/*###################################################
-#													#
-#	 4) adding_bonus:                          	    #
-#													#
-###################################################*/
+int		detect_input(int key, t_fdf *fdf);
+
+void    add_zoom(int key, t_fdf **fdf);
+
+void    add_move(int key, t_fdf **fdf);
+
+void    add_rotation(int key, t_fdf **fdf);
+
+void    change_projection(int key, t_fdf **fdf);
+
+void    change_map(int key, t_fdf **fdf);
+
+void    hint_box(int key, t_fdf **fdf);
 
 #endif
+
+/* 
+	
+	bye bye.
+
+	Never forget!
+
+	Jesus loves you!
+
+	You will have a marvelous future!
+
+	XD
+
+ */

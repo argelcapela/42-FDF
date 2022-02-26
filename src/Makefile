@@ -11,155 +11,114 @@
 # **************************************************************************** #
 
 #
-#  😈 FDF - Makefile 👿
+#	42-fdf makefile
 #
 
-# Name of the project
-OUTPUT_NAME =   fdf
+SRCS =          fdf.c 
 
-# .c files
-SRCS =          fdf.c \
-				vendor/base/reading_map/initialize_t_fdf.c \
-				vendor/base/reading_map/reading_map.c \
-				vendor/base/reading_map/getting_height.c \
-				vendor/base/reading_map/getting_width.c \
-				vendor/base/reading_map/malloc_matrix.c \
-				vendor/base/reading_map/fill_matrix.c \
-				vendor/base/drawing_isometric_projection/draw.c \
-				vendor/base/drawing_isometric_projection/isometric_projection.c \
-				vendor/utils/error.c  \
-				vendor/utils/print_matrix.c  \
-				vendor/utils/bresenham.c
+SRCS +=			app/1_read_map/0_read_map.c \
+				app/1_read_map/1_parse_map.c \
+				app/1_read_map/2_initialize_t_fdf_struct.c \
+				app/1_read_map/3_get_width.c \
+				app/1_read_map/4_get_height.c \
+				app/1_read_map/5_malloc_matrix.c \
+				app/1_read_map/6_fill_matrix.c \
+				app/1_read_map/7_print_matrix.c 
+											
+SRCS +=			app/2_draw_map/0_draw_map.c \
+				app/2_draw_map/1_bresenham.c 
 
+SRCS +=			app/3_add_projection/add_conic_projection.c \
+				app/3_add_projection/add_isometric_projection.c 
 
+SRCS +=			app/4_functionalities/0_detect_input.c \
+				app/4_functionalities/1_add_zoom.c \
+				app/4_functionalities/2_add_move.c \
+				app/4_functionalities/3_add_rotation.c \
+				app/4_functionalities/4_change_projection.c \
+				app/4_functionalities/5_change_map.c \
+				app/4_functionalities/6_hint_box.c 
 
-# .h file
-HEADER =        fdf.h
-
-# .o files
 OBJS =          $(SRCS:.c=.o)
 
-# Compiler
 CC =            gcc 
-#-ggdb3
 
-# Flags
-CFLAGS =	-Wall   \
-			-Wextra \
-			-Werror 
+CFLAGS =		-Wall -Wextra -Werror
 
-LDLIBS =  -lXext -lX11 -lm
+MATHFLAGS = 	-lm
+
+MLXFLAGS =		-lXext -lX11 
 		
+LIBFT.A =       libs/libft/libft.a
+MLX.A =			libs/minilibx/libmlx.a
 
-# Libft Settings
-LIBS.A =        $(LIBS_PATH)/libs.a
-LIBS_PATH =     vendor/libs
+AR =             ar -rcs     
 
-# Mlx Settings
-MLX_A =			$(MLX_PATH)/libmlx.a
-MLX_PATH =		vendor/libs/libx
+#
+#	Compilation and Linking
+#
 
-# Create Library
-AR =             ar
-ARFLAGS =        -rcs
+fdf: 			libft.a $(OBJS) fdf.h
+				$(CC) $(CFLAGS) -o fdf $(OBJS) $(LIBFT.A) $(MLX.A) $(MLXFLAGS) $(MATHFLAGS)
 
-# Remove files
-RM =             rm
+libft.a:
+				$(MAKE) -C libs/libft
 
+%.o: 			%.c fdf.h
+				$(CC) $(CFLAGS) -c $<	-o $@
+
+all:			fdf
+				clear
+
+bonus:			all
+
+clean:
+				rm $(OBJS)
+
+fclean:			clean
+				rm fdf
+				$(MAKE) fclean -C libs/libft
+				$(MAKE) fclean -C libs/minilibx
+
+re:				fclean all
+
+.PHONY:			clean fclean re
 
 
 #
-# 🔨Compilation and Linking 🔌
+#	Tester
 #
 
-# When make is called
-all:	$(OUTPUT_NAME)
-
-
-# When make bonus is called
-bonus:					all
-
-# Main libftprintf.a constructor:   \
-	1) \
-	2) \
-	3) \
-	4) \
-	5) \
-	6) \
-	7)
-
-$(OUTPUT_NAME): $(LIBS.A) $(OBJS) $(HEADER)
-								$(CC) $(CFLAGS) -o $(OUTPUT_NAME) $(OBJS) $(LIBS.A) $(MLX_A) $(LDLIBS)
-								$(RM) $(OBJS)
-
-
-# Compile or recompile Libft.a library
-$(LIBS.A):
-								$(MAKE) re -C $(LIBS_PATH)
-
-# $(OBJS) directive is called and %.o automatically assume this paper of execute one directive for each object inside $(OBJS);  % get the name until dot(.); So, the same name can be used both as .c files or .o files; the command line then compiles each object; $< represents %.c, so all c files in SRCS, and  $@ = represents all $(OBJS);
-%.o: 						%.c $(HEADER)
-								$(CC) $(CFLAGS) -c $<	-o $@
-
-#
-# 🔨Tests
-#
-
-VAL = valgrind --leak-check=full --show-leak-kinds=all
+VAL = 			valgrind --leak-check=full --show-leak-kinds=all
 
 run:
-								$(MAKE)
-								$(MAKE) re					
-								./fdf vendor/resources/test_maps/42.fdf
+				$(MAKE) re					
+				./fdf maps/42.fdf
 
-run_leak:
-								$(MAKE)
-								$(MAKE) re								
-								$(VAL) ./fdf vendor/resources/test_maps/42.fdf 2> leak.txt && cat leak.txt | more
+leak:
+				$(MAKE) re								
+				$(VAL) ./fdf maps/42.fdf 2> leak.txt && cat leak.txt | more
 
-run_all_maps_leak:
-								$(MAKE)
-								$(MAKE) re								
-								$(VAL) ./fdf vendor/resources/test_maps/10-2.fdf   && \
-								$(VAL) ./fdf vendor/resources/test_maps/10-70.fdf	&& \
-								$(VAL) ./fdf vendor/resources/test_maps/20-60.fdf	&& \
-								$(VAL) ./fdf vendor/resources/test_maps/42.fdf	&& \
-								$(VAL) ./fdf vendor/resources/test_maps/50-4.fdf &&	\
-								$(VAL) ./fdf vendor/resources/test_maps/100-6.fdf &&	\
-								$(VAL) ./fdf vendor/resources/test_maps/basictest.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/elem-col.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/elem-fract.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/elem.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/elem2.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/julia.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/mars.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/pentenegpos.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/plat.fdf  && \
-								$(VAL) ./fdf vendor/resources/test_maps/pnp_flat.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/pylone.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/pyra.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/pyramide.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/t1.fdf && \
-								$(VAL) ./fdf vendor/resources/test_maps/t2.fdf > leak.txt && more leak.txt
-
-
-# Cleaning .o files
-clean:
-								$(RM) $(OBJS)
-
-clean_all:
-								$(MAKE) fclean -C vendor/libs 2> /dev/null
-
-# Cleaning everything
-fclean:
-								$(RM) $(OUTPUT_NAME)
-
-
-# Re-making everything
-re:							fclean all
-
-# Indicates that:                                                   \
-	1) The following targets don't create files with its own names;   \
-	2) If some of them create a file with it's own name, they executes regardless it's prerequisite have updates or not; \
-Then in few words, .PHONY make these targets avoit problems with file name.
-.PHONY:					clean fclean re
+leak_all:
+				$(MAKE) re								
+				$(VAL) ./fdf maps/10-2.fdf   && \
+				$(VAL) ./fdf maps/10-70.fdf	&& \
+				$(VAL) ./fdf maps/20-60.fdf	&& \
+				$(VAL) ./fdf maps/42.fdf	&& \
+				$(VAL) ./fdf maps/50-4.fdf &&	\
+				$(VAL) ./fdf maps/100-6.fdf &&	\
+				$(VAL) ./fdf maps/basictest.fdf && \
+				$(VAL) ./fdf maps/elem-col.fdf && \
+				$(VAL) ./fdf maps/elem-fract.fdf && \
+				$(VAL) ./fdf maps/elem.fdf && \
+				$(VAL) ./fdf maps/elem2.fdf && \
+				$(VAL) ./fdf maps/julia.fdf && \
+				$(VAL) ./fdf maps/mars.fdf && \
+				$(VAL) ./fdf maps/pentenegpos.fdf && \
+				$(VAL) ./fdf maps/plat.fdf  && \
+				$(VAL) ./fdf maps/pnp_flat.fdf && \
+				$(VAL) ./fdf maps/pylone.fdf && \
+				$(VAL) ./fdf maps/pyra.fdf && \
+				$(VAL) ./fdf maps/pyramide.fdf && \
+				$(VAL) ./fdf maps/t1.fdf && \
+				$(VAL) ./fdf maps/t2.fdf > leak.txt && more leak.txt
