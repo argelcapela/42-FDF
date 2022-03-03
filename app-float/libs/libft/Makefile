@@ -61,9 +61,12 @@ SRCS =		ft_isalnum.c \
 			ft_str_replace.c \
 			ft_free_ptr.c\
 			ft_uitoa_base.c\
-			get_next_line.c \
-			ft_strjoin_free.c\
-			ft_printf/ft_printf.c \
+
+SRCS +=		get_next_line.c \
+			ft_strjoin_free.c
+
+SRCS +=		ft_printf/ft_printf.c \
+			ft_printf/ft_printf_to_var.c \
 			ft_printf/vendor/base/initialize_struct.c         \
 			ft_printf/vendor/base/destroy_struct.c         \
 			ft_printf/vendor/base/has_visible_signal.c         \
@@ -81,9 +84,10 @@ SRCS =		ft_isalnum.c \
 			ft_printf/vendor/translators/translate_to_string.c  \
 			ft_printf/vendor/translators/translate_to_unsigned_int.c  \
 			ft_printf/vendor/translators/translate_to_pointer.c  \
-			ft_printf/vendor/translators/translate_to_hexadecimal.c \
-			ft_free_matrix.c \
-			ft_free_gnl.c
+			ft_printf/vendor/translators/translate_to_hexadecimal.c 
+
+SRCS +=		ft_free_matrix.c 
+
 
 HEADER =	libft.h
 

@@ -45,7 +45,8 @@ SRCS +=			srcs/4_functionalities/0_detect_input.c \
 				srcs/4_functionalities/4_change_projection.c \
 				srcs/4_functionalities/5_change_color.c \
 				srcs/4_functionalities/6_change_map.c \
-				srcs/4_functionalities/7_hint_box.c 
+				srcs/4_functionalities/7_hint_box.c  \
+				srcs/4_functionalities/prepare_for_change_map.c 
 
 OBJS =          $(SRCS:.c=.o)
 

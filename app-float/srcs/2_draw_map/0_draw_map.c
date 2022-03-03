@@ -21,6 +21,9 @@
 
 void draw_map(t_fdf *fdf)
 {
+   // check map again
+   read_map(&fdf);
+   // draw map
    int      x;
    int      y;
    t_dot    *dot; 

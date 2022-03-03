@@ -41,10 +41,12 @@ typedef struct s_view
 // "It represents the own window and fdf software." 
 typedef struct s_fdf
 {
-	char	*all_maps_path;
-	char	*all_maps_name;
+	int     amount_of_maps;
+	int		c_map;
 	char	*c_map_path;
 	char	*c_map_name;
+	char	**all_maps_path;
+
 	int		window_width;
 	int		window_height;
 	int		map_width;

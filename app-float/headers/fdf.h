@@ -44,7 +44,7 @@
 #													#
 ###################################################*/
 
-void	read_map(int argc, char **argv, t_fdf **fdf);
+void	read_map(t_fdf **fdf);
 
 void 	parse_map(int argc, char **argv);
 
@@ -55,6 +55,8 @@ int		get_width(char *path);
 int		get_height(char *path);
 
 int		**malloc_matrix(int width, int height);
+
+char	**malloc_char_matrix(int width, int height);
 
 int		**fill_matrix(int width, int height, int fd, int x);
 
@@ -118,6 +120,8 @@ void    change_projection(int key, t_fdf **fdf);
 void    change_color(int key, t_fdf **fdf);
 
 void    change_map(int key, t_fdf **fdf);
+
+void    prepare_for_change_map(char **argv, t_fdf **fdf);
 
 void    hint_box(t_fdf **fdf);
 

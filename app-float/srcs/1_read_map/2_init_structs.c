@@ -19,6 +19,7 @@ void    init_structs(t_fdf **fdf)
     (*fdf)->window_height = 600;    
     (*fdf)->map_width = 0;
     (*fdf)->map_height = 0;
+    
     // view
     (*fdf)->view = (t_view *)malloc(sizeof(t_view));
     (*fdf)->view->angle_x = 0; 

@@ -16,9 +16,11 @@ int	main(int argc, char *argv[])
 {
 	t_fdf *fdf;
 
+	parse_map(argc, argv);
 	fdf = (t_fdf *) malloc(sizeof(t_fdf));
 	init_structs(&fdf);
-	read_map(argc, argv, &fdf);
+	prepare_for_change_map(argv, &fdf);
+	read_map(&fdf);
 	fdf->mlx_ptr = mlx_init();
 	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->window_width, fdf->window_height, "42-FDF");
 	draw_map(fdf);

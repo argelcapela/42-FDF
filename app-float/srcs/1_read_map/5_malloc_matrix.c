@@ -19,7 +19,7 @@
 	2d array."
 ---------------------------------------------------*/
 
-int	**malloc_matrix(int width, int height)
+int		**malloc_matrix(int width, int height)
 {
 	int		i;
 	int		**matrix;
@@ -28,5 +28,17 @@ int	**malloc_matrix(int width, int height)
 	matrix = (int **) malloc(width * sizeof(int *) + 1);
 	while (++i < width)
 		matrix[i] = (int *) malloc(height * sizeof(int) + 1);
+	return (matrix);
+}
+
+char	**malloc_char_matrix(int width, int height)
+{
+	int		i;
+	char	**matrix;
+
+	i = -1;
+	matrix = (char **) malloc(width * sizeof(char *) + 1);
+	while (++i < width)
+		matrix[i] = (char *) malloc(height * sizeof(char) + 1);
 	return (matrix);
 }

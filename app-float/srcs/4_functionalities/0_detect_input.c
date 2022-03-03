@@ -19,6 +19,7 @@ int	detect_input(int key, t_fdf *fdf)
 	add_zoom(key, &fdf);
 	add_rotation(key, &fdf);
 	change_projection(key, &fdf);
+	change_map(key, &fdf);
 	mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
 	draw_map(fdf);
 	return (0);

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   change_projection.c                                :+:      :+:    :+:  */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Created: 2022/01/18 03:31:12 by acapela-          #+#    #+#             */
+/*   Updated: 2022/01/31 01:31:48 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/fdf.h"
+#include "ft_printf.h"
 
-void    change_color(int key, t_fdf **fdf)
+char	*ft_printf_to_var(const char *format, ...)
 {
-    if (key == KEY_SHIFT && fdf)
-	{
+	char	*fmt;
+	va_list	vl;
 
-	}
+	va_start(vl, format);
+	fmt = prepare_to_translation (format, &vl);
+	va_end(vl);
+	return (fmt);
 }
