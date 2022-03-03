@@ -107,7 +107,9 @@ void    add_isometric_projection(float *x, float *y, float *z, t_fdf *fdf);
 #													#
 ###################################################*/
 
-int		detect_input(int key, t_fdf *fdf);
+int		shoot_events_when_press_keys(int key, t_fdf *fdf);
+
+int		shoot_events_when_use_mouse(t_fdf *fdf);
 
 void    add_zoom(int key, t_fdf **fdf);
 
@@ -124,6 +126,8 @@ void    change_map(int key, t_fdf **fdf);
 void    prepare_for_change_map(char **argv, t_fdf **fdf);
 
 void    hint_box(t_fdf **fdf);
+
+void    others(int key, t_fdf **fdf);
 
 #endif
 

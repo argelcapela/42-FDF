@@ -14,6 +14,12 @@
 # define STRUCTS_H
 
 // "It controls the visualization of the map on the screen."
+typedef struct s_img
+{
+		
+}			t_img;
+
+// "It controls the visualization of the map on the screen."
 typedef struct s_dot
 {
 	float	Xi;
@@ -22,6 +28,7 @@ typedef struct s_dot
 	float	Yf;
 	float	Zi;
 	float	Zf;
+	int		color;
 }			t_dot;
 
 // "It controls the visualization of the map on the screen."
@@ -49,7 +56,6 @@ typedef struct s_fdf
 	char	*c_map_path;
 	char	*c_map_name;
 	char	**all_maps_path;
-
 	int		window_width;
 	int		window_height;
 	int		map_width;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   detect_input.c                                      :+:      :+:    :+:  */
+/*   shoot_events_when_use_mouse.c                      :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,16 +12,8 @@
 
 #include "../../headers/fdf.h"
 
-int	detect_input(int key, t_fdf *fdf)
+int	shoot_events_when_use_mouse(t_fdf *fdf)
 {
-	ft_printf("%d\n", key);
-	add_move(key, &fdf);
-	add_zoom(key, &fdf);
-	add_rotation(key, &fdf);
-	change_projection(key, &fdf);
-	change_map(key, &fdf);
-	change_color(key, &fdf);
-	mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
-	draw_map(fdf);
+	mlx_loop_end(fdf->mlx_ptr);
 	return (0);
 }

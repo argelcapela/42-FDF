@@ -38,7 +38,8 @@ SRCS +=			srcs/2_draw_map/0_draw_map.c \
 SRCS +=			srcs/3_add_projection/add_plane_projection.c \
 				srcs/3_add_projection/add_isometric_projection.c 
 
-SRCS +=			srcs/4_functionalities/0_detect_input.c \
+SRCS +=			srcs/4_functionalities/0_shoot_events_when_press_keys.c \
+				srcs/4_functionalities/0_shoot_events_when_use_mouse.c \
 				srcs/4_functionalities/1_add_zoom.c \
 				srcs/4_functionalities/2_add_move.c \
 				srcs/4_functionalities/3_add_rotation.c \
@@ -46,7 +47,8 @@ SRCS +=			srcs/4_functionalities/0_detect_input.c \
 				srcs/4_functionalities/5_change_color.c \
 				srcs/4_functionalities/6_change_map.c \
 				srcs/4_functionalities/7_hint_box.c  \
-				srcs/4_functionalities/prepare_for_change_map.c 
+				srcs/4_functionalities/prepare_for_change_map.c   \
+				srcs/4_functionalities/others.c 
 
 OBJS =          $(SRCS:.c=.o)
 

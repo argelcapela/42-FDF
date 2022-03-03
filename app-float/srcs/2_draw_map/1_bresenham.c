@@ -33,9 +33,20 @@ void    bresenham(t_dot *dot, t_fdf *fdf)
     y_step /= larger;
     while ((int)(dot->Xi - dot->Xf) || (int)(dot->Yi - dot->Yf))
     {
-       
         mlx_pixel_put(fdf->mlx_ptr, fdf->win_ptr, dot->Xi, dot->Yi, fdf->view->color);
         dot->Xi += x_step;
         dot->Yi += y_step;
     }
 }
+
+// void    put_image_pixel(t_img *img, t_dot *dot, t_fdf *fdf)
+// {
+//     char    *p;
+//     int     i;
+
+//     if (x < 0 || x >= fdf->window_width || y < 0 || y >= fdf->window_height)
+//         return;
+//     p = img->addr + dot->Xi * (img->bpp / 8) + dot->Yi * img->line_size;
+//     (int *)(p) = dot->color;
+// }   
+

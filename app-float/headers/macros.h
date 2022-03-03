@@ -47,6 +47,9 @@
 /* change color randomly */
 # define KEY_C                  99
 
+/* exit key */
+# define KEY_ESC                65307
+
 /*###################################################
 #													#
 #	 2. colors                           			#

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                               :+:      :+:    :+:  */
+/*   shoot_events_when_press_keys.c                     :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/fdf.h"
+#include "../../headers/fdf.h"
 
-int	rerender(t_fdf *fdf)
+int	shoot_events_when_press_keys(int key, t_fdf *fdf)
 {
+	ft_printf("%d\n", key);
+	add_move(key, &fdf);
+	add_zoom(key, &fdf);
+	add_rotation(key, &fdf);
+	change_projection(key, &fdf);
+	change_map(key, &fdf);
+	change_color(key, &fdf);
+	others(key, &fdf);
+	mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
 	draw_map(fdf);
 	return (0);
 }
-
-int	main(int argc, char *argv[])
-{
-	t_fdf *fdf;
-
-	parse_map(argc, argv);
-	fdf = (t_fdf *) malloc(sizeof(t_fdf));
-	init_structs(&fdf);
-	prepare_for_change_map(argv, &fdf);
-	read_map(&fdf);
-	fdf->mlx_ptr = mlx_init();
-	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->window_width, fdf->window_height, "42-FDF");
-	draw_map(fdf);
-	mlx_key_hook(fdf->win_ptr, shoot_events_when_press_keys, fdf);
-	mlx_hook(fdf->win_ptr, 17, 0, shoot_events_when_use_mouse, fdf);
-	mlx_expose_hook(fdf->win_ptr, rerender, fdf);
-	mlx_loop(fdf->mlx_ptr);
-	ft_free_matrix((void ***) &(fdf->matrix), fdf->map_width);
-	ft_free_ptr((void *) &fdf);
-	return (0);
-}
-
