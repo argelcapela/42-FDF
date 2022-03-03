@@ -19,6 +19,15 @@
 
 ---------------------------------------------------*/
 
+void render(t_fdf **fdf)
+{
+   (*fdf)->ptr_img = mlx_new_image((*fdf)->mlx_ptr, (*fdf)->window_width, (*fdf)->window_height);
+   (*fdf)->img->buffer = mlx_get_data_addr((*fdf)->ptr_img, &(*fdf)->img->pixel_bits, &(*fdf)->img->line_bytes, &(*fdf)->img->endian);
+	draw_map((*fdf));
+	mlx_put_image_to_window((*fdf)->mlx_ptr, (*fdf)->win_ptr, (*fdf)->ptr_img, 0, 0);
+   hint_box(fdf);
+}
+
 void draw_map(t_fdf *fdf)
 {
    // check map again
@@ -56,5 +65,4 @@ void draw_map(t_fdf *fdf)
       y++;
    }
    ft_free_ptr((void *) &dot);
-   hint_box(&fdf);
 }

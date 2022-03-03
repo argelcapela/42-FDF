@@ -22,7 +22,6 @@ int	shoot_events_when_press_keys(int key, t_fdf *fdf)
 	change_map(key, &fdf);
 	change_color(key, &fdf);
 	others(key, &fdf);
-	mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
-	draw_map(fdf);
+	render(&fdf);
 	return (0);
 }

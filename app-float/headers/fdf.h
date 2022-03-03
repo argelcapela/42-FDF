@@ -90,6 +90,8 @@ void 	draw_color(t_dot *dot, t_fdf *fdf);
 
 void 	draw_alignment(t_dot *dot, t_fdf *fdf);
 
+void 	render(t_fdf **fdf);
+
 
 /*###################################################
 #													#

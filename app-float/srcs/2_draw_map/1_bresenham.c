@@ -19,6 +19,21 @@
 
 ---------------------------------------------------*/
 
+void    put_image_pixel(t_dot **dot, t_fdf **fdf)
+{
+    int     pixel;
+    int     color;
+
+    if ((*dot)->Xi < 0 || (*dot)->Xi >= (*fdf)->window_width || (*dot)->Yi < 0 || (*dot)->Yi >= (*fdf)->window_height)
+        return;
+    pixel = ((*dot)->Yi * (*fdf)->img->line_bytes) + ((*dot)->Xi * 4);
+    color = mlx_get_color_value((*fdf)->mlx_ptr, (*fdf)->view->color);
+    (*fdf)->img->buffer[pixel + 0] = (color >> 24);
+    (*fdf)->img->buffer[pixel + 1] = (color >> 16) & 0xFF;
+    (*fdf)->img->buffer[pixel + 2] = (color >> 8) & 0xFF;
+    (*fdf)->img->buffer[pixel + 3] = (color) &  0xFF;
+}  
+
 void    bresenham(t_dot *dot, t_fdf *fdf)
 {
     link_draws_to_bresenham(&dot, fdf);
@@ -33,20 +48,12 @@ void    bresenham(t_dot *dot, t_fdf *fdf)
     y_step /= larger;
     while ((int)(dot->Xi - dot->Xf) || (int)(dot->Yi - dot->Yf))
     {
-        mlx_pixel_put(fdf->mlx_ptr, fdf->win_ptr, dot->Xi, dot->Yi, fdf->view->color);
+        //mlx_pixel_put(fdf->mlx_ptr, fdf->win_ptr, dot->Xi, dot->Yi, fdf->view->color);
+        put_image_pixel(&dot, &fdf);
         dot->Xi += x_step;
         dot->Yi += y_step;
     }
 }
 
-// void    put_image_pixel(t_img *img, t_dot *dot, t_fdf *fdf)
-// {
-//     char    *p;
-//     int     i;
-
-//     if (x < 0 || x >= fdf->window_width || y < 0 || y >= fdf->window_height)
-//         return;
-//     p = img->addr + dot->Xi * (img->bpp / 8) + dot->Yi * img->line_size;
-//     (int *)(p) = dot->color;
-// }   
+ 
 

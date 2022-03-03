@@ -16,6 +16,10 @@
 // "It controls the visualization of the map on the screen."
 typedef struct s_img
 {
+	int		pixel_bits;
+	int		line_bytes;
+	int		endian;
+	char	*buffer;
 		
 }			t_img;
 
@@ -51,6 +55,8 @@ typedef struct s_view
 // "It represents the own window and fdf software." 
 typedef struct s_fdf
 {
+	void	*ptr_img;
+	t_img	*img;
 	int     amount_of_maps;
 	int		c_map;
 	char	*c_map_path;
