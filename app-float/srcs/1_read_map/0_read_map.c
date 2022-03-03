@@ -18,7 +18,6 @@
     and fill matrix with them."
 ---------------------------------------------------*/
 
-
 void	read_map(t_fdf **fdf)
 {
 	int	fd;
@@ -29,7 +28,7 @@ void	read_map(t_fdf **fdf)
 	tmp = (*fdf)->map_width;
 	fd = open((*fdf)->c_map_path, O_RDONLY);
 	(*fdf)->matrix = fill_matrix((*fdf)->map_width, (*fdf)->map_height, fd, -1);
-	print_matrix((*fdf)->matrix, (*fdf)->map_width, (*fdf)->map_height, (*fdf)->c_map_path);
+	//print_matrix((*fdf)->matrix, (*fdf)->map_width, (*fdf)->map_height, (*fdf)->c_map_path);
 	close(fd);
 	(*fdf)->map_width = tmp;
 	

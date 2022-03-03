@@ -14,5 +14,8 @@
 
 void draw_color(t_dot *dot, t_fdf *fdf)
 {
-    fdf->view->color = (dot->Zi || dot->Zf) ? 0xe80c0c : 0xffffff;
+    if (fdf->view->changing_color == 0)
+        fdf->view->color = (dot->Zi || dot->Zf) ? AC_GREEN1 : 0xffffff;
+    else if (fdf->view->changing_color == 1)
+        fdf->view->color = (dot->Zi || dot->Zf) ? fdf->view->new_color1 : 0xffffff;
 }

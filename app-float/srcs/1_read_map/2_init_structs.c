@@ -28,4 +28,5 @@ void    init_structs(t_fdf **fdf)
     (*fdf)->view->scale = 20;
     (*fdf)->view->move_x = 20;
     (*fdf)->view->move_y = 20;
+    (*fdf)->view->changing_color = 0;
 }

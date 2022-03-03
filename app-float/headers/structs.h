@@ -27,6 +27,9 @@ typedef struct s_dot
 // "It controls the visualization of the map on the screen."
 typedef struct s_view
 {
+	int		new_color1;
+	int		new_color2;
+	int		changing_color;
 	int		color;
 	float	move_x;
 	float	move_y;

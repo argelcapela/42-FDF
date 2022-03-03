@@ -39,14 +39,13 @@
 
 /* change projection */
 # define KEY_I                  105 
-# define KEY_C                  99 
 
 /* change map */
 # define KEY_LESS               44 
 # define KEY_BIGGER             46 
 
 /* change color randomly */
-# define KEY_SHIFT              65505 
+# define KEY_C                  99
 
 /*###################################################
 #													#
