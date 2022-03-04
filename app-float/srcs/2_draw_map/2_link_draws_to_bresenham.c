@@ -18,7 +18,9 @@ void    link_draws_to_bresenham(t_dot **dot, t_fdf *fdf)
     (*dot)->Zf = (float)fdf->matrix[(int)(*dot)->Xf][(int)(*dot)->Yf];
     draw_zoom(*dot, fdf);
     draw_move(*dot, fdf);
+    // ft_printf("antes %d %d %d %d\n", (int)(*dot)->Xi, (int)(*dot)->Yi, (int)(*dot)->Xf, (int)(*dot)->Yf );
     draw_projection(*dot, fdf);
+    // ft_printf("depois %d %d %d %d\n", (int)(*dot)->Xi, (int)(*dot)->Yi, (int)(*dot)->Xf, (int)(*dot)->Yf );
     draw_color(*dot, fdf);
     draw_rotation_x(*dot, fdf);
     draw_rotation_y(*dot, fdf);

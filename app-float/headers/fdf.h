@@ -92,6 +92,8 @@ void 	draw_alignment(t_dot *dot, t_fdf *fdf);
 
 void 	render(t_fdf **fdf);
 
+int		rerender(t_fdf *fdf);
+
 
 /*###################################################
 #													#

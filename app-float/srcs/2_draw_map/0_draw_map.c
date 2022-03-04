@@ -65,4 +65,12 @@ void draw_map(t_fdf *fdf)
       y++;
    }
    ft_free_ptr((void *) &dot);
+   // t_dot    *dot;
+   // dot = (t_dot *) malloc(sizeof(t_dot));  
+   // dot->Xi = 50;
+   // dot->Yi = 50;
+   // dot->Xf = -30;
+   // dot->Yf = -30;
+
+   // bresenham(dot, fdf);
 }

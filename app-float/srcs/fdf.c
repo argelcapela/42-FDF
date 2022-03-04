@@ -14,8 +14,8 @@
 
 int	rerender(t_fdf *fdf)
 {
-	mlx_destroy_image(fdf->mlx_ptr, fdf->ptr_img);
-	mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
+	//mlx_destroy_image(fdf->mlx_ptr, fdf->ptr_img);
+	//mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
 	render(&fdf);
 	return (0);
 }

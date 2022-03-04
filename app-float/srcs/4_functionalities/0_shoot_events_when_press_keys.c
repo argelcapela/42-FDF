@@ -22,6 +22,6 @@ int	shoot_events_when_press_keys(int key, t_fdf *fdf)
 	change_map(key, &fdf);
 	change_color(key, &fdf);
 	others(key, &fdf);
-	render(&fdf);
+	rerender(fdf);
 	return (0);
 }
