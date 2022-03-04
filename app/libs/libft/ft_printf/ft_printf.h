@@ -99,5 +99,6 @@ char	*what_format_type(char type, char *fmt, t_fs_arg *arg, va_list *vl);
 
 /*--------------------- start --------------------------------------  */
 int		ft_printf(const char *format, ...);
+char	*ft_printf_to_var(const char *format, ...);
 
 #endif

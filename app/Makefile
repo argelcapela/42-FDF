@@ -14,40 +14,52 @@
 #	42-fdf makefile
 #
 
-SRCS =          fdf.c 
+JM_SRCS =		srcs/fdf.c \
+				srcs/1_read_map/2_init_structs.c \
+				srcs/2_draw_map/7_zoom.c \
+				srcs/2_draw_map/3_draw_line.c \
+				srcs/2_draw_map/8_render.c 	\
+				srcs/4_hook/1_on_release_key.c \
+				srcs/4_hook/2_on_destroy.c  \
+				srcs/2_draw_map/6_align_center.c 
 
-SRCS +=			foundation/1_read_map/0_read_map.c \
-				foundation/1_read_map/1_parse_map.c \
-				foundation/1_read_map/2_initialize_t_fdf_struct.c \
-				foundation/1_read_map/3_get_width.c \
-				foundation/1_read_map/4_get_height.c \
-				foundation/1_read_map/5_malloc_matrix.c \
-				foundation/1_read_map/6_fill_matrix.c \
-				foundation/1_read_map/7_print_matrix.c 
-											
-SRCS +=			foundation/2_draw_map/0_draw_map.c \
-				foundation/2_draw_map/1_bresenham.c \
-				foundation/2_draw_map/2_link_draws_to_bresenham.c \
-				foundation/2_draw_map/3_draw_zoom.c \
-				foundation/2_draw_map/4_draw_move.c \
-				foundation/2_draw_map/5_draw_rotation.c \
-				foundation/2_draw_map/6_draw_projection.c \
-				foundation/2_draw_map/7_draw_color.c \
-				foundation/2_draw_map/8_draw_alignment.c
+SRCS =          srcs/1_read_map/0_read_map.c \
+				srcs/1_read_map/1_parse_map.c \
+				srcs/1_read_map/3_get_width.c \
+				srcs/1_read_map/4_get_height.c \
+				srcs/1_read_map/5_malloc_matrix.c \
+				srcs/1_read_map/6_fill_matrix.c \
+				srcs/1_read_map/7_print_matrix.c  \
+				srcs/2_draw_map/1_decide_pixel_color.c \
+				srcs/2_draw_map/2_draw_pixel_in_image.c \
+				srcs/2_draw_map/4_draw_wireframe.c \
+				srcs/3_projection/isometric.c 
 
-SRCS +=			foundation/3_add_projection/add_conic_projection.c \
-				foundation/3_add_projection/add_isometric_projection.c 
+SRCS_B =        srcs_b/fdf.c \
+				srcs_b/1_read_map/2_init_structs.c \
+				srcs_b/2_draw_map/3_draw_line.c \
+				srcs_b/2_draw_map/5_fill_wireframe.c \
+				srcs_b/2_draw_map/6_align_center.c \
+				srcs_b/2_draw_map/8_render.c \
+				srcs_b/3_projection/conic.c \
+				srcs_b/3_projection/none_projection.c  \
+				srcs_b/4_hook/1_on_release_key.c \
+				srcs_b/4_hook/2_on_mouse_down.c \
+				srcs_b/4_hook/3_on_mouse_move.c \
+				srcs_b/4_hook/4_on_destroy.c \
+				srcs_b/5_bonus/0_enable_bonus.c \
+				srcs_b/5_bonus/1_zoom.c \
+				srcs_b/5_bonus/2_translate.c \
+				srcs_b/5_bonus/3_rotate.c \
+				srcs_b/5_bonus/4_change_color.c \
+				srcs_b/5_bonus/5_change_map.c \
+				srcs_b/5_bonus/6_hint_box.c  
 
-SRCS +=			foundation/4_functionalities/0_detect_input.c \
-				foundation/4_functionalities/1_add_zoom.c \
-				foundation/4_functionalities/2_add_move.c \
-				foundation/4_functionalities/3_add_rotation.c \
-				foundation/4_functionalities/4_change_projection.c \
-				foundation/4_functionalities/5_change_color.c \
-				foundation/4_functionalities/6_change_map.c \
-				foundation/4_functionalities/7_hint_box.c 
+OBJS =          $(SRCS:.c=.o) \
+				$(JM_SRCS:.c=.o)
 
-OBJS =          $(SRCS:.c=.o)
+OBJS_B =		$(SRCS:.c=.o) \
+				$(SRCS_B:.c=.o)
 
 CC =            gcc 
 
@@ -66,29 +78,41 @@ AR =             ar -rcs
 #	Compilation and Linking
 #
 
-fdf: 			libft.a $(OBJS) fdf.h
+# mandatory #
+all:			fdf
+				
+fdf: 			libft.a minilibx $(OBJS) headers/fdf.h
 				$(CC) $(CFLAGS) -o fdf $(OBJS) $(LIBFT.A) $(MLX.A) $(MLXFLAGS) $(MATHFLAGS)
 
+%.o: 			%.c headers/fdf.h
+				$(CC) $(CFLAGS) -c $<	-o $@
+
+# bonus #
+bonus:			fdf_b
+				
+fdf_b: 			libft.a minilibx $(OBJS_B) headers/fdf.h
+				$(CC) $(CFLAGS) -o fdf $(OBJS_B) $(LIBFT.A) $(MLX.A) $(MLXFLAGS) $(MATHFLAGS)
+
+%.o: 			%.c headers/fdf.h
+				$(CC) $(CFLAGS) -c $<	-o $@
+
+# libs #
 libft.a:
 				$(MAKE) -C libs/libft
 
-%.o: 			%.c fdf.h
-				$(CC) $(CFLAGS) -c $<	-o $@
-
-all:			fdf
-				$(MAKE) -C libs/libft
+minilibx:
 				$(MAKE) -C libs/minilibx
 
-bonus:			all
-
+# utils #
 clean:
-				rm $(OBJS)
+				rm $(OBJS) 
+				@rm $(OBJS_B) 2> /dev/null || true
 
-fclean:			clean
-				rm fdf
+fclean:			
+				rm fdf 
+				$(MAKE) clean 2> /dev/null || true
 
 re:				fclean all
-				$(MAKE) -C libs/libft
 
 .PHONY:			clean fclean re
 
@@ -102,9 +126,12 @@ VAL = 			valgrind --leak-check=full --show-leak-kinds=all
 run:
 				$(MAKE)					
 				./fdf maps/42.fdf
+run_b:
+				$(MAKE) bonus					
+				./fdf maps/42.fdf
 
-leak:
-				$(MAKE)							
+leak_b:
+				$(MAKE) bonus							
 				$(VAL) ./fdf maps/42.fdf 2> leak.txt && cat leak.txt | more
 
 leak_all:
