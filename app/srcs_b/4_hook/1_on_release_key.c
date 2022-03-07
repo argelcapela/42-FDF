@@ -28,20 +28,20 @@ static void zoom_translate_and_rotate_keys(int key, t_fdf **fdf)
 		(*fdf)->view->move_x += 10;
 		
 	if (key == KEY_W)
-	{
 		(*fdf)->view->angle_x += (5 * ONE_DEGREE);
-		//(*fdf)->view->move_y  += (5 * ONE_DEGREE);
-	}
 	if (key == KEY_S)
 		(*fdf)->view->angle_x -= (5 * ONE_DEGREE);
-	if (key == KEY_A)
-		(*fdf)->view->angle_y -= (5 * ONE_DEGREE);
-	if (key == KEY_D)
-		(*fdf)->view->angle_y += (5 * ONE_DEGREE);
 	if (key == KEY_Q)
-		(*fdf)->view->angle_z += (5 * ONE_DEGREE);
+		(*fdf)->view->angle_y -= (5 * ONE_DEGREE);
 	if (key == KEY_E)
+		(*fdf)->view->angle_y += (5 * ONE_DEGREE);
+	if (key == KEY_A)
+		(*fdf)->view->angle_z += (5 * ONE_DEGREE);
+	if (key == KEY_D)
 		(*fdf)->view->angle_z -= (5 * ONE_DEGREE);
+
+	if (key == KEY_W || key == KEY_S || key == KEY_A || key == KEY_D || key == KEY_Q || key == KEY_E)
+	    (*fdf)->view->free_rotation = 1;
 }
 
 static void change_color_map_and_hint_box_keys(int key, t_fdf **fdf)

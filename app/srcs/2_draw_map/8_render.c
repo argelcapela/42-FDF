@@ -17,7 +17,7 @@ void render(t_fdf **fdf)
     (*fdf)->ptr_img = mlx_new_image((*fdf)->mlx_ptr, (*fdf)->window_width, (*fdf)->window_height);
     (*fdf)->img->buffer = mlx_get_data_addr((*fdf)->ptr_img, &(*fdf)->img->pixel_bits, &(*fdf)->img->line_bytes, &(*fdf)->img->endian);
     read_map(fdf);
-    draw_wireframe((*fdf));
+    draw_wireframe(*fdf);
     mlx_put_image_to_window((*fdf)->mlx_ptr, (*fdf)->win_ptr, (*fdf)->ptr_img, 0, 0);
 }
 

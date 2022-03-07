@@ -26,6 +26,8 @@ typedef struct s_img
 // "It represents each pixel we draw inside the image."
 typedef struct s_dot
 {
+	// int		printing_horizontal_lines;
+	// int		printing_vertical_lines;
 	float	Xi;
 	float	Yi;
 	float	Xf;
@@ -48,8 +50,11 @@ typedef struct s_view
 	float	angle_x;
 	float	angle_y;
 	float	angle_z;
+	float	u_map_width;
+	float	u_map_height;
 	int		isometric;
 	int		conic;
+	int		free_rotation;
 }			t_view;
 
 // "It represents the fdf software." 

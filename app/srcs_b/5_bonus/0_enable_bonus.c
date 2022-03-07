@@ -16,9 +16,13 @@ void    enable_bonus(t_dot **dot, t_fdf **fdf)
 {
     decide_pixel_color(*dot, *fdf);
     zoom(dot, fdf);
-    align_center(*dot, *fdf);
     translate(*dot, *fdf);
-    rotate_x(*dot, *fdf);
-    rotate_y(*dot, *fdf);
-    rotate_z(*dot, *fdf);
+    if ((*fdf)->view->free_rotation == 1)
+    {
+        rotate_z(*dot, *fdf);
+        rotate_x(*dot, *fdf);
+        rotate_y(*dot, *fdf);
+    }
+    align_center(*dot, *fdf);
+
 }

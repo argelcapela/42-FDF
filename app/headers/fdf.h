@@ -71,7 +71,7 @@ void    draw_pixel_in_image(t_fdf **fdf, int x, int y, int color);
 
 void    draw_line(t_dot *dot, t_fdf *fdf);
 
-void 	draw_wireframe(t_fdf *fdf);
+void 	draw_wireframe(t_fdf **fdf);
 
 void 	fill_wireframe(t_fdf *fdf);
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/fdf.h"
+#include "../../headers/fdf_bonus.h"
 
 void    init_structs(t_fdf **fdf)
 {	
@@ -20,6 +20,8 @@ void    init_structs(t_fdf **fdf)
     (*fdf)->map_height = 0;
     (*fdf)->hint_box = 1;
     (*fdf)->view = (t_view *)malloc(sizeof(t_view));
+    (*fdf)->view->u_map_width = 0;
+    (*fdf)->view->u_map_height = 0;
     (*fdf)->view->angle_x = 0; 
     (*fdf)->view->angle_y = 0; 
     (*fdf)->view->angle_z = 0; 
@@ -28,5 +30,7 @@ void    init_structs(t_fdf **fdf)
     (*fdf)->view->move_y = 20;
     (*fdf)->view->changing_color = 0;
     (*fdf)->view->isometric = 0;
+    (*fdf)->view->conic = 0;
+    (*fdf)->view->free_rotation = 0;
     (*fdf)->img = (t_img *)malloc(sizeof(t_img));
 }

@@ -31,7 +31,7 @@ static void update_dots_cordinates(float x, float y, t_dot **dot, int d)
    }
 }   
 
-void draw_wireframe(t_fdf *fdf)
+void draw_wireframe(t_fdf **fdf)
 {
    int      x;
    int      y;
@@ -39,20 +39,22 @@ void draw_wireframe(t_fdf *fdf)
 
    y = -1;
    dot = (t_dot *) malloc(sizeof(t_dot));
-   while (++y < fdf->map_height)
+   (*fdf)->view->u_map_width = 0;
+   (*fdf)->view->u_map_height = 0;
+   while (++y < (*fdf)->map_height)
    {
       x = -1;
-      while (++x < fdf->map_width)
+      while (++x < (*fdf)->map_width)
       {
-         if (x < fdf->map_width - 1)
+         if (x < (*fdf)->map_width - 1)
          {
             update_dots_cordinates(x, y, &dot, 1);
-            draw_line(dot, fdf);
+            draw_line(dot, (*fdf));
          }
-         if (y < fdf->map_height - 1)
+         if (y < (*fdf)->map_height - 1)
          {
             update_dots_cordinates(x, y, &dot, 2);
-            draw_line(dot, fdf);
+            draw_line(dot, (*fdf));
          }
       }
    }

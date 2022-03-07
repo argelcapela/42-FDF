@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   link_draws.c                                        :+:      :+:    :+:  */
+/*   3_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/07 21:15:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/fdf.h"
+#include "../../headers/fdf_bonus.h"
 
 void rotate_xyz_with_mouse (t_dot *dot, t_fdf *fdf)
 {
@@ -27,7 +27,7 @@ void rotate_x(t_dot *dot, t_fdf *fdf)
     float *Yf = &dot->Yf;
     float *Zf = &dot->Zf;
     float *ax = &fdf->view->angle_x;
-
+    
     *Yi = cos(*ax) * (*Yi) - sin(*ax) * (*Zi);
     *Zi = sin(*ax) * (*Yi) + cos(*ax) * (*Zi);
     *Yf = cos(*ax) * (*Yf) - sin(*ax) * (*Zf);
@@ -43,8 +43,8 @@ void rotate_y(t_dot *dot, t_fdf *fdf)
     float *ax = &fdf->view->angle_y;
 
     *Xi = cos(*ax)   * (*Xi) + sin(*ax) * (*Zi);
-    *Zi = sin(*ax) * -(*Xi) + cos(*ax) * (*Zi);
     *Xf = cos(*ax)   * (*Xf) + sin(*ax) * (*Zf);
+    *Zi = sin(*ax) * -(*Xi) + cos(*ax) * (*Zi);
     *Zf = sin(*ax) * -(*Xf) + cos(*ax) * (*Zf);
 }
 
@@ -57,7 +57,8 @@ void rotate_z(t_dot *dot, t_fdf *fdf)
     float *ax = &fdf->view->angle_z;
 
     *Xi = cos(*ax) * (*Xi) - sin(*ax) * (*Yi);
-    *Yi = sin(*ax) * (*Xi) + cos(*ax) * (*Yi);
+    *Yi = sin(*ax) * (*Xi) + cos(*ax) * (*Yi);  
+   
     *Xf = cos(*ax) * (*Xf) - sin(*ax) * (*Yf);
     *Yf = sin(*ax) * (*Xf) + cos(*ax) * (*Yf);
 }
