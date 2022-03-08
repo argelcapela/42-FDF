@@ -24,3 +24,20 @@ char	*ft_strchr(const char *str, int ch)
 		return ((char *)str);
 	return (NULL);
 }
+
+int		ft_indexof(const char *str, int ch)
+{
+	int i;
+
+	i = 0;
+	while (*str)
+	{
+		if (*str == (unsigned char)ch)
+			return (i - 1);
+		str++;
+		i++;
+	}
+	if ((unsigned char)ch == '\0')
+		return (i - 1);
+	return (0);
+}

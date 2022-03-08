@@ -44,8 +44,8 @@ void rotate_y(t_dot *dot, t_fdf *fdf)
 
     *Xi = cos(*ax)   * (*Xi) + sin(*ax) * (*Zi);
     *Xf = cos(*ax)   * (*Xf) + sin(*ax) * (*Zf);
-    *Zi = sin(*ax) * -(*Xi) + cos(*ax) * (*Zi);
-    *Zf = sin(*ax) * -(*Xf) + cos(*ax) * (*Zf);
+    *Zi = sin(*ax)   * -(*Xi) + cos(*ax) * (*Zi);
+    *Zf = sin(*ax)   * -(*Xf) + cos(*ax) * (*Zf);
 }
 
 void rotate_z(t_dot *dot, t_fdf *fdf)
@@ -56,9 +56,13 @@ void rotate_z(t_dot *dot, t_fdf *fdf)
     float *Yf = &dot->Yf;
     float *ax = &fdf->view->angle_z;
 
-    *Xi = cos(*ax) * (*Xi) - sin(*ax) * (*Yi);
-    *Yi = sin(*ax) * (*Xi) + cos(*ax) * (*Yi);  
-   
-    *Xf = cos(*ax) * (*Xf) - sin(*ax) * (*Yf);
-    *Yf = sin(*ax) * (*Xf) + cos(*ax) * (*Yf);
+    float tmp_xi = *Xi;
+    float tmp_xf = *Xf;
+    float tmp_yi = *Yi;
+    float tmp_yf = *Yf;
+
+    *Xi = cos(*ax) * (tmp_xi) - sin(*ax) * (tmp_yi);
+    *Yi = sin(*ax) * (tmp_xi) + cos(*ax) * (tmp_yi); 
+    *Xf = cos(*ax) * (tmp_xf) - sin(*ax) * (tmp_yf);
+    *Yf = sin(*ax) * (tmp_xf) + cos(*ax) * (tmp_yf);
 }

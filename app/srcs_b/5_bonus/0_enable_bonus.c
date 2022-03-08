@@ -19,9 +19,9 @@ void    enable_bonus(t_dot **dot, t_fdf **fdf)
     translate(*dot, *fdf);
     if ((*fdf)->view->free_rotation == 1)
     {
-        rotate_z(*dot, *fdf);
-        rotate_x(*dot, *fdf);
         rotate_y(*dot, *fdf);
+        rotate_x(*dot, *fdf);
+        rotate_z(*dot, *fdf);
     }
     align_center(*dot, *fdf);
 

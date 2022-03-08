@@ -35,9 +35,9 @@ static void zoom_translate_and_rotate_keys(int key, t_fdf **fdf)
 		(*fdf)->view->angle_y -= (5 * ONE_DEGREE);
 	if (key == KEY_E)
 		(*fdf)->view->angle_y += (5 * ONE_DEGREE);
-	if (key == KEY_A)
-		(*fdf)->view->angle_z += (5 * ONE_DEGREE);
 	if (key == KEY_D)
+		(*fdf)->view->angle_z += (5 * ONE_DEGREE);
+	if (key == KEY_A)
 		(*fdf)->view->angle_z -= (5 * ONE_DEGREE);
 
 	if (key == KEY_W || key == KEY_S || key == KEY_A || key == KEY_D || key == KEY_Q || key == KEY_E)

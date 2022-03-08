@@ -31,8 +31,12 @@
 ###############################################################*/
 
 char	**ft_split(char *s, char c);
+
 void	ft_free_gnl(char **line, int fd);
+
 void    ft_free_matrix(void ***matrix, int width);
+
+int		ft_indexof(const char *str, int ch);
 
 /*############################################################### 
 #																#
@@ -54,6 +58,7 @@ these tokens values, and at the final ft_putstr_fd will replace the tokens per
 just % and ''. These avoid a lot of bugs. With the practice you will be aware
 of it. */
 # define TOKENIZATION_NULL    "___BANANA0_"
+
 # define TOKENIZATION_PERCENT "___BANANA1_"
 
 /* Useful to generate spaces and zeros of ' ' and 0 flag, and to transform c

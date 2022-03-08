@@ -23,6 +23,22 @@
 
 ---------------------------------------------------*/
 
+int	get_map_color(char *cel)
+{
+	//if (ft_strchr(cel, 'x') || ft_strchr(cel, 'X'))
+	//{
+		// PEGA A COR
+			//char *cor = ft_substr(cel, ft_indexof(cel, 'x'), ft_strlen(cel));
+		// CONVERTE
+			//int	convert = ft_itoa_base();
+
+		// PRINTA
+			//ft_printf("%s\n", cor);
+	//}
+	 	
+	return (ft_atoi(cel));
+}
+
 int	**fill_matrix(int width, int height, int fd, int x)
 {
 	char	**split;
@@ -38,7 +54,7 @@ int	**fill_matrix(int width, int height, int fd, int x)
 		split = ft_split(line, ' ');
 		while (++x < width)
 		{
-			matrix[x][y] = ft_atoi(split[x]);
+			matrix[x][y] = get_map_color(split[x]);
 			ft_free_ptr((void *) &split[x]);
 		}
 		x = -1;
