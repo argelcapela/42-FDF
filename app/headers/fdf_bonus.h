@@ -115,7 +115,9 @@ int		on_release_key(int key, t_fdf *fdf);
 
 int		on_mouse_down(int button, int x, int y, t_fdf *fdf);
 
-int		on_mouse_move(int button, int x, int y, t_fdf *fdf);
+int		on_mouse_up(int button, int x, int y, t_fdf *fdf);
+
+int		on_mouse_move(int x, int y, t_fdf *fdf);
 
 int		on_destroy(t_fdf *fdf);
 

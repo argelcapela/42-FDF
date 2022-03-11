@@ -58,6 +58,12 @@ typedef struct s_rectangle
 // "It controls the visualization of the map on the screen."
 typedef struct s_view
 {
+	float	x_origin;
+	float	y_origin;
+	int		mouse_x;
+	int		mouse_y;
+	int		mouse_translate;
+	int		mouse_rotate;
 	int		new_color1;
 	int		new_color2;
 	int		changing_color;

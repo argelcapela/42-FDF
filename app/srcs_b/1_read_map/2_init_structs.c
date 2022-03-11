@@ -21,6 +21,8 @@ void	init_structs(t_fdf **fdf)
 (*fdf)->hint_box = 1;
 (*fdf)->c_map = 0;
 (*fdf)->view = (t_view *)malloc(sizeof(t_view));
+(*fdf)->view->mouse_translate = 0;
+(*fdf)->view->mouse_rotate = 0;
 (*fdf)->view->angle_x = 0;
 (*fdf)->view->angle_y = 0;
 (*fdf)->view->angle_z = 0;
@@ -36,4 +38,6 @@ void	init_structs(t_fdf **fdf)
 (*fdf)->img = (t_img *)malloc(sizeof(t_img));
 (*fdf)->f_alloc = 0;
 (*fdf)->view->color_matrix = NULL;
+(*fdf)->view->x_origin = 0;
+(*fdf)->view->y_origin = 0;
 }

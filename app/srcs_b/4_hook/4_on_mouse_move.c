@@ -12,11 +12,13 @@
 
 #include "../../headers/fdf_bonus.h"
 
-int	on_mouse_move(int button, int x, int y, t_fdf *fdf)
+int	on_mouse_move(int x, int y, t_fdf *fdf)
 {
-	ft_printf("%d %d %d", button, x, y);
-	if (fdf)
-	{	
+	if (fdf->view->mouse_translate == 1)
+	{
+		fdf->view->mouse_x = x;
+		fdf->view->mouse_y = y;
+		rerender(fdf);
 	}
 	return (0);
 }

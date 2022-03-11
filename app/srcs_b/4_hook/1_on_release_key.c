@@ -81,7 +81,7 @@ static void	exit_program_and_change_projection_keys(int key, t_fdf **fdf)
 
 int	on_release_key(int key, t_fdf *fdf)
 {
-	ft_printf("#%d#\n", key);
+	//ft_printf("#%d#\n", key);
 	zoom_and_translate_keys(key, &fdf);
 	rotate_keys(key, &fdf);
 	change_color_map_and_hint_box_keys(key, &fdf);

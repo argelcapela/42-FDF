@@ -46,8 +46,9 @@ SRCS_B =        srcs_b/fdf.c \
 				srcs_b/3_projection/none_projection.c  \
 				srcs_b/4_hook/1_on_release_key.c \
 				srcs_b/4_hook/2_on_mouse_down.c \
-				srcs_b/4_hook/3_on_mouse_move.c \
-				srcs_b/4_hook/4_on_destroy.c \
+				srcs_b/4_hook/3_on_mouse_up.c \
+				srcs_b/4_hook/4_on_mouse_move.c \
+				srcs_b/4_hook/5_on_destroy.c \
 				srcs_b/5_bonus/0_enable_bonus.c \
 				srcs_b/5_bonus/1_zoom.c \
 				srcs_b/5_bonus/2_translate.c \
@@ -112,6 +113,7 @@ clean:
 fclean:			
 				rm fdf 
 				$(MAKE) clean 2> /dev/null || true
+				
 
 re:				fclean all
 

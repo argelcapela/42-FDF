@@ -16,6 +16,7 @@ void	render(t_fdf **fdf)
 {
 	t_rectangle *rect;
 	t_image		*logo;
+	t_image		*fdf_logo;
 
 	(*fdf)->ptr_img = mlx_new_image((*fdf)->mlx_ptr, (*fdf)->window_width,
 			(*fdf)->window_height);
@@ -46,12 +47,20 @@ void	render(t_fdf **fdf)
 		(*fdf)->win_ptr, (*fdf)->ptr_img, 0, 0);
 	//---logo
 	logo = (t_image *) malloc(sizeof(t_image));
-	logo->width = 15;
-	logo->height = 15;
+	logo->width = 10;
+	logo->height = 10;
 	logo->path = ft_strdup("assets/logo-small.xpm");
 	logo->ptr = mlx_xpm_file_to_image((*fdf)->mlx_ptr, logo->path, &logo->width, &logo->height);
 	mlx_put_image_to_window((*fdf)->mlx_ptr,
-	 	(*fdf)->win_ptr, logo->ptr, 30, (*fdf)->window_height - 190);
+	 	(*fdf)->win_ptr, logo->ptr, 30, (*fdf)->window_height - 200);
+	//---fdf_logo
+	fdf_logo = (t_image *) malloc(sizeof(t_image));
+	fdf_logo->width = 15;
+	fdf_logo->height = 15;
+	fdf_logo->path = ft_strdup("assets/fdf-bonus-logo.xpm");
+	fdf_logo->ptr = mlx_xpm_file_to_image((*fdf)->mlx_ptr, fdf_logo->path, &fdf_logo->width, &fdf_logo->height);
+	mlx_put_image_to_window((*fdf)->mlx_ptr,
+	 	(*fdf)->win_ptr, fdf_logo->ptr, 50, 10);
 	if ((*fdf)->hint_box == 1)
 		hint_box(fdf);
 }

@@ -15,40 +15,35 @@
 static void	print_header_footer(t_fdf *fdf)
 {
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		60, 20, WHITE, "********************");	
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		60, 35, WHITE, "* Fil de Fer (FDF) *");	
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		60, 50, WHITE, "********************");	
-
+		50, 173, WHITE, "'Fil de Fer / Wireframe'");	
 }
 
 static void	print_msgs_1(t_fdf *fdf)
 {
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		10, 80, GREEN, "Hotkeys:");
+		10, 240, GREEN, "Hotkeys:");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 100, WHITE, "w/s - Rotate X Axle");
+		20, 260, WHITE, "w/s - Rotate X Axle");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 120, WHITE, "a/d - Rotate Y Axle");
+		20, 280, WHITE, "a/d - Rotate Y Axle");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 140, WHITE, "q/e - Rotate Z Axle");
+		20, 300, WHITE, "q/e - Rotate Z Axle");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 160, WHITE, "UP/DOWN/LEFT/RIGHT ARROW/");
+		20, 320, WHITE, "UP/DOWN/LEFT/RIGHT ARROW/");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 180, WHITE, "Hold Down Left Mouse Click");
+		20, 340, WHITE, "Hold Down Left Mouse Click");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 200, WHITE, "and Drag  - Translate");
+		20, 360, WHITE, "and Drag  - Translate");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 220, WHITE, "+/-/Scroll Mouse - Zoom in, Zoom out");
+		20, 380, WHITE, "+/-/Scroll Mouse - Zoom in, Zoom out");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 240, WHITE, "i - Isometric/Paralell Perspective");
+		20, 400, WHITE, "i - Isometric/Paralell Perspective");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 260, WHITE, "< / > - Change Map");
+		20, 420, WHITE, "< / > - Change Map");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 280, WHITE, "c - Change Color1 Randomly");
+		20, 440, WHITE, "c - Change Color1 Randomly");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 300, WHITE, "h - Show/Hide Text on screen");
+		20, 460, WHITE, "h - Show/Hide Text on screen");
 }
 
 static void	print_msgs_2(t_fdf *fdf)
@@ -62,17 +57,17 @@ static void	print_msgs_2(t_fdf *fdf)
 	fdf->hb_msgs[3] = ft_printf_to_var("[%d/%d] - %s", fdf->c_map,
 			fdf->amount_of_maps, fdf->all_maps_path[fdf->c_map]);
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		10, 340, GREEN, "Monitor:");
+		10, 520, GREEN, "Monitor:");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 360, WHITE, fdf->hb_msgs[0]);
+		20, 540, WHITE, fdf->hb_msgs[0]);
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 380, WHITE, fdf->hb_msgs[1]);
+		20, 560, WHITE, fdf->hb_msgs[1]);
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 400, WHITE, fdf->hb_msgs[2]);
+		20, 580, WHITE, fdf->hb_msgs[2]);
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 440, WHITE, fdf->hb_msgs[3]);
+		20, 620, WHITE, fdf->hb_msgs[3]);
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		20, 420,
+		20, 600,
 		WHITE, fdf->hb_msgs[4]);
 }
 

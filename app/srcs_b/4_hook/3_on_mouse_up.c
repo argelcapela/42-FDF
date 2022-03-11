@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   link_draws.c                                        :+:      :+:    :+:  */
+/*   on_mouse_up.c					                     :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,21 +12,12 @@
 
 #include "../../headers/fdf_bonus.h"
 
-int	zoom_on_mouse_scroll(int button, int x, int y, t_fdf *fdf)
+int	on_mouse_up(int button, int x, int y, t_fdf *fdf)
 {
 	if (button && x && y && fdf)
 	{
 	}
+	if (button == 1 && fdf->view->mouse_translate == 1)
+		fdf->view->mouse_translate = 0;
 	return (0);
-}
-
-void	zoom(t_dot **dot, t_fdf **fdf)
-{
-	float	s;
-
-	s = (*fdf)->view->scale;
-	(*dot)->Xi *= s;
-	(*dot)->Yi *= s;
-	(*dot)->Xf *= s;
-	(*dot)->Yf *= s;
 }
