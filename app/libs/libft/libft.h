@@ -22,6 +22,12 @@
 // 3. open
 # include <fcntl.h>
 
+// 4. pow
+# include <math.h>
+
+// 5. ft_printf and ft_printf_to_var
+# include "ft_printf/ft_printf.h"
+
 /*############################################################### 
 #																#
 #																#
@@ -34,9 +40,17 @@ char	**ft_split(char *s, char c);
 
 void	ft_free_gnl(char **line, int fd);
 
-void    ft_free_matrix(void ***matrix, int width);
+void	ft_free_matrix(void ***matrix, int width);
+
+void	ft_free_matrix_char(char **matrix, int width);
 
 int		ft_indexof(const char *str, int ch);
+
+int		*ft_hexatoi(char *hexa);
+
+void	ft_print_matrix(int **matrix, int width, int height);
+
+void	ft_set_matrix(int **matrix, int width, int height, int ch);
 
 /*############################################################### 
 #																#
@@ -45,9 +59,6 @@ int		ft_indexof(const char *str, int ch);
 #																#
 #																#
 ###############################################################*/
-
-// ft_printf and ft_printf_to_var
-# include "ft_printf/ft_printf.h"
 
 // FD that ft_putstr_fd will use to show the ft_printf response
 # define FD 1

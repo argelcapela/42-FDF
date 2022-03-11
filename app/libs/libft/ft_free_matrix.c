@@ -12,9 +12,23 @@
 
 #include	"libft.h"
 
-void    ft_free_matrix(void ***matrix, int width)
+void	ft_free_matrix(void ***matrix, int width)
 {
-     while ((width - 1) >= 0)
-	 	ft_free_ptr((void *) &(*matrix)[--width]);
-	ft_free_ptr((void *) (*matrix));
+	while ((width - 1) >= 0)
+		ft_free_ptr((void *) &(*matrix)[--width]);
+	ft_free_ptr((void *)(*matrix));
+}
+
+void	ft_free_array_char(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[++i])
+	{
+		free (array[i]);
+		i++;
+	}
+	free(array);
+	array = NULL;
 }

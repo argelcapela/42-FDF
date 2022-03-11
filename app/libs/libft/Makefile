@@ -86,7 +86,10 @@ SRCS +=		ft_printf/ft_printf.c \
 			ft_printf/vendor/translators/translate_to_pointer.c  \
 			ft_printf/vendor/translators/translate_to_hexadecimal.c 
 
-SRCS +=		ft_free_matrix.c 
+SRCS +=		ft_free_matrix.c \
+			ft_hexatoi.c \
+			ft_set_matrix.c \
+			ft_print_matrix.c 
 
 
 HEADER =	libft.h

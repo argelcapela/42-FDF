@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_matrix.c                                      :+:      :+:    :+:  */
+/*   10_draw_image.c                                     :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,23 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/fdf.h"
+#include "../../headers/fdf_bonus.h"
 
-void	print_matrix(int **matrix, int width, int height, char *map_path)
+void draw_image (t_image *image, t_fdf *fdf)
 {
-	int		x;
-	int		y;
-
-	x = -1;
-	y = -1;
-	ft_printf("\nYou loaded the map: %s\n\n", map_path);
-	while (++y < height)
-	{
-		while (++x < width)
-			ft_printf("%3d", matrix[x][y]);
-		x = -1;
-		ft_printf("\n");
-	}
-	ft_printf("\n");
-	ft_printf("The window with you map drawed will be opened soon... Enjoy it! XD!");
+    image->ptr = mlx_xpm_file_to_image(fdf->mlx_ptr, image->path, &image->width, &image->height);
 }

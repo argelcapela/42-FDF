@@ -12,32 +12,19 @@
 
 #include "../../headers/fdf_bonus.h"
 
-void align_center(t_dot *dot, t_fdf *fdf)
+void	align_center(t_dot *dot, t_fdf *fdf)
 {
-    float     x_center;
-    float     y_center;
-    
-    //fdf->map_width = (fdf->view->scale * fdf->map_width)  * cos(fdf->view->angle_z);
-    //exit(1);
-    
-    x_center = (fdf->window_width / 2)  - ((((fdf->view->scale * fdf->map_width) * cos(fdf->view->angle_z))  * cos(fdf->view->angle_x)) / 2);
-    y_center = (fdf->window_height / 2) - ((((fdf->view->scale * fdf->map_height) * cos(fdf->view->angle_z)) * cos(fdf->view->angle_y)) / 2);
+	float	x_center;
+	float	y_center;
+	float	width;
+	float	height;
 
-    printf("%lf\n", (fdf->view->scale * fdf->map_width) * cos(fdf->view->angle_z) - (fdf->view->scale * fdf->map_height) * cos(fdf->view->angle_z));
-
-   
-    dot->Xi += x_center;
-    dot->Xf += x_center;
-    dot->Yi += y_center;
-    dot->Yf += y_center;
-
-
-    // analise rotação z
-
-
+	width = ((fdf->view->scale * fdf->map_width) * cos(fdf->view->angle_y));
+	height = ((fdf->view->scale * fdf->map_height) * cos(fdf->view->angle_x));
+	x_center = ((fdf->window_width + 250) / 2) - (width / 2);
+	y_center = ((fdf->window_height) / 2) - (height / 2);
+	dot->Xi += x_center;
+	dot->Xf += x_center;
+	dot->Yi += y_center;
+	dot->Yf += y_center;
 }
-
-
-// x_center = (fdf->window_width / 2)  - (( ((fdf->view->scale * fdf->map_width) * cos(fdf->view->angle_y)) * sin(fdf->view->angle_z) ) / 2);
-//     y_center = (fdf->window_height / 2) - (( ((fdf->view->scale * fdf->map_height) * cos(fdf->view->angle_x)) * sin(fdf->view->angle_z) ) / 2);
-  

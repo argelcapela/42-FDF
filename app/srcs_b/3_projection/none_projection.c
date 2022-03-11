@@ -12,10 +12,9 @@
 
 #include "../../headers/fdf.h"
 
-void    none_projection(float *x, float *y, float *z)
+void	none_projection(float *x, float *y, float *z)
 {
-    if (x && y && z)
-    {
-        
-    }
+	if (x && y && z)
+	{
+	}
 }

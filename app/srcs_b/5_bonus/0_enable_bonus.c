@@ -12,17 +12,21 @@
 
 #include "../../headers/fdf_bonus.h"
 
-void    enable_bonus(t_dot **dot, t_fdf **fdf)
+void	enable_bonus(t_dot **dot, t_fdf **fdf)
 {
-    decide_pixel_color(*dot, *fdf);
-    zoom(dot, fdf);
-    translate(*dot, *fdf);
-    if ((*fdf)->view->free_rotation == 1)
-    {
-        rotate_y(*dot, *fdf);
-        rotate_x(*dot, *fdf);
-        rotate_z(*dot, *fdf);
-    }
-    align_center(*dot, *fdf);
-
+	decide_pixel_color(*dot, *fdf);
+	zoom(dot, fdf);
+	if ((*fdf)->view->isometric == 1)
+	{
+		isometric(&(*dot)->Xi, &(*dot)->Yi, &(*dot)->Zi);
+		isometric(&(*dot)->Xf, &(*dot)->Yf, &(*dot)->Zf);
+	}
+	else if((*fdf)->view->free_rotation == 1)
+	{
+		rotate_y(*dot, *fdf);
+		rotate_x(*dot, *fdf);
+		rotate_z(*dot, *fdf);
+	}
+	translate(*dot, *fdf);
+	align_center(*dot, *fdf);
 }

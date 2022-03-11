@@ -55,9 +55,7 @@ int		**malloc_matrix(int width, int height);
 
 char	**malloc_char_matrix(int width, int height);
 
-int		**fill_matrix(int width, int height, int fd, int x);
-
-void	print_matrix(int **matrix, int width, int height, char *map_path);
+int		**fill_matrix(int width, int height, t_fdf *fdf, int x);
 
 /*###################################################
 #													#
@@ -137,6 +135,18 @@ void    change_color(t_fdf *fdf);
 void    change_map(char **argv, t_fdf **fdf);
 
 void    hint_box( t_fdf **fdf);
+
+/*###################################################
+#													#
+#	 6_free 		                          		#
+#													#
+###################################################*/
+
+void 	free_mlx(t_fdf *fdf);
+
+void	free_fdf(t_fdf *fdf);
+
+void	free_array_char(t_fdf *fdf);
 
 #endif
 

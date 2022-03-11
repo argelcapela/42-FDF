@@ -12,57 +12,48 @@
 
 #include "../../headers/fdf_bonus.h"
 
-void rotate_xyz_with_mouse (t_dot *dot, t_fdf *fdf)
+void	rotate_xyz_with_mouse(t_dot *dot, t_fdf *fdf)
 {
-    if (dot && fdf)
-    {
-        
-    }
+	if (dot && fdf)
+	{
+	}
 }
 
-void rotate_x(t_dot *dot, t_fdf *fdf)
+void	rotate_x(t_dot *dot, t_fdf *fdf)
 {
-    float *Yi = &dot->Yi;
-    float *Zi = &dot->Zi;
-    float *Yf = &dot->Yf;
-    float *Zf = &dot->Zf;
-    float *ax = &fdf->view->angle_x;
-    
-    *Yi = cos(*ax) * (*Yi) - sin(*ax) * (*Zi);
-    *Zi = sin(*ax) * (*Yi) + cos(*ax) * (*Zi);
-    *Yf = cos(*ax) * (*Yf) - sin(*ax) * (*Zf);
-    *Zf = sin(*ax) * (*Yf) + cos(*ax) * (*Zf);
+	float	*ax;
+
+	ax = &fdf->view->angle_x;
+	dot->Yi = cos(*ax) * (dot->Yi) - sin(*ax) * (dot->Zi);
+	dot->Zi = sin(*ax) * (dot->Yi) + cos(*ax) * (dot->Zi);
+	dot->Yf = cos(*ax) * (dot->Yf) - sin(*ax) * (dot->Zf);
+	dot->Zf = sin(*ax) * (dot->Yf) + cos(*ax) * (dot->Zf);
 }
 
-void rotate_y(t_dot *dot, t_fdf *fdf)
+void	rotate_y(t_dot *dot, t_fdf *fdf)
 {
-    float *Xi = &dot->Xi;
-    float *Zi = &dot->Zi;
-    float *Xf = &dot->Xf;
-    float *Zf = &dot->Zf;
-    float *ax = &fdf->view->angle_y;
+	float	*ax;
 
-    *Xi = cos(*ax)   * (*Xi) + sin(*ax) * (*Zi);
-    *Xf = cos(*ax)   * (*Xf) + sin(*ax) * (*Zf);
-    *Zi = sin(*ax)   * -(*Xi) + cos(*ax) * (*Zi);
-    *Zf = sin(*ax)   * -(*Xf) + cos(*ax) * (*Zf);
+	ax = &fdf->view->angle_y;
+	dot->Xi = cos(*ax) * (dot->Xi) + sin(*ax) * (dot->Zi);
+	dot->Xf = cos(*ax) * (dot->Xf) + sin(*ax) * (dot->Zf);
+	dot->Zi = sin(*ax) * -(dot->Xi) + cos(*ax) * (dot->Zi);
+	dot->Zf = sin(*ax) * -(dot->Xf) + cos(*ax) * (dot->Zf);
 }
 
-void rotate_z(t_dot *dot, t_fdf *fdf)
+void	rotate_z(t_dot *dot, t_fdf *fdf)
 {
-    float *Xi = &dot->Xi;
-    float *Yi = &dot->Yi;
-    float *Xf = &dot->Xf;
-    float *Yf = &dot->Yf;
-    float *ax = &fdf->view->angle_z;
+	float		*ax;
+	t_dot		*tmp_dot;
 
-    float tmp_xi = *Xi;
-    float tmp_xf = *Xf;
-    float tmp_yi = *Yi;
-    float tmp_yf = *Yf;
-
-    *Xi = cos(*ax) * (tmp_xi) - sin(*ax) * (tmp_yi);
-    *Yi = sin(*ax) * (tmp_xi) + cos(*ax) * (tmp_yi); 
-    *Xf = cos(*ax) * (tmp_xf) - sin(*ax) * (tmp_yf);
-    *Yf = sin(*ax) * (tmp_xf) + cos(*ax) * (tmp_yf);
+	tmp_dot = (t_dot *) malloc(sizeof(t_dot));
+	ax = &fdf->view->angle_z;
+	tmp_dot->Xi = dot->Xi;
+	tmp_dot->Xf = dot->Xf;
+	tmp_dot->Yi = dot->Yi;
+	tmp_dot->Yf = dot->Yf;
+	dot->Xi = cos(*ax) * (tmp_dot->Xi) - sin(*ax) * (tmp_dot->Yi);
+	dot->Yi = sin(*ax) * (tmp_dot->Xi) + cos(*ax) * (tmp_dot->Yi);
+	dot->Xf = cos(*ax) * (tmp_dot->Xf) - sin(*ax) * (tmp_dot->Yf);
+	dot->Yf = sin(*ax) * (tmp_dot->Xf) + cos(*ax) * (tmp_dot->Yf);
 }

@@ -12,9 +12,9 @@
 
 #include "../../headers/fdf.h"
 
-void    conic(float *x, float *y, float *z)
+void	conic(float *x, float *y, float *z)
 {
-        *x = (*x -  *y) * cos(0.8);
-        *y = (*x +  *y) * sin(0.8) -  *z;
+	if (x && y && z)
+	{
+	}
 }
-

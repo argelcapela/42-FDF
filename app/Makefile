@@ -29,11 +29,11 @@ SRCS =          srcs/1_read_map/0_read_map.c \
 				srcs/1_read_map/4_get_height.c \
 				srcs/1_read_map/5_malloc_matrix.c \
 				srcs/1_read_map/6_fill_matrix.c \
-				srcs/1_read_map/7_print_matrix.c  \
 				srcs/2_draw_map/1_decide_pixel_color.c \
 				srcs/2_draw_map/2_draw_pixel_in_image.c \
 				srcs/2_draw_map/4_draw_wireframe.c \
-				srcs/3_projection/isometric.c 
+				srcs/3_projection/isometric.c  \
+				srcs/6_utils/free.c 
 
 SRCS_B =        srcs_b/fdf.c \
 				srcs_b/1_read_map/2_init_structs.c \
@@ -41,6 +41,7 @@ SRCS_B =        srcs_b/fdf.c \
 				srcs_b/2_draw_map/5_fill_wireframe.c \
 				srcs_b/2_draw_map/6_align_center.c \
 				srcs_b/2_draw_map/8_render.c \
+				srcs_b/2_draw_map/9_draw_rectangle.c \
 				srcs_b/3_projection/conic.c \
 				srcs_b/3_projection/none_projection.c  \
 				srcs_b/4_hook/1_on_release_key.c \
@@ -53,7 +54,7 @@ SRCS_B =        srcs_b/fdf.c \
 				srcs_b/5_bonus/3_rotate.c \
 				srcs_b/5_bonus/4_change_color.c \
 				srcs_b/5_bonus/5_change_map.c \
-				srcs_b/5_bonus/6_hint_box.c  
+				srcs_b/5_bonus/6_hint_box.c  \
 
 OBJS =          $(SRCS:.c=.o) \
 				$(JM_SRCS:.c=.o)
@@ -61,7 +62,7 @@ OBJS =          $(SRCS:.c=.o) \
 OBJS_B =		$(SRCS:.c=.o) \
 				$(SRCS_B:.c=.o)
 
-CC =            gcc 
+CC =            gcc -ggdb3
 
 CFLAGS =		-Wall -Wextra -Werror
 
@@ -129,6 +130,10 @@ run:
 run_b:
 				$(MAKE) bonus					
 				./fdf maps/42.fdf
+
+leak:
+				$(MAKE)							
+				$(VAL) ./fdf maps/42.fdf 2> leak.txt && cat leak.txt | more
 
 leak_b:
 				$(MAKE) bonus							

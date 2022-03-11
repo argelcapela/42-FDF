@@ -62,10 +62,12 @@
 ###################################################*/
 
 # define AC_GREEN1              0x18d26e    
+# define AC_GREEN2              0x3a9e3e    
 # define WHITE                  0xffffff
 # define RED                    0xff0000
 # define GREEN                  0x00ff00
 # define BLUE                   0x0000ff
+# define BLACK                  0x000000
 
 /*###################################################
 #													#

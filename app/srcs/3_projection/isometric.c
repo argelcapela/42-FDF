@@ -12,9 +12,8 @@
 
 #include "../../headers/fdf.h"
 
-void    isometric(float *x, float *y, float *z)
+void	isometric(float *x, float *y, float *z)
 {
-        *x = (*x -  *y) * cos(0.8);
-        *y = (*x +  *y) * sin(0.8) -  *z;
+	*x = (*x - *y) * cos(0.8);
+	*y = (*x + *y) * sin(0.8) - *z;
 }
-

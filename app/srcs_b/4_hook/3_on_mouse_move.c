@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/fdf.h"
+#include "../../headers/fdf_bonus.h"
 
-int	on_mouse_move(t_fdf *fdf)
+int	on_mouse_move(int button, int x, int y, t_fdf *fdf)
 {
+	ft_printf("%d %d %d", button, x, y);
 	if (fdf)
-	{
-		
+	{	
 	}
 	return (0);
 }

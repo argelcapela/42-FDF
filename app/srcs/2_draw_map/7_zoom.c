@@ -12,13 +12,13 @@
 
 #include "../../headers/fdf.h"
 
-void zoom(t_dot **dot, t_fdf **fdf)
+void	zoom(t_dot **dot, t_fdf **fdf)
 {
-    float s;
-    
-    s = (*fdf)->view->scale;
-    (*dot)->Xi *= s;
-    (*dot)->Yi *= s;
-    (*dot)->Xf *= s;
-    (*dot)->Yf *= s;
+	float	s;
+
+	s = (*fdf)->view->scale;
+	(*dot)->Xi *= s;
+	(*dot)->Yi *= s;
+	(*dot)->Xf *= s;
+	(*dot)->Yf *= s;
 }

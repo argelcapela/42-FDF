@@ -25,9 +25,9 @@ char	*ft_strchr(const char *str, int ch)
 	return (NULL);
 }
 
-int		ft_indexof(const char *str, int ch)
+int	ft_indexof(const char *str, int ch)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*str)

@@ -58,9 +58,13 @@ int		**malloc_matrix(int width, int height);
 
 char	**malloc_char_matrix(int width, int height);
 
+char	**malloc_char_array(int size);
+
 int		**fill_matrix(int width, int height, int fd, int x);
 
 void	print_matrix(int **matrix, int width, int height, char *map_path);
+
+void    ft_free_array_char(char **array);
 
 /*###################################################
 #													#
@@ -84,6 +88,10 @@ void 	render(t_fdf **fdf);
 
 int		rerender(t_fdf *fdf);
 
+void	draw_rectangle (t_rectangle *rect, t_fdf *fdf);
+
+void	draw_image (t_image *image, t_fdf *fdf);
+
 /*###################################################
 #													#
 #	 3_projection		                    	    #
@@ -105,9 +113,9 @@ void    none_projection(float *x, float *y, float *z);
 
 int		on_release_key(int key, t_fdf *fdf);
 
-int		on_mouse_down(t_fdf *fdf);
+int		on_mouse_down(int button, int x, int y, t_fdf *fdf);
 
-int		on_mouse_move(t_fdf *fdf);
+int		on_mouse_move(int button, int x, int y, t_fdf *fdf);
 
 int		on_destroy(t_fdf *fdf);
 
@@ -121,7 +129,7 @@ void    enable_bonus(t_dot **dot, t_fdf **fdf);
 
 void    zoom(t_dot **dot, t_fdf **fdf);
 
-void    zoom_on_mouse_scroll (int key, t_fdf **fdf);
+int		zoom_on_mouse_scroll(int button, int x, int y, t_fdf *fdf);
 
 void    translate(t_dot *dot, t_fdf *fdf);
 
@@ -140,6 +148,18 @@ void    change_color(t_fdf *fdf);
 void    change_map(char **argv, t_fdf *fdf);
 
 void    hint_box( t_fdf **fdf);
+
+/*###################################################
+#													#
+#	 6_free 		                          		#
+#													#
+###################################################*/
+
+void 	free_mlx(t_fdf *fdf);
+
+void	free_fdf(t_fdf *fdf);
+
+void	free_array_char(t_fdf *fdf);
 
 #endif
 

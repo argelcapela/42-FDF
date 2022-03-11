@@ -14,20 +14,28 @@
 # define STRUCTS_H
 
 // "It represents the image that we generate on screen."
+typedef struct s_image
+{
+	float	x;
+	float	y;
+	int		width;
+	int		height;
+	char	*path;
+	void	*ptr;
+}			t_image;
+
+// "It represents the image that we generate on screen."
 typedef struct s_img
 {
 	int		pixel_bits;
 	int		line_bytes;
 	int		endian;
 	char	*buffer;
-		
 }			t_img;
 
 // "It represents each pixel we draw inside the image."
 typedef struct s_dot
 {
-	// int		printing_horizontal_lines;
-	// int		printing_vertical_lines;
 	float	Xi;
 	float	Yi;
 	float	Xf;
@@ -37,12 +45,23 @@ typedef struct s_dot
 	int		color;
 }			t_dot;
 
+// "It represents each pixel we draw inside the image."
+typedef struct s_rectangle
+{
+	float	x;
+	float	y;
+	float	width;
+	float	height;
+	int		color;
+}			t_rectangle;
+
 // "It controls the visualization of the map on the screen."
 typedef struct s_view
 {
 	int		new_color1;
 	int		new_color2;
 	int		changing_color;
+	int		**color_matrix;
 	int		color;
 	float	move_x;
 	float	move_y;
@@ -61,6 +80,7 @@ typedef struct s_view
 typedef struct s_fdf
 {
 	int		hint_box;
+	char	**hb_msgs;
 	void	*ptr_img;
 	t_img	*img;
 	int     amount_of_maps;
@@ -75,6 +95,8 @@ typedef struct s_fdf
 	int		**matrix;
 	void 	*mlx_ptr;
 	void	*win_ptr;
+	int		map_fd;
+	int		f_alloc;
 	t_view	*view;
 }	        t_fdf;
 

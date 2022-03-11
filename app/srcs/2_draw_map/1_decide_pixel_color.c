@@ -12,10 +12,22 @@
 
 #include "../../headers/fdf.h"
 
-void decide_pixel_color(t_dot *dot, t_fdf *fdf)
+void	decide_pixel_color(t_dot *dot, t_fdf *fdf)
 {
-    if (fdf->view->changing_color == 0)
-        fdf->view->color = (dot->Zi || dot->Zf) ? AC_GREEN1 : 0xffffff;
-    else if (fdf->view->changing_color == 1)
-        fdf->view->color = (dot->Zi || dot->Zf) ? fdf->view->new_color1 : 0xffffff;
+	int	color;
+
+	if (fdf->view->changing_color == 0)
+		color = AC_GREEN1;
+	else if (fdf->view->changing_color == 1)
+		color = fdf->view->new_color1;
+	if (dot->Zi != 0 || dot->Zf != 0)
+	{
+		if (fdf->view->color_matrix[(int)dot->Xi][(int)dot->Yi] != 0)
+			fdf->view->color = fdf->view->color_matrix
+			[(int)dot->Xi][(int)dot->Yi];
+		else if (fdf->view->color_matrix[(int)dot->Xi][(int)dot->Yi] == 0)
+			fdf->view->color = color;
+	}
+	else
+		fdf->view->color = 0xffffff;
 }

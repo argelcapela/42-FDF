@@ -12,10 +12,10 @@
 
 #include "../../headers/fdf.h"
 
-static void exit_program(int key, t_fdf **fdf)
+static void	exit_program(int key, t_fdf **fdf)
 {
-    if (key == KEY_ESC)
-        mlx_loop_end((*fdf)->mlx_ptr);
+	if (key == KEY_ESC)
+		mlx_loop_end((*fdf)->mlx_ptr);
 }
 
 int	on_release_key(int key, t_fdf *fdf)

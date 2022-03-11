@@ -12,19 +12,17 @@
 
 #include "../../headers/fdf.h"
 
-void    translate_on_left_mouse_down_move (t_dot **dot, t_fdf **fdf)
+void	translate_on_left_mouse_down_move(t_dot **dot, t_fdf **fdf)
 {
-    if (dot && fdf)
-    {
-
-    }
-    
+	if (dot && fdf)
+	{
+	}
 }
 
-void    translate(t_dot *dot, t_fdf *fdf)
+void	translate(t_dot *dot, t_fdf *fdf)
 {
-    dot->Xi += fdf->view->move_x;
-    dot->Yi += fdf->view->move_y;
-    dot->Xf += fdf->view->move_x;
-    dot->Yf += fdf->view->move_y;
+	dot->Xi += fdf->view->move_x;
+	dot->Yi += fdf->view->move_y;
+	dot->Xf += fdf->view->move_x;
+	dot->Yf += fdf->view->move_y;
 }

@@ -12,10 +12,9 @@
 
 #include "../../headers/fdf.h"
 
-void 	fill_wireframe(t_fdf *fdf)
+void	fill_wireframe(t_fdf *fdf)
 {
-    if (fdf)
-    {
-        
-    }
+	if (fdf)
+	{
+	}
 }

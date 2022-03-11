@@ -12,30 +12,43 @@
 
 #include "../../headers/fdf_bonus.h"
 
-void    change_map(char **argv, t_fdf *fdf)
+static void	get_amount_of_maps_and_map_paths(t_fdf *fdf)
 {
-	int *amount_of_maps;
+	int		y;
+	int		*amount;
+	FILE	*count;
+	FILE	*ls;
 
-	amount_of_maps = (int *) malloc(sizeof(int)); 
-	FILE *count = popen("ls ./maps | wc -l", "r");
-	fscanf(count, "%d", amount_of_maps);
-	char **all_maps_path = malloc_char_matrix(*amount_of_maps, 15);
-	FILE *ls = popen("ls ./maps", "r");
-	int y = 0;
-	while (fscanf(ls, "%s", all_maps_path[y]) == 1 && y < *amount_of_maps)
-		y++;
-	fdf->amount_of_maps = *amount_of_maps;
+	amount = malloc(sizeof(int *));
+	count = popen("ls ./maps | wc -l", "r");
+	ls = popen("ls ./maps", "r");
+	y = -1;
+	fscanf(count, "%d", amount);
+	fdf->amount_of_maps = *amount;
+	fdf->all_maps_path = malloc_char_matrix(*amount, 15);
+	while (++y < *amount)
+		fscanf(ls, "%s", fdf->all_maps_path[y]);
+	pclose(ls);
+	pclose(count);
+	ft_free_ptr((void *) &amount);
+}
+
+void	change_map(char **argv, t_fdf *fdf)
+{
+	int		i;
+	int		len;
+
+	get_amount_of_maps_and_map_paths(fdf);
 	fdf->c_map_path = ft_printf_to_var("%s", argv[1]);
 	fdf->c_map_name = ft_substr(fdf->c_map_path, 5, ft_strlen(fdf->c_map_path));
-	fdf->all_maps_path = all_maps_path;
-	int	 i = 0;
-	while (i < *amount_of_maps)
+	i = -1;
+	while (++i < fdf->amount_of_maps)
 	{
-		if (ft_strncmp(fdf->all_maps_path[i], fdf->c_map_name, ft_strlen(fdf->all_maps_path[i])) == 0)
+		len = ft_strlen(fdf->all_maps_path[i]);
+		if (ft_strncmp(fdf->all_maps_path[i], fdf->c_map_name, len) == 0)
 		{
 			fdf->c_map = i;
-			break;
+			break ;
 		}
-		i++;
 	}
 }
