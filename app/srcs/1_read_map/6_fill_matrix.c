@@ -23,31 +23,44 @@
 
 ---------------------------------------------------*/
 
-// int	get_map_color(int x, int y, char *cel, t_fdf *fdf)
-// {
-// 	char	*hexa_color;
-// 	int		*hexa_converted_int;
-// 	char	*deepness;
+int	get_map_color(int x, int y, char *cel, t_fdf *fdf)
+{
+	int		n;
+	char	*h;
+	int		*h_int;
+	char	*tmp_cel;
+	int		len;
 
-// 	if (ft_strchr(cel, 'x') || ft_strchr(cel, 'X'))
-// 	{
-// 		if (ft_strchr(cel, 'x'))
-// 		{
-// 			hexa_color = ft_substr(cel, ft_indexof(cel, 'x'), ft_strlen(cel));
-// 			deepness = ft_substr(cel, 0, ft_indexof(cel, 'x') - 1);
-// 		}
-// 		else if (ft_strchr(cel, 'X'))
-// 		{
-// 			hexa_color = ft_substr(cel, ft_indexof(cel, 'X'), ft_strlen(cel));
-// 			deepness = ft_substr(cel, 0, ft_indexof(cel, 'X') - 1);
-// 		}
-// 		hexa_converted_int = ft_hexatoi(hexa_color);
-// 		fdf->view->color_matrix[x][y] = *hexa_converted_int;
-// 		ft_free_ptr((void *) &hexa_converted_int);
-// 		return (ft_atoi(deepness));
-// 	}
-// 	return (ft_atoi(cel));
-// }
+	tmp_cel = cel;
+	h_int = NULL;
+	while (*cel++)
+		*cel = ft_toupper(*cel);
+	cel = tmp_cel;
+	if (ft_strchr(cel, 'X'))
+	{
+		h = ft_substr(cel, ft_indexof(cel, ',') + 4, ft_strlen(cel));
+		if (ft_strchr(h, '\n'))
+		{
+			h = ft_str_replace(h, ft_chr_to_str('\n', 1), ft_strdup("X"));
+			h = ft_substr(h, 0, ft_indexof(cel, 'X'));
+		}
+		n = ft_atoi(ft_substr(cel, 0, ft_indexof(cel, ',')));
+		len = ft_strlen(h);
+		if (len != 6)
+		{
+		 	tmp_cel = ft_str_merge(h, ft_chr_to_str('0', 6 - len));
+		 	h = tmp_cel;
+		}
+		if (ft_strlen(h) == 6)
+			h_int = ft_hexatoi(h);
+		else
+			h_int = 0;
+		fdf->view->color_matrix[x][y] = *h_int;
+	}
+	else
+		n = ft_atoi(cel);
+	return (n);
+}
 
 int	**fill_matrix(int width, int height, t_fdf *fdf, int x)
 {
@@ -64,8 +77,8 @@ int	**fill_matrix(int width, int height, t_fdf *fdf, int x)
 		split = ft_split(line, ' ');
 		while (++x < width)
 		{
-			matrix[x][y] = ft_atoi(split[x]);
-			//get_map_color(x, y, split[x], fdf);
+			matrix[x][y] = get_map_color(x, y, split[x], fdf);
+			//ft_atoi(split[x]);
 			ft_free_ptr((void *) &split[x]);
 		}
 		x = -1;

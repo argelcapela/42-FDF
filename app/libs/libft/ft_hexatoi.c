@@ -34,7 +34,10 @@ static void	convert_base(int len, char *hexa, int **integer)
 	sum = 0;
 	while (--len >= 0)
 	{
-		n = extract_number(hexa[len]);
+		if (hexa[len])
+			n = extract_number(hexa[len]);
+		else
+			n = 0;
 		sum += n * (pow(16, exp));
 		exp++;
 	}
@@ -44,12 +47,10 @@ static void	convert_base(int len, char *hexa, int **integer)
 int	*ft_hexatoi(char *hexa)
 {
 	int		*integer;
-	int		len;
 
-	len = ft_strlen(hexa);
 	integer = (int *) malloc(sizeof(int));
 	if (integer == NULL)
 		return (0);
-	convert_base(len - 2, ft_substr(hexa, 2, len), &integer);
+	convert_base(6, hexa, &integer);
 	return (integer);
 }

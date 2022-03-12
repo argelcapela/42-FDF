@@ -13,7 +13,7 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-// "It represents the image that we generate on screen."
+// "It represents a image file (png, jpg etc) converted to xpm, to be drawed on screen."
 typedef struct s_image
 {
 	float	x;
@@ -45,7 +45,7 @@ typedef struct s_dot
 	int		color;
 }			t_dot;
 
-// "It represents each pixel we draw inside the image."
+// "It represents a rectangle to be drawed."
 typedef struct s_rectangle
 {
 	float	x;
