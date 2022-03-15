@@ -14,23 +14,9 @@
 
 int	on_mouse_down(int button, int x, int y, t_fdf *fdf)
 {
-	float map_width;
-	float map_height;
-
-	if (x && y)
+	if (x && y && button)
 	{
-		map_width = ((fdf->view->scale * fdf->map_width) * cos(fdf->view->angle_y));
-		map_height = ((fdf->view->scale * fdf->map_height) * cos(fdf->view->angle_x));
-		if (button == 1 && (x >= (int)fdf->view->x_origin && x <= ((int)fdf->view->x_origin + map_width)) 
-			&& (y >= (int)fdf->view->y_origin && y <= ((int)fdf->view->y_origin + map_height)))
-		{
-			if (fdf->view->mouse_translate == 0)
-				fdf->view->mouse_translate = 1;
-			else if (fdf->view->mouse_translate == 1)
-				fdf->view->mouse_translate = 0;
-			rerender(fdf);
-		}
-		else if (button == 4 || button == 5)
+		if (button == 4 || button == 5)
 		{
 			if (button == 4)
 				fdf->view->scale += 5;

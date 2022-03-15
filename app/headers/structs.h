@@ -58,6 +58,8 @@ typedef struct s_rectangle
 // "It controls the visualization of the map on the screen."
 typedef struct s_view
 {
+	float	mouse_x_on_click;
+	float	mouse_y_on_click;
 	float	x_origin;
 	float	y_origin;
 	int		mouse_x;
@@ -87,8 +89,10 @@ typedef struct s_fdf
 {
 	int		hint_box;
 	char	**hb_msgs;
+	int		hb_width;
 	void	*ptr_img;
 	t_img	*img;
+	int		changing_map;
 	int     amount_of_maps;
 	int		c_map;
 	char	*c_map_path;

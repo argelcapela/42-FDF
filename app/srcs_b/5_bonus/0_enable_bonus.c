@@ -21,7 +21,7 @@ void	enable_bonus(t_dot **dot, t_fdf **fdf)
 		isometric(&(*dot)->Xi, &(*dot)->Yi, &(*dot)->Zi);
 		isometric(&(*dot)->Xf, &(*dot)->Yf, &(*dot)->Zf);
 	}
-	else if((*fdf)->view->free_rotation == 1)
+	else if ((*fdf)->view->free_rotation == 1)
 	{
 		rotate_y(*dot, *fdf);
 		rotate_x(*dot, *fdf);

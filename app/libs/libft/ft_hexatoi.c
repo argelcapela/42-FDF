@@ -21,6 +21,7 @@ static int	extract_number(char hexa_letter)
 	n = 0;
 	while (l_base_16[n] != ft_toupper(hexa_letter))
 		n++;
+	ft_free_ptr((void *) &l_base_16);
 	return (n);
 }
 

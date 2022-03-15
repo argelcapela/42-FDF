@@ -15,7 +15,7 @@
 static void	print_header_footer(t_fdf *fdf)
 {
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
-		50, 173, WHITE, "'Fil de Fer / Wireframe'");	
+		50, 173, WHITE, "'Fil de Fer / Wireframe'");
 }
 
 static void	print_msgs_1(t_fdf *fdf)
@@ -54,7 +54,7 @@ static void	print_msgs_2(t_fdf *fdf)
 		("Beta/Y: %d deg", fdf->view->angle_y);
 	fdf->hb_msgs[2] = ft_printf_to_var
 		("Gamma/Z: %d deg", fdf->view->angle_z);
-	fdf->hb_msgs[3] = ft_printf_to_var("[%d/%d] - %s", fdf->c_map,
+	fdf->hb_msgs[3] = ft_printf_to_var("[%d/%d] - %s", fdf->c_map + 1,
 			fdf->amount_of_maps, fdf->all_maps_path[fdf->c_map]);
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr,
 		10, 520, GREEN, "Monitor:");
@@ -86,4 +86,5 @@ void	hint_box(t_fdf **fdf)
 	print_msgs_1((*fdf));
 	print_msgs_2((*fdf));
 	free_array_char((*fdf));
+	ft_free_ptr((void *) &(*fdf)->c_map_path);
 }

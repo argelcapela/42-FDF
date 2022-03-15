@@ -12,7 +12,8 @@
 
 #include "../../headers/fdf_bonus.h"
 
-void draw_image (t_image *image, t_fdf *fdf)
+void	draw_image(t_image *image, t_fdf *fdf)
 {
-    image->ptr = mlx_xpm_file_to_image(fdf->mlx_ptr, image->path, &image->width, &image->height);
+	image->ptr = mlx_xpm_file_to_image(fdf->mlx_ptr,
+			image->path, &image->width, &image->height);
 }

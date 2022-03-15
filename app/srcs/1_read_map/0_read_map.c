@@ -36,4 +36,5 @@ void	read_map(t_fdf **fdf)
 			(*fdf)->map_height, *fdf, -1);
 	close(fd);
 	(*fdf)->map_width = tmp;
+	(*fdf)->changing_map = 0;
 }

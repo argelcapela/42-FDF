@@ -12,13 +12,6 @@
 
 #include "../../headers/fdf_bonus.h"
 
-void	rotate_xyz_with_mouse(t_dot *dot, t_fdf *fdf)
-{
-	if (dot && fdf)
-	{
-	}
-}
-
 void	rotate_x(t_dot *dot, t_fdf *fdf)
 {
 	float	*ax;
@@ -43,6 +36,7 @@ void	rotate_y(t_dot *dot, t_fdf *fdf)
 
 void	rotate_z(t_dot *dot, t_fdf *fdf)
 {
+	float		ap[3];
 	float		*ax;
 	t_dot		*tmp_dot;
 
@@ -52,8 +46,19 @@ void	rotate_z(t_dot *dot, t_fdf *fdf)
 	tmp_dot->Xf = dot->Xf;
 	tmp_dot->Yi = dot->Yi;
 	tmp_dot->Yf = dot->Yf;
+	ap[0] = (fdf->map_width * fdf->view->scale) / 2;
+	ap[1] = (fdf->map_height * fdf->view->scale) / 2;
+	tmp_dot->Xi -= ap[0];
+	tmp_dot->Xf -= ap[0];
+	tmp_dot->Yi -= ap[1];
+	tmp_dot->Yf -= ap[1];
 	dot->Xi = cos(*ax) * (tmp_dot->Xi) - sin(*ax) * (tmp_dot->Yi);
 	dot->Yi = sin(*ax) * (tmp_dot->Xi) + cos(*ax) * (tmp_dot->Yi);
 	dot->Xf = cos(*ax) * (tmp_dot->Xf) - sin(*ax) * (tmp_dot->Yf);
 	dot->Yf = sin(*ax) * (tmp_dot->Xf) + cos(*ax) * (tmp_dot->Yf);
+	dot->Xi += ap[0];
+	dot->Xf += ap[0];
+	dot->Yi += ap[1];
+	dot->Yf += ap[1];
+	ft_free_ptr((void *) &tmp_dot);
 }

@@ -12,13 +12,6 @@
 
 #include "../../headers/fdf.h"
 
-void	translate_on_left_mouse_down_move(t_dot **dot, t_fdf **fdf)
-{
-	if (dot && fdf)
-	{
-	}
-}
-
 void	translate(t_dot *dot, t_fdf *fdf)
 {
 	dot->Xi += fdf->view->move_x;

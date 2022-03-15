@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shoot_events_when_press_keys.c                     :+:      :+:    :+:  */
+/*   1_on_release_key.c				                     :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -54,10 +54,18 @@ static void	change_color_map_and_hint_box_keys(int key, t_fdf **fdf)
 {
 	if (key == KEY_C)
 		change_color(*fdf);
-	if (key == KEY_LESS && (*fdf)->c_map > 1)
+	if (key == KEY_LESS && (*fdf)->c_map > 0)
+	{
+		(*fdf)->changing_map = 1;
 		(*fdf)->c_map -= 1;
+		set_initial_scale((*fdf)->c_map, fdf);
+	}
 	else if (key == KEY_BIGGER && (*fdf)->c_map < (*fdf)->amount_of_maps - 1)
+	{
+		(*fdf)->changing_map = 1;
 		(*fdf)->c_map += 1;
+		set_initial_scale((*fdf)->c_map, fdf);
+	}
 	if (key == KEY_H && (*fdf)->hint_box == 1)
 		(*fdf)->hint_box = 0;
 	else if (key == KEY_H && (*fdf)->hint_box == 0)
@@ -81,7 +89,6 @@ static void	exit_program_and_change_projection_keys(int key, t_fdf **fdf)
 
 int	on_release_key(int key, t_fdf *fdf)
 {
-	//ft_printf("#%d#\n", key);
 	zoom_and_translate_keys(key, &fdf);
 	rotate_keys(key, &fdf);
 	change_color_map_and_hint_box_keys(key, &fdf);

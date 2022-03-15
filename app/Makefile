@@ -42,12 +42,8 @@ SRCS_B =        srcs_b/fdf.c \
 				srcs_b/2_draw_map/6_align_center.c \
 				srcs_b/2_draw_map/8_render.c \
 				srcs_b/2_draw_map/9_draw_rectangle.c \
-				srcs_b/3_projection/conic.c \
-				srcs_b/3_projection/none_projection.c  \
 				srcs_b/4_hook/1_on_release_key.c \
 				srcs_b/4_hook/2_on_mouse_down.c \
-				srcs_b/4_hook/3_on_mouse_up.c \
-				srcs_b/4_hook/4_on_mouse_move.c \
 				srcs_b/4_hook/5_on_destroy.c \
 				srcs_b/5_bonus/0_enable_bonus.c \
 				srcs_b/5_bonus/1_zoom.c \
@@ -82,6 +78,7 @@ AR =             ar -rcs
 
 # mandatory #
 all:			fdf
+				@echo "\nMANDATORY COMPILED SUCCESFULY!"
 				
 fdf: 			libft.a minilibx $(OBJS) headers/fdf.h
 				$(CC) $(CFLAGS) -o fdf $(OBJS) $(LIBFT.A) $(MLX.A) $(MLXFLAGS) $(MATHFLAGS)
@@ -91,7 +88,8 @@ fdf: 			libft.a minilibx $(OBJS) headers/fdf.h
 
 # bonus #
 bonus:			fdf_b
-				
+				@echo "\nBONUS COMPILED SUCCESFULY!"
+
 fdf_b: 			libft.a minilibx $(OBJS_B) headers/fdf.h
 				$(CC) $(CFLAGS) -o fdf $(OBJS_B) $(LIBFT.A) $(MLX.A) $(MLXFLAGS) $(MATHFLAGS)
 
@@ -107,22 +105,27 @@ minilibx:
 
 # utils #
 clean:
-				rm $(OBJS) 
-				@rm $(OBJS_B) 2> /dev/null || true
+				rm $(OBJS_B) $(OBJS)  leak.txt 
 
 fclean:			
-				rm fdf 
-				$(MAKE) clean 2> /dev/null || true
+				@$(MAKE) clean 2>/dev/null || true
+				@rm fdf clean 2>/dev/null || true
+				@make fclean -C libs/libft 2>/dev/null || true
+				@rm vgcore* *.txt 2>/dev/null || true
+				@echo "\nFCLEAN EXECUTED SUCCESFULY!"
 				
-
 re:				fclean all
 
 .PHONY:			clean fclean re
 
+#
+#	Tester 
+#
 
-#
-#	Tester
-#
+norm:
+				norminette libs/libft/
+				norminette srcs/
+				norminette srcs_b/
 
 VAL = 			valgrind --leak-check=full --show-leak-kinds=all
 

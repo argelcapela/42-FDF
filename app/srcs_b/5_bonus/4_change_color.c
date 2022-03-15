@@ -23,4 +23,5 @@ void	change_color(t_fdf *fdf)
 	rgb[2] = rand() % 254;
 	str = ft_printf_to_var("0x%x%x%x", rgb[0], rgb[1], rgb[2]);
 	sscanf(str, "%x", &fdf->view->new_color1);
+	ft_free_ptr((void *) &str);
 }

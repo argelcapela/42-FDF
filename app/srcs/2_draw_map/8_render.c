@@ -20,6 +20,7 @@ void	render(t_fdf **fdf)
 			&(*fdf)->img->pixel_bits, &(*fdf)->img->line_bytes,
 			&(*fdf)->img->endian);
 	read_map(fdf);
+	ft_free_ptr((void *)(*fdf)->c_map_path);
 	draw_wireframe(fdf);
 	mlx_put_image_to_window((*fdf)->mlx_ptr, (*fdf)->win_ptr,
 		(*fdf)->ptr_img, 0, 0);

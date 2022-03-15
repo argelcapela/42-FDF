@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9_draw_hint_box_bg.c                                :+:      :+:    :+:  */
+/*   9_draw_rectangle.c	                                 :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,19 @@
 
 #include "../../headers/fdf_bonus.h"
 
-void draw_rectangle (t_rectangle *rect, t_fdf *fdf)
+void	draw_rectangle(t_rectangle *rect, t_fdf *fdf)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    
-    y = -1;
-    while (++y <= rect->height)
-    {
-        x = -1;
-        while (++x <= rect->width)
-        {
-            draw_pixel_in_image(&fdf, x, y,
-			rect->color);
-        }
-    }
+	y = -1;
+	while (++y <= rect->height)
+	{
+		x = -1;
+		while (++x <= rect->width)
+		{
+			draw_pixel_in_image(&fdf, x, y,
+				rect->color);
+		}
+	}
 }

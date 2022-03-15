@@ -23,19 +23,22 @@ void	free_mlx(t_fdf *fdf)
 
 void	free_fdf(t_fdf *fdf)
 {
-	ft_free_ptr((void *) &fdf->hb_msgs);
-	if (fdf->all_maps_path)
+	if (fdf->all_maps_path != NULL)
 	{
-		ft_free_matrix((void ***) &fdf->all_maps_path, 22);
+		ft_free_matrix((void ***) &fdf->all_maps_path, fdf->amount_of_maps);
 		ft_free_ptr((void *) &fdf->all_maps_path);
 	}
+	if (fdf->view->color_matrix != NULL)
+	{
+		ft_free_matrix((void ***) &fdf->view->color_matrix, fdf->map_width);
+		ft_free_ptr((void *) &fdf->view->color_matrix);
+	}
+	ft_free_ptr((void *) &fdf->hb_msgs);
 	ft_free_ptr((void *) &fdf->c_map_name);
 	ft_free_ptr((void *) &fdf->c_map_path);
 	ft_free_ptr((void *) &fdf->img);
 	ft_free_matrix((void ***) &fdf->matrix, fdf->map_width);
 	ft_free_ptr((void *) &fdf->matrix);
-	ft_free_matrix((void ***) &fdf->view->color_matrix, fdf->map_width);
-	ft_free_ptr((void *) &fdf->view->color_matrix);
 	ft_free_ptr((void *) &fdf->view);
 	ft_free_ptr((void *) &fdf);
 }

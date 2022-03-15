@@ -50,6 +50,10 @@ void 	parse_map(int argc, char **argv);
 
 void    init_structs(t_fdf **fdf);
 
+void 	set_initial_scale(int index, t_fdf **fdf);
+
+void    init_img(t_fdf *fdf);
+
 int		get_width(char *path);
 
 int		get_height(char *path);
@@ -63,8 +67,6 @@ char	**malloc_char_array(int size);
 int		**fill_matrix(int width, int height, int fd, int x);
 
 void	print_matrix(int **matrix, int width, int height, char *map_path);
-
-void    ft_free_array_char(char **array);
 
 /*###################################################
 #													#
@@ -100,11 +102,6 @@ void	draw_image (t_image *image, t_fdf *fdf);
 
 void    isometric(float *x, float *y, float *z);
 
-// (bonus)
-void    conic(float *x, float *y, float *z);
-
-void    none_projection(float *x, float *y, float *z);
-
 /*###################################################
 #													#
 #	 4_hook (bonus)		                          	#
@@ -131,19 +128,13 @@ void    enable_bonus(t_dot **dot, t_fdf **fdf);
 
 void    zoom(t_dot **dot, t_fdf **fdf);
 
-int		zoom_on_mouse_scroll(int button, int x, int y, t_fdf *fdf);
-
 void    translate(t_dot *dot, t_fdf *fdf);
-
-void    translate_on_left_mouse_down_move (t_dot **dot, t_fdf **fdf);
 
 void    rotate_x(t_dot *dot, t_fdf *fdf);
 
 void    rotate_y(t_dot *dot, t_fdf *fdf);
 
 void    rotate_z(t_dot *dot, t_fdf *fdf);
-
-void 	rotate_xyz_on_right_mouse_down_move (t_dot **dot, t_fdf **fdf);
 
 void    change_color(t_fdf *fdf);
 
@@ -162,6 +153,8 @@ void 	free_mlx(t_fdf *fdf);
 void	free_fdf(t_fdf *fdf);
 
 void	free_array_char(t_fdf *fdf);
+
+void    ft_free_array_char(char **array);
 
 #endif
 

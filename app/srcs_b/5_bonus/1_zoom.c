@@ -12,12 +12,22 @@
 
 #include "../../headers/fdf_bonus.h"
 
-int	zoom_on_mouse_scroll(int button, int x, int y, t_fdf *fdf)
+void	set_initial_scale(int index, t_fdf **fdf)
 {
-	if (button && x && y && fdf)
-	{
-	}
-	return (0);
+	if ((index >= 1 && index <= 4) || (index >= 6 && index <= 9))
+		(*fdf)->view->scale = 20;
+	else if ((index >= 13 && index <= 18) || index == 5)
+		(*fdf)->view->scale = 15;
+	else if (index >= 10 && index <= 11)
+		(*fdf)->view->scale = 1;
+	else if (index == 0 || index == 12 || (index >= 18 && index <= 21))
+		(*fdf)->view->scale = 4;
+	(*fdf)->view->isometric = 0;
+	(*fdf)->view->angle_x = 0;
+	(*fdf)->view->angle_y = 0;
+	(*fdf)->view->angle_z = 0;
+	(*fdf)->view->move_x = 0;
+	(*fdf)->view->move_y = 0;
 }
 
 void	zoom(t_dot **dot, t_fdf **fdf)
