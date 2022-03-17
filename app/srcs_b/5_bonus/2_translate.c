@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   link_draws.c                                        :+:      :+:    :+:  */
+/*   2_translate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:54:57 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	translate(t_dot *dot, t_fdf *fdf)
 {
-	dot->Xi += fdf->view->move_x;
-	dot->Yi += fdf->view->move_y;
-	dot->Xf += fdf->view->move_x;
-	dot->Yf += fdf->view->move_y;
+	dot->xi += fdf->view->move_x;
+	dot->yi += fdf->view->move_y;
+	dot->xf += fdf->view->move_x;
+	dot->yf += fdf->view->move_y;
 }

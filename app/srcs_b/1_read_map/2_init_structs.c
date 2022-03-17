@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   2_init_structs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/03/11 13:07:58 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/17 16:56:16 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ void	init_img(t_fdf *fdf)
 	fdf->ptr_img = mlx_new_image(fdf->mlx_ptr, fdf->window_width,
 			fdf->window_height);
 	fdf->img->buffer = mlx_get_data_addr(fdf->ptr_img,
-			&fdf->img->pixel_bits, &fdf->img->line_bytes,
+			&fdf->img->pixel_bits, &fdf->img->size_line,
 			&fdf->img->endian);
 }
 
 static void	init_view(t_fdf **fdf)
 {
-(*fdf)->view->mouse_translate = 0;
-(*fdf)->view->mouse_rotate = 0;
 (*fdf)->view->angle_x = 0;
 (*fdf)->view->angle_y = 0;
 (*fdf)->view->angle_z = 0;
@@ -32,13 +30,11 @@ static void	init_view(t_fdf **fdf)
 (*fdf)->view->move_x = 20;
 (*fdf)->view->move_y = 20;
 (*fdf)->view->changing_color = 0;
-(*fdf)->view->isometric = 0;
-(*fdf)->view->color_matrix = NULL;
-(*fdf)->view->conic = 0;
-(*fdf)->view->free_rotation = 0;
+(*fdf)->view->isometric = 1;
 (*fdf)->view->color_matrix = NULL;
 (*fdf)->view->x_origin = 0;
 (*fdf)->view->y_origin = 0;
+(*fdf)->view->depth_scale = 1;
 }
 
 void	init_structs(t_fdf **fdf)

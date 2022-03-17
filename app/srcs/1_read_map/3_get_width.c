@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getting_width.c                                    :+:      :+:    :+:   */
+/*   3_get_width.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:44:24 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 18:44:35 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:53:16 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/fdf.h"
 
-/*--------------------------------------------------
-   "It counts how many numbers, at least, one
-   line of the map.fdf has."
----------------------------------------------------*/
+static char	*parse_spaces(char *line)
+{
+	int		i;
+	int		end_s;
+	char	*tmp;
+
+	i = ft_strlen(line);
+	end_s = 0;
+	while (line[i] == ' ' || line[i] == '\n')
+	{
+		if (line[i] == ' ')
+			end_s++;
+		i--;
+	}
+	if (end_s != 0)
+	{
+		tmp = ft_substr(line, 0, i - 1);
+		ft_free_ptr((void *) &line);
+	}
+	else
+		return (line);
+	return (tmp);
+}
 
 int	get_width(char *path)
 {
@@ -26,7 +45,7 @@ int	get_width(char *path)
 
 	width = 0;
 	fd = open(path, O_RDONLY);
-	line = get_next_line(fd);
+	line = parse_spaces(get_next_line(fd));
 	split = ft_split(line, ' ');
 	while (split[width])
 	{

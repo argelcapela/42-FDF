@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   align_center.c                                      :+:      :+:    :+:  */
+/*   5_align_center.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:53:30 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	align_center(t_dot *dot, t_fdf *fdf)
 			- ((fdf->view->scale * fdf->map_width) / 2);
 	y_center = (fdf->window_height / 2)
 		- ((fdf->view->scale * fdf->map_height) / 2);
-	dot->Xi += x_center;
-	dot->Xf += x_center;
-	dot->Yi += y_center;
-	dot->Yf += y_center;
+	dot->xi += x_center;
+	dot->xf += x_center;
+	dot->yi += y_center;
+	dot->yf += y_center;
 }

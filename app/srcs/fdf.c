@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/03/09 12:27:21 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/17 16:54:19 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ int	main(int argc, char *argv[])
 	fdf->mlx_ptr = mlx_init();
 	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->window_width,
 			fdf->window_height, "42-FDF By Argel Capela | 42 acapela-");
+	init_img(fdf);
 	render(&fdf);
-	mlx_key_hook(fdf->win_ptr, on_release_key, fdf);
+	mlx_hook(fdf->win_ptr, 2, 1L << 0, on_release_key, fdf);
 	mlx_hook(fdf->win_ptr, 17, 0, on_destroy, fdf);
-	mlx_expose_hook(fdf->win_ptr, rerender, fdf);
+	mlx_expose_hook(fdf->win_ptr, expose, fdf);
 	mlx_loop(fdf->mlx_ptr);
 	free_mlx(fdf);
 	free_fdf(fdf);

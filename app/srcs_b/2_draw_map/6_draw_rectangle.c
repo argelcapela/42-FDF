@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   link_draws.c                                        :+:      :+:    :+:  */
+/*   6_draw_rectangle.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:56:10 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/fdf.h"
+#include "../../headers/fdf_bonus.h"
 
-void	zoom(t_dot **dot, t_fdf **fdf)
+void	draw_rectangle(t_rectangle *rect, t_fdf *fdf)
 {
-	float	s;
+	int	x;
+	int	y;
 
-	s = (*fdf)->view->scale;
-	(*dot)->Xi *= s;
-	(*dot)->Yi *= s;
-	(*dot)->Xf *= s;
-	(*dot)->Yf *= s;
+	y = -1;
+	while (++y <= rect->height)
+	{
+		x = -1;
+		while (++x <= rect->width)
+		{
+			draw_pixel_in_image(&fdf, x, y,
+				rect->color);
+		}
+	}
 }

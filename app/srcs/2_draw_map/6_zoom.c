@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                            :+:      :+:    :+:  */
+/*   6_zoom.c	                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,23 +12,13 @@
 
 #include "../../headers/fdf.h"
 
-void	render(t_fdf **fdf)
+void	zoom(t_dot **dot, t_fdf **fdf)
 {
-	(*fdf)->ptr_img = mlx_new_image((*fdf)->mlx_ptr,
-			(*fdf)->window_width, (*fdf)->window_height);
-	(*fdf)->img->buffer = mlx_get_data_addr((*fdf)->ptr_img,
-			&(*fdf)->img->pixel_bits, &(*fdf)->img->line_bytes,
-			&(*fdf)->img->endian);
-	read_map(fdf);
-	draw_wireframe(fdf);
-	mlx_put_image_to_window((*fdf)->mlx_ptr, (*fdf)->win_ptr,
-	 	(*fdf)->ptr_img, 0, 0);
-}
+	float	s;
 
-int	rerender(t_fdf *fdf)
-{
-	mlx_destroy_image(fdf->mlx_ptr, fdf->ptr_img);
-	mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
-	render(&fdf);
-	return (0);
+	s = (*fdf)->view->scale;
+	(*dot)->xi *= s;
+	(*dot)->yi *= s;
+	(*dot)->xf *= s;
+	(*dot)->yf *= s;
 }

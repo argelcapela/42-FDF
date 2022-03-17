@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   on_destroy.c				                         :+:      :+:    :+:  */
+/*   isometric.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Created: 2022/03/17 16:55:56 by acapela-          #+#    #+#             */
+/*   Updated: 2022/03/17 16:56:00 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/fdf.h"
 
-int	on_destroy(t_fdf *fdf)
+void	isometric(float *x, float *y, float *z)
 {
-	mlx_loop_end(fdf->mlx_ptr);
-	return (0);
+	float	tmp_x;
+
+	tmp_x = *x;
+	*x = (tmp_x - *y) * cos(THIRTY_DEGREES);
+	*y = (tmp_x + *y) * sin(THIRTY_DEGREES) - *z;
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shoot_events_when_press_keys.c                     :+:      :+:    :+:  */
+/*   1_on_release_key.c				                     :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -20,7 +20,6 @@ static void	exit_program(int key, t_fdf **fdf)
 
 int	on_release_key(int key, t_fdf *fdf)
 {
-	ft_printf("%d\n", key);
 	exit_program(key, &fdf);
 	rerender(fdf);
 	return (0);

@@ -14,6 +14,9 @@
 
 void	isometric(float *x, float *y, float *z)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * sin(0.8) - *z;
+	float	tmp_x;
+
+	tmp_x = *x;
+	*x = (tmp_x - *y) * cos(THIRTY_DEGREES);
+	*y = (tmp_x + *y) * sin(THIRTY_DEGREES) - *z;
 }

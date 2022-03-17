@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                               :+:      :+:    :+:  */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:56:41 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 // 5. macros
 # include "macros.h"
 
-
 /*###################################################
 #													#
 #	 1_read_map                         			#
@@ -43,9 +42,11 @@
 
 void	read_map(t_fdf **fdf);
 
-void 	parse_map(int argc, char **argv);
+void	parse_map(int argc, char **argv);
 
-void    init_structs(t_fdf **fdf);
+void	init_structs(t_fdf **fdf);
+
+void	init_img(t_fdf *fdf);
 
 int		get_width(char *path);
 
@@ -63,21 +64,23 @@ int		**fill_matrix(int width, int height, t_fdf *fdf, int x);
 #													#
 ###################################################*/
 
-void 	decide_pixel_color(t_dot *dot, t_fdf *fdf);
+void	decide_pixel_color(t_dot *dot, t_fdf *fdf);
 
-void    draw_pixel_in_image(t_fdf **fdf, int x, int y, int color);
+void	draw_pixel_in_image(t_fdf **fdf, int x, int y, int color);
 
-void    draw_line(t_dot *dot, t_fdf *fdf);
+void	draw_line(t_dot *dot, t_fdf *fdf);
 
-void 	draw_wireframe(t_fdf **fdf);
+void	draw_wireframe(t_fdf **fdf);
 
-void 	fill_wireframe(t_fdf *fdf);
+void	fill_wireframe(t_fdf *fdf);
 
-void 	align_center(t_dot *dot, t_fdf *fdf);
+void	align_center(t_dot *dot, t_fdf *fdf);
 
-void 	render(t_fdf **fdf);
+void	render(t_fdf **fdf);
 
 int		rerender(t_fdf *fdf);
+
+int		expose(t_fdf *fdf);
 
 /*###################################################
 #													#
@@ -85,12 +88,7 @@ int		rerender(t_fdf *fdf);
 #													#
 ###################################################*/
 
-void    isometric(float *x, float *y, float *z);
-
-// (bonus)
-void    conic(float *x, float *y, float *z);
-
-void    none_projection(float *x, float *y, float *z);
+void	isometric(float *x, float *y, float *z);
 
 /*###################################################
 #													#
@@ -112,29 +110,23 @@ int		on_destroy(t_fdf *fdf);
 #													#
 ###################################################*/
 
-void    enable_tools(t_dot **dot, t_fdf **fdf);
+void	enable_tools(t_dot **dot, t_fdf **fdf);
 
-void    zoom(t_dot **dot, t_fdf **fdf);
+void	zoom(t_dot **dot, t_fdf **fdf);
 
-void    zoom_on_mouse_scroll (int key, t_fdf **fdf);
+void	translate(t_dot *dot, t_fdf *fdf);
 
-void    translate(t_dot *dot, t_fdf *fdf);
+void	rotate_x(t_dot *dot, t_fdf *fdf);
 
-void    translate_on_left_mouse_down_move (t_dot **dot, t_fdf **fdf);
+void	rotate_y(t_dot *dot, t_fdf *fdf);
 
-void    rotate_x(t_dot *dot, t_fdf *fdf);
+void	rotate_z(t_dot *dot, t_fdf *fdf);
 
-void    rotate_y(t_dot *dot, t_fdf *fdf);
+void	change_color(t_fdf *fdf);
 
-void    rotate_z(t_dot *dot, t_fdf *fdf);
+void	change_map(char **argv, t_fdf **fdf);
 
-void 	rotate_xyz_on_right_mouse_down_move (t_dot **dot, t_fdf **fdf);
-
-void    change_color(t_fdf *fdf);
-
-void    change_map(char **argv, t_fdf **fdf);
-
-void    hint_box( t_fdf **fdf);
+void	hint_box( t_fdf **fdf);
 
 /*###################################################
 #													#
@@ -142,7 +134,7 @@ void    hint_box( t_fdf **fdf);
 #													#
 ###################################################*/
 
-void 	free_mlx(t_fdf *fdf);
+void	free_mlx(t_fdf *fdf);
 
 void	free_fdf(t_fdf *fdf);
 

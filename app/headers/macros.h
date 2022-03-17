@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macro.h                                             :+:      :+:    :+:  */
+/*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:56:43 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@
 /* show/hide hint box */
 # define KEY_H                  104 
 
+/* depth */
+# define KEY_F                  102 
+# define KEY_G                  103 
+
+/* others  */
+# define KEY_R                  114
+# define KEY_N                  110
+
 /*###################################################
 #													#
 #	 2. colors                           			#
@@ -77,19 +85,5 @@
 
 # define ONE_DEGREE             0.01745329
 # define THIRTY_DEGREES         0.52359877
-# define FORTY_FIVE_DEGREES     0.01745329
-
-/*###################################################
-#													#
-#	 4. utils                              			#
-#													#
-###################################################*/
-
-// return the larger number between 2
-#define LARGER(a, b) (a > b ? a : b)
-
-// convert a negative number into positive
-#define POSITIVE(a) ((a < 0) ? -a : a)
-
 
 #endif

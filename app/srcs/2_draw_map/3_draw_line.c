@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.c                                         :+:      :+:    :+:  */
+/*   3_draw_line.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/02/23 19:01:07 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:53:27 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/fdf.h"
+
+static float	ft_larger(float a, float b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+static float	ft_positive(float a)
+{
+	if (a < 0)
+		return (-a);
+	else
+		return (a);
+}
 
 void	draw_line(t_dot *dot, t_fdf *fdf)
 {
@@ -18,22 +34,22 @@ void	draw_line(t_dot *dot, t_fdf *fdf)
 	float	y_step;
 	float	larger;
 
-	dot->Zi = (float)fdf->matrix[(int)dot->Xi][(int)dot->Yi];
-	dot->Zf = (float)fdf->matrix[(int)dot->Xf][(int)dot->Yf];
+	dot->zi = (float)fdf->matrix[(int)dot->xi][(int)dot->yi];
+	dot->zf = (float)fdf->matrix[(int)dot->xf][(int)dot->yf];
 	decide_pixel_color(dot, fdf);
+	isometric(&dot->xi, &dot->yi, &dot->zi);
+	isometric(&dot->xf, &dot->yf, &dot->zf);
 	zoom(&dot, &fdf);
-	isometric(&dot->Xi, &dot->Yi, &dot->Zi);
-	isometric(&dot->Xf, &dot->Yf, &dot->Zf);
 	align_center(dot, fdf);
-	x_step = dot->Xf - dot->Xi;
-	y_step = dot->Yf - dot->Yi;
-	larger = LARGER(POSITIVE(x_step), POSITIVE(y_step));
+	x_step = dot->xf - dot->xi;
+	y_step = dot->yf - dot->yi;
+	larger = ft_larger(ft_positive(x_step), ft_positive(y_step));
 	x_step /= larger;
 	y_step /= larger;
-	while ((int)(dot->Xi - dot->Xf) || (int)(dot->Yi - dot->Yf))
+	while ((int)(dot->xi - dot->xf) || (int)(dot->yi - dot->yf))
 	{
-		draw_pixel_in_image(&fdf, dot->Xi, dot->Yi, fdf->view->color);
-		dot->Xi += x_step;
-		dot->Yi += y_step;
+		draw_pixel_in_image(&fdf, dot->xi, dot->yi, fdf->view->color);
+		dot->xi += x_step;
+		dot->yi += y_step;
 	}
 }

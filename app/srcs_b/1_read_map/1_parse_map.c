@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 18:39:06 by acapela-          #+#    #+#             */
-/*   Updated: 2022/03/17 16:53:11 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:56:14 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	parse_map(int argc, char **argv)
 THE MODEL: ./fdf maps/map.fdf\n\033[0m\n\n", 1);
 		exit(0);
 	}
-	else if (read(fd, b, 0) < 0)
+	else if ((read(fd, b, 0) < 0))
 	{
 		ft_putstr_fd("\033[31;1m\n\nINVALID MAP PATH, \
 PLEASE TRY AGAIN!\n\033[0m\n\n", 1);
 		exit(0);
 	}
-	else if (read(fd, b, 2) == 0)
+	else if (read(fd, b, 1) == 0)
 	{
 		ft_putstr_fd("\033[31;1m\n\nEMPTY MAP OR \
 MAP DOESN'T HAVE AT LEAST 1 BREAK LINE,\nPLEASE,\
