@@ -51,7 +51,7 @@ SRCS_B =        srcs_b/1_read_map/0_read_map.c \
 				srcs_b/2_draw_map/4_draw_wireframe.c \
 				srcs_b/2_draw_map/5_render.c 	\
 				srcs_b/2_draw_map/6_draw_rectangle.c \
-				srcs/3_projection/isometric.c  \
+				srcs_b/3_projection/isometric.c  \
 				srcs_b/4_hook/1_on_release_key.c \
 				srcs_b/4_hook/2_on_mouse_down.c \
 				srcs_b/4_hook/3_on_destroy.c \
@@ -63,14 +63,14 @@ SRCS_B =        srcs_b/1_read_map/0_read_map.c \
 				srcs_b/5_bonus/5_change_map.c \
 				srcs_b/5_bonus/6_hint_box.c  \
 				srcs_b/5_bonus/7_align_center.c \
-				srcs/6_utils/free.c \
+				srcs_b/6_utils/free.c \
 				srcs_b/fdf.c
 
 OBJS =          $(SRCS:.c=.o)
 
 OBJS_B =		$(SRCS_B:.c=.o)
 
-CC =            gcc -ggdb3
+CC =            gcc
 
 CFLAGS =		-Wall -Wextra -Werror
 
