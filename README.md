@@ -71,10 +71,9 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
       </a>
     </td>
   </tr>
-<i>Obrigado Especial 🎁 a Bruno Mignon (bmugnol-) e Diogo Chaves (dchaves-), entre outros Cadetes super solícitos, que me incentivaram e me ajudaram a entender  os cálculos matemáticas entre outros conceitos durante o desenvolvimento. Vocês são feras! A cada projeto vejo como a comunidade da 42 é maravilhosa e cheia de pessoas muito especiais. 👽✌😁👍 </i>
 </table>
 <br>
-<i></i>
+<i>Obrigado Especial 🎁 a Bruno Mignon (bmugnol-) e Diogo Chaves (dchaves-), entre outros Cadetes super solícitos, que me incentivaram e me ajudaram a entender  os cálculos matemáticas entre outros conceitos durante o desenvolvimento. Vocês são feras! A cada projeto vejo como a comunidade da 42 é maravilhosa e cheia de pessoas muito especiais. 👽✌😁👍 </i>
 </div>
 	
 <div class="col-12">
