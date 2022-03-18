@@ -112,7 +112,9 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
 
 <a href="https://youtu.be/D9G1VOjN_84" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/D9G1VOjN_84/maxresdefault.jpg" width="100%"></a>
 <br><br>
+<!--
 <i>Fique a vontade para conferir o meu estudo sobre o 42-FDF, clicando no icone bonitinho abaixo.</i><br><br>
 <a href="https://docs.google.com/presentation/d/1vBZGy_BpAbtCjEQ_kUyGS8G7FuvHdNRIaWj5CuHESxQ/edit?usp=sharing" target="_BLANK"><img src="https://i.imgur.com/OhDvVP5.png" alt="conferir estudo"></a>
 <br>
+--->
 </div>   
