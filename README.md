@@ -71,6 +71,7 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
       </a>
     </td>
   </tr>
+<i>Obrigado Especial 🎁 a Bruno Mignon (bmugnol-) e Diogo Chaves (dchaves-), entre outros Cadetes super solícitos, que me incentivaram e me ajudaram a entender  os cálculos matemáticas entre outros conceitos durante o desenvolvimento. Vocês são feras! A cada projeto vejo como a comunidade da 42 é maravilhosa e cheia de pessoas muito especiais. 👽✌😁👍 </i>
 </table>
 <br>
 <i></i>
@@ -110,7 +111,7 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
 
 # 👑
 
-<a href="https://youtu.be/D9G1VOjN_84" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/D9G1VOjN_84/maxresdefault.jpg" width="100%"></a>
+<a href="https://youtu.be/WoeL3G3pUDs" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/WoeL3G3pUDs/maxresdefault.jpg" width="100%"></a>
 <br><br>
 <!--
 <i>Fique a vontade para conferir o meu estudo sobre o 42-FDF, clicando no icone bonitinho abaixo.</i><br><br>
