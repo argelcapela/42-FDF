@@ -1,5 +1,5 @@
 <!--<div id="portfolio-slideshow-items" class="hide-on-portfolio" visibility="0">
-    
+<div class="item"><video id="portfolio-video" data-yt2html5="https://youtu.be/WoeL3G3pUDs" controls></video></div>
 </div>
 -->
 
@@ -109,8 +109,10 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
 <div align="center" id="overview">
 
 # 👑
-
-<a href="https://youtu.be/WoeL3G3pUDs" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/WoeL3G3pUDs/maxresdefault.jpg" width="100%"></a>
+<br>
+<i>Por favor, clique na imagem a seguir para abrir um vídeo de demonstração do meu 42-FDF</i>
+<br><br>
+<a href="https://youtu.be/WoeL3G3pUDs" class="hide-on-portfolio" target="_BLANK"><img src="https://i.imgur.com/ehvexOI.png" width="100%"></a>
 
 <br><br>
 <!--
