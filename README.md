@@ -1,5 +1,5 @@
 <!--<div id="portfolio-slideshow-items" class="hide-on-portfolio" visibility="0">
-    
+<div class="item"><video id="portfolio-video" data-yt2html5="https://youtu.be/WoeL3G3pUDs" controls autoplay></video></div>
 </div>
 -->
 
@@ -73,7 +73,7 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
   </tr>
 </table>
 <br>
-<i></i>
+<i>Obrigado Especial 🎁 a Bruno Mignon (bmugnol-) e Diogo Chaves (dchaves-), entre outros Cadetes super solícitos, que me incentivaram e me ajudaram a entender  os cálculos matemáticas entre outros conceitos durante o desenvolvimento. Vocês são feras! A cada projeto vejo como a comunidade da 42 é maravilhosa e cheia de pessoas muito especiais. 👽✌😁👍 </i>
 </div>
 	
 <div class="col-12">
@@ -109,10 +109,15 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
 <div align="center" id="overview">
 
 # 👑
-
-<a href="https://youtu.be/D9G1VOjN_84" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/D9G1VOjN_84/maxresdefault.jpg" width="100%"></a>
+<br>
+<i>Por favor, clique na imagem a seguir para abrir um vídeo de demonstração do meu 42-FDF</i>
 <br><br>
+<a href="https://youtu.be/WoeL3G3pUDs" class="hide-on-portfolio" target="_BLANK"><img src="https://i.imgur.com/ehvexOI.png" width="100%"></a>
+
+<br><br>
+<!--
 <i>Fique a vontade para conferir o meu estudo sobre o 42-FDF, clicando no icone bonitinho abaixo.</i><br><br>
 <a href="https://docs.google.com/presentation/d/1vBZGy_BpAbtCjEQ_kUyGS8G7FuvHdNRIaWj5CuHESxQ/edit?usp=sharing" target="_BLANK"><img src="https://i.imgur.com/OhDvVP5.png" alt="conferir estudo"></a>
 <br>
+--->
 </div>   
