@@ -51,12 +51,14 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
 	
 </div>
 <br>
+<!--
 <div class="col-12">
     
 # 📌 O que eu aprendi e como foi desenvolvido esse projeto?<br>
 <a href="#overview">42-fdf-study-por</a>
 <br>
 <br>
+	-->
 <div class="col-12">
 	
 # 🤝 Colaboradores:<br>
