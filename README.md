@@ -1,5 +1,5 @@
 <!--<div id="portfolio-slideshow-items" class="hide-on-portfolio" visibility="0">
-<div class="item"><video id="portfolio-video" data-yt2html5="https://youtu.be/WoeL3G3pUDs" controls autoplay></video></div>
+<div class="item"><video id="portfolio-video" data-yt2html5="https://youtu.be/WoeL3G3pUDs" controls></video></div>
 </div>
 -->
 
