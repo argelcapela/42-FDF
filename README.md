@@ -47,7 +47,20 @@ Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura"
 <div class="col-12">
 
 # 🚀 Rodando o projeto:<br>
-<a href="https://projects.intra.42.fr/42cursus-fdf/acapela-">Página do 42-FDF na Intra da 42</a>
+
+```bash
+# 1) Clone o projeto
+git clone https://github.com/argelcapela/42-FDF.git 	
+
+# 2) Entre na pasta app
+cd app	
+	
+# 3) Executar o mandatório
+make run	
+	
+# 4) Executar o bônus
+make run_b	
+```
 	
 </div>
 <br>
