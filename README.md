@@ -12,30 +12,20 @@
 </div>
 <br><br>
 </div>
-<br><br>
-
-# 🏋️‍♀️ Pensamento Edificante:
-<div align="center">
-<br>
-<p>O que é a ideia do 'Plateau Potencial Latente' e como ela pode te ajudar a nunca desistir dos seus sonhos?<br> Assista o vídeo a seguir e descubra! </p>
-<br>
-<a href="https://youtu.be/y5Hn9OhCGJQ" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/y5Hn9OhCGJQ/maxresdefault.jpg" width="100%"></a>
-<br><br><br>
-<img src="https://i.imgur.com/ps6Ixkx.png" alt="plato do potencial latente" width="100%">
-<br><br>
-<p> 😎💪 Think it! E nunca desista, você ai mesmo, se tiver fé, terá um futuro maravilhoso, não é fácil, mas é possível!  📶👩‍🎓 </p>
-<br><br>	
-</div>
-<br>
-
 <div class="hide-on-portfolio">
 	
 # ✨ O que é o 42-FDF ?
 	
-Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura">mapa de altura</a> e fazemos sua renderização 3D</b>, usando uma biblioteca gráfica minimalista (42-minilibx), técnicas de renderização gráfica, trigonometria e muito mais.<br>
+Nesse projeto <b>lemos um <a href="https://pt.wikipedia.org/wiki/Mapa_de_altura">mapa de altura</a> e fazemos sua renderização 3D</b>, usando uma biblioteca gráfica minimalista (42-minilibx), técnicas de renderização gráfica, trigonometria e muito mais.
+	
+<div align="center">
+<h4>Por favor, clique na imagem a seguir para abrir um vídeo de Demonstração do 42-FDF: </h4>
+</div>
+<a href="https://youtu.be/WoeL3G3pUDs" class="hide-on-portfolio" target="_BLANK"><img src="https://i.imgur.com/ehvexOI.png" width="100%"></a>
+<br>
 </div>
 <br>
-
+<br>
 <div class="col-12">
 
 # 🔧 Tecnologias utilizadas:<br>
@@ -68,7 +58,8 @@ make run_b
 <div class="col-12">
     
 # 📌 O que eu aprendi e como foi desenvolvido esse projeto?<br>
-<a href="#overview">42-fdf-study-por</a>
+
+EM BREVE
 
 <br>
 <br>
@@ -119,22 +110,8 @@ make run_b
 <div class="col-12">
 <p>Não esqueça de dar um ⭐️ se você gostou, ou se esse repositório te ajudou de alguma maneira, isso irá me ajudar muito! Obrigado, você é top! 😁👍</p>
 </div>
-	
-
-<br><br>
-	
-<div align="center" id="overview">
-
-# 👑
-<br>
-<i>Por favor, clique na imagem a seguir para abrir um vídeo de demonstração do meu 42-FDF</i>
-<br><br>
-<a href="https://youtu.be/WoeL3G3pUDs" class="hide-on-portfolio" target="_BLANK"><img src="https://i.imgur.com/ehvexOI.png" width="100%"></a>
-
-<br><br>
 <!--
 <i>Fique a vontade para conferir o meu estudo sobre o 42-FDF, clicando no icone bonitinho abaixo.</i><br><br>
 <a href="https://docs.google.com/presentation/d/1vBZGy_BpAbtCjEQ_kUyGS8G7FuvHdNRIaWj5CuHESxQ/edit?usp=sharing" target="_BLANK"><img src="https://i.imgur.com/OhDvVP5.png" alt="conferir estudo"></a>
 <br>
 --->
-</div>   
